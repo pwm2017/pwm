@@ -3,7 +3,7 @@
 PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
 "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
 <hibernate-mapping package="it.unirc.pwm.eureca.mapping">
-	<class name="it.unirc.pwm.eureca.Evento.Model.Evento" table="EVENTO">
+	<class name="it.unirc.pwm.eureca.evento.model.Evento" table="EVENTO">
 		<id name="idEvento">
 		    <column name="idEvento" />
 			<generator class="assigned" />
