@@ -4,7 +4,7 @@ PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
 "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
 
 <hibernate-mapping package="it.unirc.pwm.eureca.mapping">
-	<class name="Attività" table="ATTIVITA">
+	<class name="it.unirc.pwm.eureca.Attività.Model.Attività" table="ATTIVITA">
 		<id name="idAttivita" type="int">
 			<column name="IDATTIVITA" />
 			<generator class="assigned" />

@@ -1,88 +1,69 @@
 package it.unirc.pwm.eureca.Attivit‡.DAO;
-// default package
-// Generated 13-apr-2015 18.28.21 by Hibernate Tools 4.0.0
 
+import it.unirc.pwm.eureca.Attivita.Model.Attivit‡;
 import it.unirc.pwm.eureca.hibernate.util.*;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 import org.hibernate.Session;
 import org.hibernate.Transaction;
 
-//import it.unirc.pjam.Esame.Model.Esame;
-//import it.unirc.pjam.Esame.Model.EsameId;
-//import it.unirc.pjam.Materia.Model.DAO.MateriaDAOImplement;
-//import it.unirc.pjam.hibernate.util.HibernateUtil;
-
-
-/**
- * Home object for domain model class Esame.
- * @see .Esame
- * @author Maurizio Rizzo
- */
 public class Attivit‡DAOImplement implements Attivit‡DAOInterface{
-	
+
 	private static Logger logger = LogManager.getLogger(Attivit‡DAOImplement.class); 
 	Session session = HibernateUtil.getSessionFactory().openSession();
 	Transaction transaction = null;
 
-	public Attivit‡DAOImplement() {
+	public Attivit‡DAOImplement()
+	{
 		super();
-	
 	}
-
-//	private static final Log log = LogFactory.getLog(EsameDAOImplement.class);
-//
-//	private final SessionFactory sessionFactory = getSessionFactory();
-
-	/**
-	 * Questo medoto funziona col dirty checking automatico grazie alla propriet√†
-	 * dentro il file cfg. Dato l'id preleva l'esame e, senza dirlo esplicitamente, 
-	 * si accorge della modifica, e la rende persistente
-	 * @see .Esame
-	 * @author Maurizio Rizzo
-	 */
 	@Override
-	public EsameId creaEsame(Esame e) {
+	public boolean creaAttivit‡(Attivit‡ a) 
+	{
 		session = HibernateUtil.getSessionFactory().openSession();
-		EsameId id = new EsameId();
+		boolean control=false;
 		try {
-			transaction= session.beginTransaction();
-			id =(EsameId) session.save(e);
+			transaction=session.beginTransaction();
+			session.save(a);
+			logger.info("Attivit‡ inserito");
+			control=true;
 			transaction.commit();
-		} catch (Exception ex) {
-			ex.printStackTrace();
-			transaction.rollback();
-		}finally{
-			session.close();
-		}
-		
-		return id;
-	}
-
-	
-	@Override
-	public int modificaVotoEsame(Esame e) {
-		session = HibernateUtil.getSessionFactory().openSession();
-		try {
-			transaction= session.beginTransaction();
-			Esame esameDaModificare = (Esame) session.get(e.getClass(), e.getId());
-			if(esameDaModificare==null){
-				session.save(e);
-				logger.info("E' stato inserito un nuovo esame");
-			}else{
-				esameDaModificare.setVoto(e.getVoto());
-				logger.info("L'esame √® stato modificato");
-			}
-			transaction.commit();
-		} catch (Exception e2) {
-			e2.printStackTrace();
+		} catch (Exception e) {
+			control=false;
+			e.printStackTrace();
+			System.out.println("errore dentro il creaAttivit‡");
 			transaction.rollback();
 		} finally{
 			session.close();
 		}
-		
-		return 0;
-	}
 
-	
+		return control;
+	}
+	//
+	//	
+	//	@Override
+	//	public int modificaVotoEsame(Esame e) {
+	//		session = HibernateUtil.getSessionFactory().openSession();
+	//		try {
+	//			transaction= session.beginTransaction();
+	//			Esame esameDaModificare = (Esame) session.get(e.getClass(), e.getId());
+	//			if(esameDaModificare==null){
+	//				session.save(e);
+	//				logger.info("E' stato inserito un nuovo esame");
+	//			}else{
+	//				esameDaModificare.setVoto(e.getVoto());
+	//				logger.info("L'esame √® stato modificato");
+	//			}
+	//			transaction.commit();
+	//		} catch (Exception e2) {
+	//			e2.printStackTrace();
+	//			transaction.rollback();
+	//		} finally{
+	//			session.close();
+	//		}
+	//		
+	//		return 0;
+	//	}
+
+
 }

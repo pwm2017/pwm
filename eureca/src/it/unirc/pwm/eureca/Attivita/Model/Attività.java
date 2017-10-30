@@ -20,5 +20,48 @@ public class Attività
 		super();
 		// TODO Auto-generated constructor stub
 	}
+	public int getIdAttivita() {
+		return idAttivita;
+	}
+	public void setIdAttivita(int idAttivita) {
+		this.idAttivita = idAttivita;
+	}
+	public String getNome() {
+		return nome;
+	}
+	public void setNome(String nome) {
+		this.nome = nome;
+	}
+	public String getTipologia() {
+		return tipologia;
+	}
+	public void setTipologia(String tipologia) {
+		this.tipologia = tipologia;
+	}
+	public String getDescrizione() {
+		return descrizione;
+	}
+	public void setDescrizione(String descrizione) {
+		this.descrizione = descrizione;
+	}
+	public Date getDataScadenza() {
+		return dataScadenza;
+	}
+	public void setDataScadenza(Date dataScadenza) {
+		this.dataScadenza = dataScadenza;
+	}
+	public Set<Socio> getSoci() {
+		return soci;
+	}
+	public void setSoci(Set<Socio> soci) {
+		this.soci = soci;
+	}
+	public Evento getEvento() {
+		return evento;
+	}
+	public void setEvento(Evento evento) {
+		this.evento = evento;
+	}
+	
 	
 }

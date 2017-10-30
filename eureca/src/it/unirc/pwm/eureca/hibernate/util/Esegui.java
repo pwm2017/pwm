@@ -2,12 +2,34 @@ package it.unirc.pwm.eureca.hibernate.util;
 
 import java.util.ArrayList;
 import java.util.Date;
+import it.unirc.pwm.eureca.Attivita.Model.Attivit‡;
+import it.unirc.pwm.eureca.Attivit‡.DAO.Attivit‡DAOFactory;
+import it.unirc.pwm.eureca.Attivit‡.DAO.Attivit‡DAOInterface;
+import it.unirc.pwm.eureca.PersonaFisica.DAO.Attivit‡DAOImplement;
 
 
 public class Esegui {
 
 	public static void main(String[] args)
 	{
+		
+		Attivit‡ a=new Attivit‡();
+		a.setNome("ciao");
+		
+        Attivit‡DAOInterface dao= Attivit‡DAOFactory.getDAO();
+		
+        try 
+		{
+			System.out.println("l'esame inserito ha codice "+dao.creaAttivit‡(a));
+		} catch (Exception e2) 
+		{
+			e2.printStackTrace();
+			System.out.println("errore dentro il main");
+		
+		
+		}
+		HibernateUtil.close();
+	    
 		
 //		
 //		Studente studente1= new Studente(1111,"paolo","m");	

@@ -1,12 +1,10 @@
 package it.unirc.pwm.eureca.Attivit‡.DAO;
 
-import it.unirc.pjam.Esame.Model.Esame;
-import it.unirc.pjam.Esame.Model.EsameId;
+import it.unirc.pwm.eureca.Attivita.Model.Attivit‡;
 
 
 public interface Attivit‡DAOInterface {
 	
-	public EsameId creaEsame(Esame e);
-	public int modificaVotoEsame(Esame e);
-
+	public boolean creaAttivit‡(Attivit‡ a) ;
+	
 }
