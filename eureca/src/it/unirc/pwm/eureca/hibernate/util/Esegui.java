@@ -2,10 +2,11 @@ package it.unirc.pwm.eureca.hibernate.util;
 
 import java.util.ArrayList;
 import java.util.Date;
-import it.unirc.pwm.eureca.Attivita.Model.Attivit‡;
-import it.unirc.pwm.eureca.Attivit‡.DAO.Attivit‡DAOFactory;
-import it.unirc.pwm.eureca.Attivit‡.DAO.Attivit‡DAOInterface;
+
 import it.unirc.pwm.eureca.PersonaFisica.DAO.Attivit‡DAOImplement;
+import it.unirc.pwm.eureca.attivita.dao.Attivit‡DAOFactory;
+import it.unirc.pwm.eureca.attivita.dao.Attivit‡DAOInterface;
+import it.unirc.pwm.eureca.attivita.model.Attivita;
 
 
 public class Esegui {
@@ -13,7 +14,7 @@ public class Esegui {
 	public static void main(String[] args)
 	{
 		
-		Attivit‡ a=new Attivit‡();
+		Attivita a=new Attivita();
 		a.setNome("ciao");
 		
         Attivit‡DAOInterface dao= Attivit‡DAOFactory.getDAO();

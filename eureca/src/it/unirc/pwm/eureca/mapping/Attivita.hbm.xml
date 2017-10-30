@@ -4,14 +4,13 @@ PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
 "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
 
 <hibernate-mapping package="it.unirc.pwm.eureca.mapping">
-	<class name="it.unirc.pwm.eureca.Attività.Model.Attività" table="ATTIVITA">
+	<class name="it.unirc.pwm.eureca.attivita.model.Attivita">
 		<id name="idAttivita" type="int">
-			<column name="IDATTIVITA" />
+			<column name="idAttivita" />
 			<generator class="assigned" />
 		</id>
-		<many-to-one class="Evento" name="evento"
-			not-null="true" cascade="save-update">
-			<column name="EVENTO" precision="10" scale="0" />
+		<many-to-one class="it.unirc.pwm.eureca.Evento.Model.Evento" name="evento" not-null="true" cascade="save-update">
+			<column name="evento" precision="10" scale="0" />
 		</many-to-one>
 		<property name="nome" />
 		<property name="tipologia" />

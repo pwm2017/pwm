@@ -1,4 +1,4 @@
-package it.unirc.pwm.eureca.Evento.DAO;
+package it.unirc.pwm.eureca.evento.dao;
 // default package
 // Generated 13-apr-2015 18.28.21 by Hibernate Tools 4.0.0
 

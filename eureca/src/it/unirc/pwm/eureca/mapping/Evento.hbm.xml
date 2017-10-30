@@ -3,8 +3,9 @@
 PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
 "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
 <hibernate-mapping package="it.unirc.pwm.eureca.mapping">
-	<class name="Evento" table="EVENTO">
+	<class name="it.unirc.pwm.eureca.Evento.Model.Evento" table="EVENTO">
 		<id name="idEvento">
+		    <column name="idEvento" />
 			<generator class="assigned" />
 		</id>
 		<property name="nome" />
@@ -12,12 +13,13 @@ PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
 		<property name="descrizione" />
 		<property name="luogo" />
 		<property name="dataEvento" />
-		<set name="attività" lazy="true" cascade="save-update">
+		<set name="attivita" lazy="true" cascade="save-update" sort="unsorted"
+			table="attivita">
 			<key>
-				<column name="EVENTO" /><!-- Devo indicare l'attributo di join - 
+				<column name="evento" /><!-- Devo indicare l'attributo di join - 
 					nell'oggetto manca -->
 			</key>
-			<one-to-many class="Attività" />
+			<one-to-many class="it.unirc.pwm.eureca.attivita.model.Attivita" />
 		</set>
 	</class>
 </hibernate-mapping>

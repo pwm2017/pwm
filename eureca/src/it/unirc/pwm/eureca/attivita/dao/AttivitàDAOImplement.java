@@ -1,6 +1,6 @@
-package it.unirc.pwm.eureca.Attivit‡.DAO;
+package it.unirc.pwm.eureca.attivita.dao;
 
-import it.unirc.pwm.eureca.Attivita.Model.Attivit‡;
+import it.unirc.pwm.eureca.attivita.model.Attivita;
 import it.unirc.pwm.eureca.hibernate.util.*;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
@@ -18,7 +18,7 @@ public class Attivit‡DAOImplement implements Attivit‡DAOInterface{
 		super();
 	}
 	@Override
-	public boolean creaAttivit‡(Attivit‡ a) 
+	public boolean creaAttivit‡(Attivita a) 
 	{
 		session = HibernateUtil.getSessionFactory().openSession();
 		boolean control=false;

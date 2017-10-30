@@ -1,4 +1,4 @@
-package it.unirc.pwm.eureca.Attivita.Model;
+package it.unirc.pwm.eureca.attivita.model;
 
 import java.util.Date;
 import java.util.HashSet;
@@ -6,17 +6,16 @@ import java.util.Set;
 import it.unirc.pwm.eureca.Evento.Model.*;
 import it.unirc.pwm.eureca.Socio.Model.*;
 
-public class Attività 
+public class Attivita 
 {
 	private int idAttivita;
 	private String nome;
 	private String tipologia;
 	private String descrizione;
 	private Date dataScadenza;
-	private Set<Socio> soci = new HashSet<Socio>(0);
 	private Evento evento;
 	 //importante
-	public Attività() {
+	public Attivita() {
 		super();
 		// TODO Auto-generated constructor stub
 	}
@@ -49,12 +48,6 @@ public class Attività
 	}
 	public void setDataScadenza(Date dataScadenza) {
 		this.dataScadenza = dataScadenza;
-	}
-	public Set<Socio> getSoci() {
-		return soci;
-	}
-	public void setSoci(Set<Socio> soci) {
-		this.soci = soci;
 	}
 	public Evento getEvento() {
 		return evento;

@@ -1,4 +1,4 @@
-package it.unirc.pwm.eureca.Attivit‡.DAO;
+package it.unirc.pwm.eureca.attivita.dao;
 
 
 public class Attivit‡DAOFactory {
