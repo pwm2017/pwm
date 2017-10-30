@@ -1,4 +1,4 @@
-package it.unirc.pwm.eureca.Evento.DAO;
+package it.unirc.pwm.eureca.evento.dao;
 
 
 public class EventoDAOFactory {

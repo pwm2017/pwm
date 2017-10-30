@@ -3,7 +3,8 @@ package it.unirc.pwm.eureca.attivita.model;
 import java.util.Date;
 import java.util.HashSet;
 import java.util.Set;
-import it.unirc.pwm.eureca.Evento.Model.*;
+
+import it.unirc.pwm.eureca.evento.model.Evento;
 import it.unirc.pwm.eureca.Socio.Model.*;
 
 public class Attivita 
