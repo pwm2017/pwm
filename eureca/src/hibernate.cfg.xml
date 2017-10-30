@@ -5,15 +5,14 @@
 <hibernate-configuration>
     <session-factory>
         <property name="hibernate.connection.driver_class">com.mysql.jdbc.Driver</property>
-        <property name="hibernate.connection.url">jdbc:mysql:///esercitazione</property>
+        <property name="hibernate.connection.url">jdbc:mysql://eureca</property>
         <property name="hibernate.connection.username">root</property>
         <property name="hibernate.dialect">org.hibernate.dialect.MySQLDialect</property>
         <property name="show_sql">true</property>
        <property name="hibernate.hbm2ddl.auto">update</property> <!-- se nn ce una tabella nel db creala se no nn toccarla-->
         <!-- Mapping -->
         
-        <mapping resource="it/unirc/pjam/Esame/Model/Esame.hbm.xml"/>
-        <mapping resource="it/unirc/pjam/Materia/Model/Materia.hbm.xml"/>
-        <mapping resource="it/unirc/pjam/Studente/Model/Studente.hbm.xml"/>
+        <mapping resource="it/unirc/pwm/eureca/mapping/Attività.hbm.xml"/>
+        
     </session-factory>
 </hibernate-configuration>

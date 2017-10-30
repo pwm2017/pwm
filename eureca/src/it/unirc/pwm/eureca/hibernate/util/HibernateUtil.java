@@ -15,19 +15,9 @@ public class HibernateUtil {
 	private static SessionFactory buildSessionFactory() {
 		
 		try {
-			//Scegliere in base all'esercitazione da svolgere
 			
-//			SessionFactory sessionFactory = new Configuration().configure("it/unirc/pjam/hibernate/many_to_one/hibernate_many_to_one.cfg.xml").buildSessionFactory();
-//			SessionFactory sessionFactory = new Configuration().configure("it/unirc/pjam/hibernate/one_to_many/hibernate_one_to_many.cfg.xml").buildSessionFactory();
 			SessionFactory sessionFactory = new Configuration().configure("hibernate.cfg.xml").buildSessionFactory();
-//			SessionFactory sessionFactory = new Configuration().configure("it/unirc/pjam/hibernate/one_to_one/hibernate_one_to_one.cfg.xml").buildSessionFactory();
-//			SessionFactory sessionFactory = new Configuration().configure("it/unirc/pjam/hibernate/one_to_one_bidir/hibernate_one_to_one_bidir.cfg.xml").buildSessionFactory();
-//			SessionFactory sessionFactory = new Configuration().configure("it/unirc/pjam/hibernate/one_to_one_composed/hibernate_one_to_one_composed.cfg.xml").buildSessionFactory();
-//			SessionFactory sessionFactory = new Configuration().configure("it/unirc/pjam/hibernate/many_to_many/hibernate_many_to_many.cfg.xml").buildSessionFactory();
-//			SessionFactory sessionFactory = new Configuration().configure("it/unirc/pjam/hibernate/chiave_composta/hibernate_chiave_composta.cfg.xml").buildSessionFactory();
-//			SessionFactory sessionFactory = new Configuration().configure("it/unirc/pjam/hibernate/ereditarieta/single/hibernate_ereditarieta_single.cfg.xml").buildSessionFactory();
-//			SessionFactory sessionFactory = new Configuration().configure("it/unirc/pjam/hibernate/ereditarieta/joined/hibernate_ereditarieta_joined.cfg.xml").buildSessionFactory();
-	
+
 			
 			return sessionFactory;
 
