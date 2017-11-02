@@ -1,7 +1,10 @@
 package it.unirc.pwm.eureca.evento.dao;
 
-public interface EventoDAOInterface {
-	
-	
+import it.unirc.pwm.eureca.evento.model.Evento;
 
+public interface EventoDAOInterface
+{
+	
+	public boolean creaEvento(Evento eve) ;
+	public boolean modificaEvento(Evento eve) ;
 }

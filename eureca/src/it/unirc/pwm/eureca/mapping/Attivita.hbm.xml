@@ -7,10 +7,10 @@ PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
 	<class name="it.unirc.pwm.eureca.attivita.model.Attivita">
 		<id name="idAttivita" type="int">
 			<column name="idAttivita" />
-			<generator class="assigned" />
+			<generator class="increment" />
 		</id>
 		<many-to-one class="it.unirc.pwm.eureca.evento.model.Evento" name="evento" not-null="true" cascade="save-update">
-			<column name="evento" precision="10" scale="0" />
+			<column name="EVENTO" precision="10" scale="0" not-null="true"/>
 		</many-to-one>
 		<property name="nome" />
 		<property name="tipologia" />

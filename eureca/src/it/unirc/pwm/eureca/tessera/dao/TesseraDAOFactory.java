@@ -1,4 +1,4 @@
-package it.unirc.pwm.eureca.Tessera.DAO;
+package it.unirc.pwm.eureca.tessera.dao;
 
 
 public class TesseraDAOFactory {

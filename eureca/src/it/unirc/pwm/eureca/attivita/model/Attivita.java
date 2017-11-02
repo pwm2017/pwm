@@ -5,7 +5,7 @@ import java.util.HashSet;
 import java.util.Set;
 
 import it.unirc.pwm.eureca.evento.model.Evento;
-import it.unirc.pwm.eureca.Socio.Model.*;
+import it.unirc.pwm.eureca.socio.model.*;
 
 public class Attivita 
 {

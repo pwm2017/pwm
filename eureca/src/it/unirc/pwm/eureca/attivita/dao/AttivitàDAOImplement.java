@@ -10,7 +10,8 @@ import org.hibernate.Transaction;
 public class Attivit‡DAOImplement implements Attivit‡DAOInterface{
 
 	private static Logger logger = LogManager.getLogger(Attivit‡DAOImplement.class); 
-	Session session = HibernateUtil.getSessionFactory().openSession();
+	
+	Session session = null;
 	Transaction transaction = null;
 
 	public Attivit‡DAOImplement()
@@ -25,7 +26,7 @@ public class Attivit‡DAOImplement implements Attivit‡DAOInterface{
 		try {
 			transaction=session.beginTransaction();
 			session.save(a);
-			logger.info("Attivit‡ inserito");
+			logger.info("Attivit‡ inserita");
 			control=true;
 			transaction.commit();
 		} catch (Exception e) {
@@ -39,31 +40,25 @@ public class Attivit‡DAOImplement implements Attivit‡DAOInterface{
 
 		return control;
 	}
-	//
-	//	
-	//	@Override
-	//	public int modificaVotoEsame(Esame e) {
-	//		session = HibernateUtil.getSessionFactory().openSession();
-	//		try {
-	//			transaction= session.beginTransaction();
-	//			Esame esameDaModificare = (Esame) session.get(e.getClass(), e.getId());
-	//			if(esameDaModificare==null){
-	//				session.save(e);
-	//				logger.info("E' stato inserito un nuovo esame");
-	//			}else{
-	//				esameDaModificare.setVoto(e.getVoto());
-	//				logger.info("L'esame √® stato modificato");
-	//			}
-	//			transaction.commit();
-	//		} catch (Exception e2) {
-	//			e2.printStackTrace();
-	//			transaction.rollback();
-	//		} finally{
-	//			session.close();
-	//		}
-	//		
-	//		return 0;
-	//	}
-
-
+	
+	
+	public boolean modificaAttivit‡(Attivita a) 
+	{
+		boolean result=false;
+		try {
+			session = HibernateUtil.getSessionFactory().openSession();
+			transaction = session.beginTransaction();
+			session.update(a);
+			result=true;
+			logger.info("Attivit‡ modificata");
+			transaction.commit();
+		} catch (Exception e) {
+			e.printStackTrace();
+			logger.info("errore dentro il modificata attivit‡");
+			transaction.rollback();
+		}finally{
+			session.close();
+		}
+		return result;
+	}
 }

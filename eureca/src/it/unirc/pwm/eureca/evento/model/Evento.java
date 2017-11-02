@@ -1,11 +1,10 @@
-package it.unirc.pwm.eureca.Evento.Model;
+package it.unirc.pwm.eureca.evento.model;
 
-import java.sql.Timestamp;
 import java.util.Date;
 import java.util.HashSet;
 import java.util.Set;
 
-import it.unirc.pwm.eureca.Utente.Model.*;
+import it.unirc.pwm.eureca.utente.model.*;
 import it.unirc.pwm.eureca.attivita.model.*;
 
 public class Evento {
@@ -16,6 +15,7 @@ public class Evento {
 	private String luogo;
 	private Date dataEvento;
 	private Set<Attivita> attivita = new HashSet<Attivita>(0);
+	private Set<Utente> utenti = new HashSet<Utente>(0);
 	public Evento() {
 		super();
 		// TODO Auto-generated constructor stub
@@ -62,4 +62,12 @@ public class Evento {
 	public void setAttivita(Set<Attivita> attivita) {
 		this.attivita = attivita;
 	}
+	public Set<Utente> getUtenti() {
+		return utenti;
+	}
+	public void setUtenti(Set<Utente> utenti) {
+		this.utenti = utenti;
+	}
+	
+	
 }

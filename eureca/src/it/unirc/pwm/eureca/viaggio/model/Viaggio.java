@@ -1,10 +1,10 @@
-package it.unirc.pwm.eureca.Viaggio.Model;
+package it.unirc.pwm.eureca.viaggio.model;
 
 import java.sql.Timestamp;
 import java.util.HashSet;
 import java.util.Set;
 
-import it.unirc.pwm.eureca.Utente.Model.Utente;
+import it.unirc.pwm.eureca.utente.model.Utente;
 
 public class Viaggio {
 	private int idViaggio;

@@ -1,7 +1,7 @@
-package it.unirc.pwm.eureca.Tessera.Model;
+package it.unirc.pwm.eureca.tessera.model;
 
 import java.sql.Timestamp;
-import it.unirc.pwm.eureca.Socio.Model.Socio;
+import it.unirc.pwm.eureca.socio.model.Socio;
 
 public class Tessera {
 	private int idTessera;

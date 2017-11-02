@@ -1,0 +1,23 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping
+PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<hibernate-mapping package="it.unirc.pwm.eureca.mapping">
+	<joined-subclass name="it.unirc.pwm.eureca.socio.model.Socio" 
+	extends="it.unirc.pwm.eureca.personaFisica.model.PersonaFisica">
+		<key>
+			<column name="idPersonaFisica" />
+		</key>
+		<property name="password" />
+		<property name="username" />
+		<property name="codiceFiscale" />
+		<property name="biografia" />
+		<component name="indirizzo" class="it.unirc.pwm.eureca.socio.model.Indirizzo">
+			<property name="cap" column="indirizzo_cap" type="int" />
+			<property name="civico" column="indirizzo_civico" type="string" />
+			<property name="citta" column="indirizzo_citta" type="string" />
+			<property name="via" column="indirizzo_via" type="string" />
+		</component>
+		<property name="foto" />
+	</joined-subclass>
+</hibernate-mapping>

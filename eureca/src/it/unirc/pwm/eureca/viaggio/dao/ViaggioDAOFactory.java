@@ -1,4 +1,4 @@
-package it.unirc.pwm.eureca.Viaggio.DAO;
+package it.unirc.pwm.eureca.viaggio.dao;
 
 
 public class ViaggioDAOFactory {
