@@ -12,7 +12,7 @@ PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
 		</key>
 		<property name="ente" type="string" length="200" column="ente"  />
 		
-		<set name="eventi" table="UTENTE_EVENTO" cascade="save-update" inverse="true">  <!-- inverse="true" avvertire hibernate che dall'altra parte della relazine sta facendo i salvataggio --> 
+		<set name="eventi" table="UTENTE_EVENTO" cascade="save-update" inverse="true"> 
             <key column="IDUTENTE" />
             <many-to-many column="IDEVENTO"   class="it.unirc.pwm.eureca.evento.model.Evento" />
         </set>

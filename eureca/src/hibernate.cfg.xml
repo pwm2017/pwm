@@ -19,5 +19,6 @@
         <mapping resource="it/unirc/pwm/eureca/mapping/PersonaFisica.hbm.xml"/>
         <mapping resource="it/unirc/pwm/eureca/mapping/Socio.hbm.xml"/>
         <mapping resource="it/unirc/pwm/eureca/mapping/Utente.hbm.xml"/>
+        <mapping resource="it/unirc/pwm/eureca/mapping/Tessera.hbm.xml"/>
     </session-factory>
 </hibernate-configuration>

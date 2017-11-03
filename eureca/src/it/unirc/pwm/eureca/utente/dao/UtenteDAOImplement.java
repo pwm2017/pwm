@@ -1,41 +1,40 @@
-package it.unirc.pwm.eureca.tessera.dao;
+package it.unirc.pwm.eureca.utente.dao;
 
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 import org.hibernate.Session;
 import org.hibernate.Transaction;
-
 import it.unirc.pwm.eureca.hibernate.util.HibernateUtil;
-import it.unirc.pwm.eureca.tessera.model.Tessera;
-
-
-public class TesseraDAOImplement implements TesseraDAOInterface
-{
+import it.unirc.pwm.eureca.utente.model.Utente;
+ 
+public class UtenteDAOImplement implements UtenteDAOInterface{
 	
-	private static Logger logger = LogManager.getLogger(TesseraDAOImplement.class); 
+	private static Logger logger = LogManager.getLogger(UtenteDAOImplement.class); 
 	
 	Session session = HibernateUtil.getSessionFactory().openSession();
 	Transaction transaction = null;
 
-	public TesseraDAOImplement() {
+	public UtenteDAOImplement() 
+	{
 		super();
 	
 	}
 	
-	public boolean creaTessera(Tessera t) 
+	@Override
+	public boolean creaUtente(Utente u) 
 	{
 		session = HibernateUtil.getSessionFactory().openSession();
 		boolean control=false;
 		try {
 			transaction=session.beginTransaction();
-			session.save(t);
-			logger.info("Tessera inserito");
+			session.save(u);
+			logger.info("Utente inserito");
 			control=true;
 			transaction.commit();
 		} catch (Exception e) {
 			control=false;
 			e.printStackTrace();
-			System.out.println("errore dentro il creaTessera");
+			System.out.println("errore dentro il creaUtente");
 			transaction.rollback();
 		} finally{
 			session.close();
@@ -44,13 +43,14 @@ public class TesseraDAOImplement implements TesseraDAOInterface
 		return control;
 	}
 	
-	public boolean modificaTessera(Tessera t) 
+	
+	public boolean modificaUtente(Utente u) 
 	{
 		boolean result=false;
 		try {
 			session = HibernateUtil.getSessionFactory().openSession();
 			transaction = session.beginTransaction();
-			session.update(t);
+			session.update(u);
 			result=true;
 			logger.info("Utente modificato");
 			transaction.commit();

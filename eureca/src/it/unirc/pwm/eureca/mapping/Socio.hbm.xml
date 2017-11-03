@@ -19,5 +19,8 @@ PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
 			<property name="via" column="indirizzo_via" type="string" />
 		</component>
 		<property name="foto" />
+		
+		<one-to-one name="tessera" cascade="all"/> 
+		
 	</joined-subclass>
 </hibernate-mapping>

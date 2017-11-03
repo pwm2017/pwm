@@ -1,40 +1,49 @@
 package it.unirc.pwm.eureca.tessera.model;
 
-import java.sql.Timestamp;
+import java.util.Date;
 import it.unirc.pwm.eureca.socio.model.Socio;
 
 public class Tessera {
-	private int idTessera;
+	private int idSocio;
 	private int punti;
-	private Timestamp dataRilascio;
-	private Timestamp dataScadenza;
+	private Date dataRilascio;
+	private Date dataScadenza;
 	private Socio socio;
 	public Tessera() {
 		super();
 		// TODO Auto-generated constructor stub
 	}
-	public int getIdTessera() {
-		return idTessera;
+	
+	
+	
+	public int getIdSocio() {
+		return idSocio;
 	}
-	public void setIdTessera(int idTessera) {
-		this.idTessera = idTessera;
+
+
+
+	public void setIdSocio(int idSocio) {
+		this.idSocio = idSocio;
 	}
+
+
+
 	public int getPunti() {
 		return punti;
 	}
 	public void setPunti(int punti) {
 		this.punti = punti;
 	}
-	public Timestamp getDataRilascio() {
+	public Date getDataRilascio() {
 		return dataRilascio;
 	}
-	public void setDataRilascio(Timestamp dataRilascio) {
+	public void setDataRilascio(Date dataRilascio) {
 		this.dataRilascio = dataRilascio;
 	}
-	public Timestamp getDataScadenza() {
+	public Date getDataScadenza() {
 		return dataScadenza;
 	}
-	public void setDataScadenza(Timestamp dataScadenza) {
+	public void setDataScadenza(Date dataScadenza) {
 		this.dataScadenza = dataScadenza;
 	}
 	public Socio getSocio() {
@@ -44,5 +53,5 @@ public class Tessera {
 		this.socio = socio;
 	}
 	
-
+	
 }
