@@ -22,5 +22,19 @@ PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
 		
 		<one-to-one name="tessera" cascade="all"/> 
 		
+		<set name="viaggi" table="SOCIO_VIAGGIO" cascade="save-update" inverse="true"> 
+            <key column="IDSOCIO" />
+            <many-to-many column="IDVIAGGIO"  class="it.unirc.pwm.eureca.viaggio.model.Viaggio" />
+        </set>
+        
+        
+        <set name="attivitas" table="attivita" inverse="true" lazy="false" fetch="select">
+            <key>
+                <column name="idAttivita" not-null="true" />
+            </key>
+            <one-to-many class="it.unirc.pwm.eureca.attivita.model.Attivita" />
+        </set>
+        
+		
 	</joined-subclass>
 </hibernate-mapping>

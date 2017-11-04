@@ -1,0 +1,23 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping
+PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<hibernate-mapping package="it.unirc.pwm.eureca.mapping">
+	<class name="it.unirc.pwm.eureca.viaggio.model.Viaggio" table="VIAGGIO">
+		<id name="idViaggio">
+		    <column name="idViaggio" />
+			<generator class="increment" />
+		</id>
+		<property name="nome" />
+		<property name="locandina" />
+		<property name="descrizione" />
+		<property name="numPartecipanti" />
+		<property name="dataInizio" />
+		<property name="dataFine" />
+		
+		<set name="soci" table="SOCIO_VIAGGIO" cascade="save-update" >
+            <key column="IDVIAGGIO"/>
+            <many-to-many column="IDSOCIO"  class="it.unirc.pwm.eureca.socio.model.Socio" />  
+        </set>
+	</class>
+</hibernate-mapping>

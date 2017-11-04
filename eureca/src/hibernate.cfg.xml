@@ -10,8 +10,7 @@
         <property name="connection.password">SIlavora1!ok</property>
         <property name="hibernate.dialect">org.hibernate.dialect.MySQL5InnoDBDialect</property>
         <property name="show_sql">true</property>
-       <property name="hibernate.hbm2ddl.auto">create</property> <!-- se nn ce una tabella nel db creala se no nn toccarla-->
-        <!-- Mapping -->
+       <property name="hibernate.hbm2ddl.auto">create</property> 
         
         <mapping resource="it/unirc/pwm/eureca/mapping/Attivita.hbm.xml"/>
         <mapping resource="it/unirc/pwm/eureca/mapping/Evento.hbm.xml"/>
@@ -20,5 +19,6 @@
         <mapping resource="it/unirc/pwm/eureca/mapping/Socio.hbm.xml"/>
         <mapping resource="it/unirc/pwm/eureca/mapping/Utente.hbm.xml"/>
         <mapping resource="it/unirc/pwm/eureca/mapping/Tessera.hbm.xml"/>
+        <mapping resource="it/unirc/pwm/eureca/mapping/Viaggio.hbm.xml"/>
     </session-factory>
 </hibernate-configuration>

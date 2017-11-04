@@ -1,10 +1,10 @@
 package it.unirc.pwm.eureca.viaggio.model;
-
-import java.sql.Timestamp;
+import java.util.Date;
 import java.util.HashSet;
 import java.util.Set;
 
-import it.unirc.pwm.eureca.utente.model.Utente;
+import it.unirc.pwm.eureca.socio.model.Socio;
+
 
 public class Viaggio {
 	private int idViaggio;
@@ -12,9 +12,9 @@ public class Viaggio {
 	private String locandina;
 	private String descrizione;
 	private int numPartecipanti;
-	private Timestamp dataInizio;
-	private Timestamp dataFine;
-	private Set<Utente> utente = new HashSet<Utente>(0);
+	private Date dataInizio;
+	private Date dataFine;
+	private Set<Socio> soci = new HashSet<Socio>(0);
 	public Viaggio() {
 		super();
 		// TODO Auto-generated constructor stub
@@ -49,26 +49,22 @@ public class Viaggio {
 	public void setNumPartecipanti(int numPartecipanti) {
 		this.numPartecipanti = numPartecipanti;
 	}
-	public Timestamp getDataInizio() {
+	public Date getDataInizio() {
 		return dataInizio;
 	}
-	public void setDataInizio(Timestamp dataInizio) {
+	public void setDataInizio(Date dataInizio) {
 		this.dataInizio = dataInizio;
 	}
-	public Timestamp getDataFine() {
+	public Date getDataFine() {
 		return dataFine;
 	}
-	public void setDataFine(Timestamp dataFine) {
+	public void setDataFine(Date dataFine) {
 		this.dataFine = dataFine;
 	}
-	public Set<Utente> getUtente() {
-		return utente;
+	public Set<Socio> getSoci() {
+		return soci;
 	}
-	public void setUtente(Set<Utente> utente) {
-		this.utente = utente;
+	public void setSoci(Set<Socio> soci) {
+		this.soci = soci;
 	}
-	
-	
-	
-
 }

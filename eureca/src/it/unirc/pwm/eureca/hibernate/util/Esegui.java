@@ -21,6 +21,9 @@ import it.unirc.pwm.eureca.tessera.model.Tessera;
 import it.unirc.pwm.eureca.utente.dao.UtenteDAOFactory;
 import it.unirc.pwm.eureca.utente.dao.UtenteDAOInterface;
 import it.unirc.pwm.eureca.utente.model.Utente;
+import it.unirc.pwm.eureca.viaggio.dao.ViaggioDAOFactory;
+import it.unirc.pwm.eureca.viaggio.dao.ViaggioDAOInterface;
+import it.unirc.pwm.eureca.viaggio.model.Viaggio;
 
 
 public class Esegui {
@@ -62,19 +65,18 @@ public class Esegui {
 //        e1.setNome("veventomodificato");
 		
 		
-       TesseraDAOInterface dao= TesseraDAOFactory.getDAO();
-       Tessera t=new Tessera();
-       t.setPunti(10);
+       ViaggioDAOInterface dao= ViaggioDAOFactory.getDAO();
+       Viaggio v=new Viaggio();
+       v.setDescrizione("primo viaggio");
        
        Socio s=new Socio();
        s.setNome("antonio");
-       s.setIdPersonaFisica(3);
-       t.setSocio(s);
+       v.getSoci().add(s);
     
        
        
      try 
-		{			System.out.println("l'esame inserito ha codice "+dao.creaTessera(t));
+		{			System.out.println("l'esame inserito ha codice "+dao.creaViaggio(v));
 		} catch (Exception e2) 
 		{
 		e2.printStackTrace();
