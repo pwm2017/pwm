@@ -3,9 +3,8 @@ package it.unirc.pwm.eureca.attivita.model;
 import java.util.Date;
 import java.util.HashSet;
 import java.util.Set;
-
 import it.unirc.pwm.eureca.evento.model.Evento;
-import it.unirc.pwm.eureca.socio.model.*;
+import it.unirc.pwm.eureca.svolge.model.Svolge;
 
 public class Attivita 
 {
@@ -15,11 +14,25 @@ public class Attivita
 	private String descrizione;
 	private Date dataScadenza;
 	private Evento evento;
+	private Set<Svolge> svolges = new HashSet<Svolge>(0);
 	 //importante
 	public Attivita() {
 		super();
 		// TODO Auto-generated constructor stub
 	}
+	
+	public Set<Svolge> getSvolges() {
+		return svolges;
+	}
+
+
+
+	public void setSvolges(Set<Svolge> svolges) {
+		this.svolges = svolges;
+	}
+
+
+
 	public int getIdAttivita() {
 		return idAttivita;
 	}

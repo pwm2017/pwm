@@ -16,5 +16,12 @@ PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
 		<property name="tipologia" />
 		<property name="descrizione" />
 		<property name="dataScadenza" />
+		
+		<set name="svolges" table="socio_svolge_attivita" inverse="true" lazy="true" fetch="select">
+			<key>
+				<column name="IDATTIVITA" not-null="true" />
+			</key>
+			<one-to-many class="it.unirc.pwm.eureca.svolge.model.Svolge" />
+		</set>
 	</class>
 </hibernate-mapping>

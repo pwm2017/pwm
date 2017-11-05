@@ -1,9 +1,8 @@
 package it.unirc.pwm.eureca.socio.model;
 import java.util.HashSet;
 import java.util.Set;
-
-import it.unirc.pwm.eureca.attivita.model.Attivita;
 import it.unirc.pwm.eureca.personaFisica.model.*;
+import it.unirc.pwm.eureca.svolge.model.Svolge;
 import it.unirc.pwm.eureca.tessera.model.*;
 import it.unirc.pwm.eureca.viaggio.model.Viaggio;
 
@@ -17,7 +16,7 @@ public class Socio extends PersonaFisica
 	private String foto;//ho immaginato fosse un url altrimenti non saprei come gestirla
 	private Tessera tessera;
 	private Set<Viaggio> viaggi = new HashSet<Viaggio>(0);
-	private Set<Attivita> attivitas = new HashSet<Attivita>(0);
+	private Set<Svolge> svolges = new HashSet<Svolge>(0);
 	
 	public Socio() {
 		super();
@@ -25,15 +24,15 @@ public class Socio extends PersonaFisica
 	}
 	
 	
-	
-	public Set<Attivita> getAttivita() {
-		return attivitas;
+
+	public Set<Svolge> getSvolges() {
+		return svolges;
 	}
 
 
 
-	public void setAttivita(Set<Attivita> attivita) {
-		this.attivitas = attivita;
+	public void setSvolges(Set<Svolge> svolges) {
+		this.svolges = svolges;
 	}
 
 
@@ -42,13 +41,9 @@ public class Socio extends PersonaFisica
 		return viaggi;
 	}
 
-
-
 	public void setViaggi(Set<Viaggio> viaggi) {
 		this.viaggi = viaggi;
 	}
-
-
 
 	public String getPassword() {
 		return password;

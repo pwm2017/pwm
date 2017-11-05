@@ -14,7 +14,13 @@ import it.unirc.pwm.eureca.evento.dao.EventoDAOFactory;
 import it.unirc.pwm.eureca.evento.dao.EventoDAOInterface;
 import it.unirc.pwm.eureca.evento.model.Evento;
 import it.unirc.pwm.eureca.personaFisica.dao.PersonaFisicaDAOImplement;
+import it.unirc.pwm.eureca.socio.dao.SocioDAOFactory;
+import it.unirc.pwm.eureca.socio.dao.SocioDAOInterface;
 import it.unirc.pwm.eureca.socio.model.Socio;
+import it.unirc.pwm.eureca.svolge.dao.SvolgeDAOFactory;
+import it.unirc.pwm.eureca.svolge.dao.SvolgeDAOInterface;
+import it.unirc.pwm.eureca.svolge.model.Svolge;
+import it.unirc.pwm.eureca.svolge.model.SvolgeId;
 import it.unirc.pwm.eureca.tessera.dao.TesseraDAOFactory;
 import it.unirc.pwm.eureca.tessera.dao.TesseraDAOInterface;
 import it.unirc.pwm.eureca.tessera.model.Tessera;
@@ -26,13 +32,14 @@ import it.unirc.pwm.eureca.viaggio.dao.ViaggioDAOInterface;
 import it.unirc.pwm.eureca.viaggio.model.Viaggio;
 
 
-public class Esegui {
+public class Esegui 
+{
 
 	public static void main(String[] args)
 	{
 //		
-//		Attivita a=new Attivita();
-//		a.setNome("pinco");
+		Attivita a=new Attivita();
+		a.setNome("pinco");
 //		a.setIdAttivita(0);
 //        Evento e=new Evento();
 //        e.setNome("ciao");
@@ -59,42 +66,57 @@ public class Esegui {
 //			System.out.println("errore dentro il main");		
 //		}
 //        
-//        Evento e=new Evento();
-//        e.setNome("veventomodificato");
+        Evento e=new Evento();
+        e.setNome("veventomodificato");
 //        Evento e1=new Evento();
 //        e1.setNome("veventomodificato");
 		
 		
-       ViaggioDAOInterface dao= ViaggioDAOFactory.getDAO();
-       Viaggio v=new Viaggio();
-       v.setDescrizione("primo viaggio");
-       
-       Socio s=new Socio();
-       s.setNome("antonio");
-       v.getSoci().add(s);
-    
-       
-       
-     try 
-		{			System.out.println("l'esame inserito ha codice "+dao.creaViaggio(v));
-		} catch (Exception e2) 
-		{
-		e2.printStackTrace();
-		System.out.println("errore dentro il main");
-		}
-
-//      EventoDAOInterface dao= EventoDAOFactory.getDAO();
-//  
-//      
-//   try 
-//		{			System.out.println("l'esame inserito ha codice "+ dao.creaEvento(e));
+//       ViaggioDAOInterface dao= ViaggioDAOFactory.getDAO();
+//       Viaggio v=new Viaggio();
+//       v.setDescrizione("primo viaggio");
+//       
+//       Socio s=new Socio();
+//       s.setNome("antonio");
+//       v.getSoci().add(s);
+//    
+//       
+//       
+//     try 
+//		{			System.out.println("l'esame inserito ha codice "+dao.creaViaggio(v));
 //		} catch (Exception e2) 
 //		{
 //		e2.printStackTrace();
 //		System.out.println("errore dentro il main");
 //		}
-//   
+
+//      EventoDAOInterface dao= EventoDAOFactory.getDAO();
+//      dao.creaEvento(e);
 		
+		Attivit‡DAOInterface daoA= Attivit‡DAOFactory.getDAO();
+		SocioDAOInterface daoS= SocioDAOFactory.getDAO();
+		SvolgeDAOInterface dao= SvolgeDAOFactory.getDAO();
+		Svolge s=new Svolge();
+		
+		a.setEvento(e);
+		daoA.creaAttivit‡(a);
+		
+		Socio so=new Socio();
+		so.setNome("antonio");
+		so.setIdPersonaFisica(1);
+		a.setIdAttivita(1);
+		daoS.creaSocio(so);
+		s.setSocio(so);
+		s.setAttivita(a);
+		SvolgeId id=new SvolgeId();
+		id.setIdAttivita(1);
+		id.setIdSocio(1);
+		s.setId(id);
+		
+		
+		dao.creaSocio_Svolge_Attivita(s);
+		
+
 		HibernateUtil.close();
 	}
 

@@ -20,5 +20,6 @@
         <mapping resource="it/unirc/pwm/eureca/mapping/Utente.hbm.xml"/>
         <mapping resource="it/unirc/pwm/eureca/mapping/Tessera.hbm.xml"/>
         <mapping resource="it/unirc/pwm/eureca/mapping/Viaggio.hbm.xml"/>
+        <mapping resource="it/unirc/pwm/eureca/mapping/Svolge.hbm.xml"/>
     </session-factory>
 </hibernate-configuration>

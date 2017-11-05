@@ -1,7 +1,8 @@
 package it.unirc.pwm.eureca.svolge.model;
 
-public class SvolgeId
+public class SvolgeId implements java.io.Serializable
 {
+	private static final long serialVersionUID = 1L;
 	private int idSocio, idAttivita;
 
 	public SvolgeId() {

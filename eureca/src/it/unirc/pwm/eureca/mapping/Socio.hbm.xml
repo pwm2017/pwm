@@ -28,11 +28,11 @@ PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
         </set>
         
         
-        <set name="attivitas" table="attivita" inverse="true" lazy="false" fetch="select">
+        <set name="svolges" table="socio_svolge_attivita" inverse="true" lazy="false" fetch="select">
             <key>
-                <column name="idAttivita" not-null="true" />
+                <column name="IDATTIVITA" not-null="true" />
             </key>
-            <one-to-many class="it.unirc.pwm.eureca.attivita.model.Attivita" />
+            <one-to-many class="it.unirc.pwm.eureca.svolge.model.Svolge" />
         </set>
         
 		

@@ -3,20 +3,20 @@
 PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
 "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
 <hibernate-mapping package="it.unirc.pwm.eureca.mapping">
-	<class name="it.unirc.pwm.eureca.svolge.model.Svolge" table="SVOLGE">
+	<class name="it.unirc.pwm.eureca.svolge.model.Svolge" table="SOCIO_SVOLGE_ATTIVITA">
 		<composite-id name="id" class="it.unirc.pwm.eureca.svolge.model.SvolgeId">
 			<key-property name="idSocio" type="int">
-				<column name="idSocio" />
+				<column name="IDSOCIO" />
 			</key-property>
 			<key-property name="idAttivita" type="int">
-				<column name="idAttivita" />
+				<column name="IDATTIVITA" />
 			</key-property>
 		</composite-id>
 		<many-to-one name="socio" class="it.unirc.pwm.eureca.socio.model.Socio" update="false" insert="false" fetch="select" lazy="false" >
-			<column name="idSocio" not-null="true" />
+			<column name="IDSOCIO" not-null="true" />
 		</many-to-one>
 		<many-to-one name="attivita" class="it.unirc.pwm.eureca.attivita.model.Attivita" update="false" insert="false" fetch="select" lazy="false">
-			<column name="idAttivita" not-null="true" />
+			<column name="IDATTIVITA" not-null="true" />
 		</many-to-one>
 		
 		<property name="disponibilita" >
