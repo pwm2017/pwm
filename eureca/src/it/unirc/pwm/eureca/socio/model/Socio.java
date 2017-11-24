@@ -15,6 +15,7 @@ public class Socio extends PersonaFisica
 	private Indirizzo indirizzo;
 	private String foto;//ho immaginato fosse un url altrimenti non saprei come gestirla
 	private Tessera tessera;
+	private boolean amministratore;
 	private Set<Viaggio> viaggi = new HashSet<Viaggio>(0);
 	private Set<Svolge> svolges = new HashSet<Svolge>(0);
 	
@@ -25,6 +26,18 @@ public class Socio extends PersonaFisica
 	
 	
 
+	public boolean isAmministratore() {
+		return amministratore;
+	}
+
+
+
+	public void setAmministratore(boolean amministratore) {
+		this.amministratore = amministratore;
+	}
+
+
+
 	public Set<Svolge> getSvolges() {
 		return svolges;
 	}
@@ -34,8 +47,6 @@ public class Socio extends PersonaFisica
 	public void setSvolges(Set<Svolge> svolges) {
 		this.svolges = svolges;
 	}
-
-
 
 	public Set<Viaggio> getViaggi() {
 		return viaggi;
@@ -100,6 +111,4 @@ public class Socio extends PersonaFisica
 	public void setTessera(Tessera tessera) {
 		this.tessera = tessera;
 	}
-	
-	
 }

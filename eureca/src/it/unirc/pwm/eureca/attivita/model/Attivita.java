@@ -25,13 +25,9 @@ public class Attivita
 		return svolges;
 	}
 
-
-
 	public void setSvolges(Set<Svolge> svolges) {
 		this.svolges = svolges;
 	}
-
-
 
 	public int getIdAttivita() {
 		return idAttivita;
@@ -69,6 +65,4 @@ public class Attivita
 	public void setEvento(Evento evento) {
 		this.evento = evento;
 	}
-	
-	
 }

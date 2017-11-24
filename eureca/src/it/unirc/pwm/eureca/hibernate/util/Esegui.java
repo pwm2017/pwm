@@ -38,8 +38,8 @@ public class Esegui
 	public static void main(String[] args)
 	{
 //		
-		Attivita a=new Attivita();
-		a.setNome("pinco");
+//		Attivita a=new Attivita();
+//		a.setNome("pinco");
 //		a.setIdAttivita(0);
 //        Evento e=new Evento();
 //        e.setNome("ciao");
@@ -66,8 +66,8 @@ public class Esegui
 //			System.out.println("errore dentro il main");		
 //		}
 //        
-        Evento e=new Evento();
-        e.setNome("veventomodificato");
+//          Evento e=new Evento();
+//         e.setNome("veventomodificato");
 //        Evento e1=new Evento();
 //        e1.setNome("veventomodificato");
 		
@@ -93,30 +93,42 @@ public class Esegui
 //      EventoDAOInterface dao= EventoDAOFactory.getDAO();
 //      dao.creaEvento(e);
 		
-		Attivit‡DAOInterface daoA= Attivit‡DAOFactory.getDAO();
-		SocioDAOInterface daoS= SocioDAOFactory.getDAO();
-		SvolgeDAOInterface dao= SvolgeDAOFactory.getDAO();
-		Svolge s=new Svolge();
+//		Attivit‡DAOInterface daoA= Attivit‡DAOFactory.getDAO();
+//		SocioDAOInterface daoS= SocioDAOFactory.getDAO();
+//		SvolgeDAOInterface dao= SvolgeDAOFactory.getDAO();
+//		Svolge s=new Svolge();
+		//a.setEvento(e);
+//		a.setEvento(e);
+//		daoA.creaAttivit‡(a);
+//		System.out.println(daoA.getAttivita(a).getNome());
 		
-		a.setEvento(e);
-		daoA.creaAttivit‡(a);
+		
 		
 		Socio so=new Socio();
 		so.setNome("antonio");
-		so.setIdPersonaFisica(1);
-		a.setIdAttivita(1);
+		so.setPassword("ciao");
+		so.setUsername("ciao");
+		
+		SocioDAOInterface daoS= SocioDAOFactory.getDAO();
 		daoS.creaSocio(so);
-		s.setSocio(so);
-		s.setAttivita(a);
-		SvolgeId id=new SvolgeId();
-		id.setIdAttivita(1);
-		id.setIdSocio(1);
-		s.setId(id);
+		so.setPassword("ciao");
+		so.setAmministratore(false);
+		
+		//System.out.println(daoS.verificaLogin(so).toString());
+		System.out.println(daoS.verificaLogin(so).toString());
+		if(daoS.verificaLogin(so)==(null))
+			System.out.println("non trovato");
+//		so.setIdPersonaFisica(1);
+//		a.setIdAttivita(1);
+//		daoS.creaSocio(so);
+//		s.setSocio(so);
+//		s.setAttivita(a);
+//		SvolgeId id=new SvolgeId();
+//		id.setIdAttivita(1);
+//		id.setIdSocio(1);
+//		s.setId(id);
 		
 		
-		dao.creaSocio_Svolge_Attivita(s);
-		
-
 		HibernateUtil.close();
 	}
 

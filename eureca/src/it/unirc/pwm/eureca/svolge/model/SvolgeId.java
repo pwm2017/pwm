@@ -26,6 +26,4 @@ public class SvolgeId implements java.io.Serializable
 		this.idAttivita = idAttivita;
 	}
 
-	
-
 }
