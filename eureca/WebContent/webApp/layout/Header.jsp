@@ -14,7 +14,7 @@
 		<!-- Brand and toggle get grouped for better mobile display -->
 		<div class="navbar-header">
 
-			<a href="">
+			<a href="<s:url action='HOME'/>">
 				<div class="logo-container">
 					<div class="logo">
 						<img src="webApp/assets/img/new_logo.png" alt="Creative Tim Logo">
@@ -31,8 +31,7 @@
 				</li>
 				<li><a href="tutorial.html" class="btn btn-danger btn-simple">Tutorial</a>
 				</li>
-				<li><a href="<s:url action='Login'/>"
-					class="btn btn-danger btn-fill">Login</a></li>
+				<li><a href="<s:url action='Login'/>" class="btn btn-danger btn-fill">Login</a></li>
 			</ul>
 		</div>
 	</div>
@@ -47,17 +46,5 @@
 			</div>
 		</div>
 
-		<div class="main">
-			<div class="section">
-				<div class="container tim-container">
-					<div class="tim-title">
-						<h2>Eureca</h2>
-					</div>
-
-
-
-				</div>
-			</div>
-		</div>
 </body>
 </html>

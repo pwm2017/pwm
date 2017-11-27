@@ -36,10 +36,10 @@ public class Login extends ActionSupport implements SessionAware {
 
 	public String execute(){
 		
-		Socio s=new Socio();
-		s.setUsername(username);
-		s.setPassword(password);
-		if(daoS.verificaLogin(s)==(null))
+		Socio socio=new Socio();
+		socio.setUsername(username);
+		socio.setPassword(password);
+		if(daoS.verificaLogin(socio)==(null))
 			return INPUT;
 
 		

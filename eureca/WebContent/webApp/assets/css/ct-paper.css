@@ -1211,10 +1211,10 @@ textarea.form-control {
 .label {
   padding: 0.4em 0.6em;
   border-radius: 10px;
-  color: #FFFFFF;
+  color: #67625c;
   font-weight: 500;
   font-size: 0.75em;
-  text-transform: uppercase;
+  /*text-transform: uppercase;*/
   display: inline-block;
   margin-bottom: 3px;
 }
