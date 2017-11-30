@@ -14,7 +14,6 @@
 <body>
 
 	<%@ include file="layout/Header.jsp"%>
-
 	<div class="main">
 		<div class="section">
 			<div class="container tim-container">
@@ -26,14 +25,32 @@
 			</div>
 		</div>
 	</div>
-	<hr>
-	<s:form action="Login">
-		<s:textfield name="username" label="Username" />
-		<s:password name="password" label="Password" />
 
-		<s:submit />
-	</s:form>
-	<hr>
+	<div class="container">
+		<div class="row">
+			<div
+				class="col-md-4 col-md-offset-4 col-sm-6 col-sm-offset-3 col-xs-10 col-xs-offset-1">
+				<div class="register-card">
+					<h3 class="title">
+						<s:text name="title.login" />
+					</h3>
+					<hr>
+					<s:form class="register-form" action="Login">
+
+						<s:textfield name="username" class="form-control"
+							placeholder="Username" />
+
+						<s:password name="password" class="form-control"
+							placeholder="Password" />
+
+						<s:submit class="btn btn-danger btn-block" value="Accedi" />
+
+					</s:form>
+					<hr>
+				</div>
+			</div>
+		</div>
+	</div>
 
 	<%@ include file="layout/Footer.jsp"%>
 </body>

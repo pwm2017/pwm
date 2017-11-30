@@ -16,6 +16,7 @@
 <link href="webApp/bootstrap3/css/bootstrap.css" rel="stylesheet" />
 <link href="webApp/assets/css/ct-paper.css" rel="stylesheet" />
 <link type="text/css" href="webApp/assets/css/demo.css" rel="stylesheet" />
+<link type="text/css" href="webApp/assets/css/examples.css" rel="stylesheet" />
 
 
 

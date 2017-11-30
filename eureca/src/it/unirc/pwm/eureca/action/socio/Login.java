@@ -14,10 +14,11 @@ public class Login extends ActionSupport implements SessionAware {
 	private static final long serialVersionUID = 1L;
 	private String username;
 	private String password;
+
 	private Map<String,Object> session; 
-	
+
 	private SocioDAOInterface daoS= SocioDAOFactory.getDAO();
-	
+
 	public String getUsername() {
 		return username;
 	}
@@ -34,16 +35,39 @@ public class Login extends ActionSupport implements SessionAware {
 		this.password = password;
 	}
 
-	public String execute(){
-		
+	public String execute()
+	{
 		Socio socio=new Socio();
 		socio.setUsername(username);
 		socio.setPassword(password);
-		if(daoS.verificaLogin(socio)==(null))
+		socio=daoS.verificaLogin(socio);
+
+		if(socio==(null))
 			return INPUT;
 
+		else if(socio.isAmministratore())
+			session.put("amministratore", socio);
+		else 
+			session.put("socio", socio);
 		
 		return SUCCESS;
+	}
+
+
+
+	public void validate(){
+		if( getPassword().length()==0)
+		{
+			this.addFieldError("password", "Password is required.");
+		}
+
+		if(getPassword().length()<3){
+			this.addFieldError("password", "Password must be longer than 3 chars.");
+		}
+
+		if( getUsername().length()==0){
+			this.addFieldError("username", "Username is required.");
+		}	
 	}
 
 	public void setSession(Map<String, Object> session) {

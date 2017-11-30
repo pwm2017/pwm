@@ -31,7 +31,7 @@
 				</li>
 				<li><a href="tutorial.html" class="btn btn-danger btn-simple">Tutorial</a>
 				</li>
-				<li><a href="<s:url action='Login'/>" class="btn btn-danger btn-fill">Login</a></li>
+				<li><a href="<s:url action='LoginForm'/>" class="btn btn-danger btn-fill">Login</a></li>
 			</ul>
 		</div>
 	</div>

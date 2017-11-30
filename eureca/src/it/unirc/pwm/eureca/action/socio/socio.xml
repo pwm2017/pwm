@@ -4,12 +4,77 @@
         "http://struts.apache.org/dtds/struts-2.0.dtd">
 
 <struts>
+
 	<package name="socio" namespace="/" extends="struts-default">
 
+		<action name="LoginForm">
+			<result>/webApp/LoginForm.jsp</result>
+		</action>
+
 		<action name="Login" class="it.unirc.pwm.eureca.action.socio.Login">
-			<result name="success">/WEB-INF/Authenticated.jsp</result>
-			<result name="input">/webApp/LoginForm.jsp</result>
+			<result type="redirect">
+				AuthenticatedAmministratore.action
+			</result>
+			
+			<result type="redirect">
+				AuthenticateSocio.action
+			</result>
+			
+			<result name="input" type="redirectAction">LoginForm.action</result>
 		</action>
 
 	</package>
+
+	<package name="SecureAdministrator" namespace="/" extends="struts-default">
+		<interceptors>
+			<!-- definizione di un nuovo interceptor -->
+			<interceptor name="authenticationAdministratorInterceptor"
+				class="it.unirc.pwm.eureca.action.socio.utils.AuthenticationAmministratoreInterceptor" />
+			<!-- definizione di un nuovo stack di interceptor -->
+			<interceptor-stack name="secureStack">
+				<interceptor-ref name="defaultStack" />
+				<interceptor-ref name="authenticationAdministratorInterceptor" />
+			</interceptor-stack>
+		</interceptors>
+		<!-- Verifica utente loggato ??? -->
+		<default-interceptor-ref name="secureStack" /><!-- 
+			tutte le action dentro secure dovranno essere invocate utilizzando il defaultStack -->
+
+		<global-results>
+			<result name="login" type="redirectAction">/LoginForm</result><!-- vale per qualunque 
+				action -->
+		</global-results>
+
+		<action name="AuthenticatedAmministratore" class="it.unirc.pwm.eureca.action.socio.Authenticated">
+			<result name="success">/WEB-INF/areaRiservata/amministratore/Authenticated.jsp
+			</result>
+		</action>
+
+	</package>
+
+	
+	 <package name="Secure" namespace="/" extends="struts-default">
+		<interceptors>
+			
+			<interceptor name="authenticationInterceptor" class="it.unirc.pwm.eureca.action.socio.utils.AuthenticationSocioInterceptor" />
+			
+			<interceptor-stack name="secureStack">
+				<interceptor-ref name="authenticationInterceptor" />
+				<interceptor-ref name="defaultStack" />
+			</interceptor-stack>
+		</interceptors>
+		
+		<default-interceptor-ref name="secureStack" />
+		
+		<global-results>
+			<result name="login" type="redirectAction">/LoginForm.action</result>
+			
+		</global-results>
+		
+		<action name="AuthenticateSocio" class="it.unirc.pwm.eureca.action.socio.AuthenticatedSocio">
+			<result name="success">/WEB-INF/areaRiservata/socio/indexSocio.jsp</result>
+		</action>
+		
+	</package> 
+
 </struts>
