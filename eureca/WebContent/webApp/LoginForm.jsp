@@ -4,7 +4,7 @@
 
 <%@ taglib prefix="s" uri="/struts-tags"%>
 <html>
-
+<title><s:text name="title.login" /></title>
 <head>
 
 <%@ include file="layout/Head.jsp"%>
@@ -13,7 +13,8 @@
 
 <body>
 
-	<%@ include file="layout/Header.jsp"%>
+	<s:include value="layout/Header.jsp"></s:include>
+	
 	<div class="main">
 		<div class="section">
 			<div class="container tim-container">
@@ -25,7 +26,7 @@
 			</div>
 		</div>
 	</div>
-
+  
 	<div class="container">
 		<div class="row">
 			<div
@@ -37,12 +38,11 @@
 					<hr>
 					<s:form class="register-form" action="Login">
 
-						<s:textfield name="username" class="form-control"
+						<s:textfield name="username" class="form-control" key="label.user.username"
 							placeholder="Username" />
 
-						<s:password name="password" class="form-control"
+						<s:password name="password" class="form-control" key="label.user.password"
 							placeholder="Password" />
-
 						<s:submit class="btn btn-danger btn-block" value="Accedi" />
 
 					</s:form>

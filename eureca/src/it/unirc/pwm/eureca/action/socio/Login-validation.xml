@@ -1,0 +1,42 @@
+<!DOCTYPE validators PUBLIC "-//Apache Struts//XWork Validator 1.0.3//EN"
+        "http://struts.apache.org/dtds/xwork-validator-1.0.3.dtd">
+<validators>
+
+	<field name="password">
+		<field-validator type="requiredstring">
+			<message>La password è richiesta</message>
+		</field-validator>
+		<field-validator type="stringlength">
+			<param name="minLength">3</param>
+			<param name="maxLength">10</param>
+			<message>La password deve essere compresa tra 3 e 10 caratteri.
+			</message>
+		</field-validator>
+	</field>
+	
+	<field name="username">
+		<field-validator type="requiredstring">
+			<message>Username è richiesto.</message>
+		</field-validator>
+		<field-validator type="stringlength">
+			<param name="minLength">3</param>
+			<param name="maxLength">8</param>
+			<message>L'username ${username} non è valido, deve essere
+				compreso tra ${minLength} e ${maxLength} caratteri. </message>
+		</field-validator>
+	</field>
+<!-- 
+	<field name="user.email">
+		<field-validator type="requiredstring">
+			<message>Devi inserire l'email.</message>
+		</field-validator>
+		<field-validator type="email">
+			<message>L'email ${user.email} non è valida</message>
+		</field-validator>
+	</field>
+ -->
+	<!-- <validator type="expression">
+		<param name="expression">user.username != user.password</param>
+		<message>Username e password devono essere differenti.</message>
+	</validator> -->
+</validators>

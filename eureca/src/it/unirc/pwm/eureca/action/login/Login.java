@@ -1,4 +1,4 @@
-package it.unirc.pwm.eureca.action.socio;
+package it.unirc.pwm.eureca.action.login;
 
 import java.util.Map;
 import org.apache.struts2.interceptor.SessionAware;

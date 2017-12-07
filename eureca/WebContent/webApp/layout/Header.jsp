@@ -1,10 +1,12 @@
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
 	pageEncoding="ISO-8859-1"%>
+	<%@ taglib prefix="s" uri="/struts-tags"%>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
 <title>Header</title>
+
 </head>
 <body>
 
@@ -17,7 +19,7 @@
 			<a href="<s:url action='HOME'/>">
 				<div class="logo-container">
 					<div class="logo">
-						<img src="webApp/assets/img/new_logo.png" alt="Creative Tim Logo">
+						<img src="/eureca/webApp/assets/img/new_logo.png" alt="Creative Tim Logo">
 					</div>
 					<div class="brand">Eureca</div>
 				</div>
@@ -27,11 +29,26 @@
 		<!-- Collect the nav links, forms, and other content for toggling -->
 		<div class="collapse navbar-collapse" id="navigation-example-2">
 			<ul class="nav navbar-nav navbar-right">
-				<li><a href="components.html" class="btn btn-danger btn-simple">Components</a>
+				
+				<s:if test="%{!(#session.isEmpty())}">
+				
+				<li><a href="<s:url action='Logout' namespace='/'/>" class="btn btn-danger btn-fill">Logout</a>
 				</li>
-				<li><a href="tutorial.html" class="btn btn-danger btn-simple">Tutorial</a>
+				<s:if test="%{(#session.amministratore.username!=null)}">
+				<li><a href="<s:url action='AuthenticatedAmministratore' namespace='/secure'/>" class="btn btn-danger btn-simple">Area Riservata</a>
 				</li>
-				<li><a href="<s:url action='LoginForm'/>" class="btn btn-danger btn-fill">Login</a></li>
+				</s:if>
+				
+				<s:if test="%{(#session.socio.username!=null)}">
+				<li><a href="<s:url action='AuthenticatedSocio.action' namespace='/secure'/>" class="btn btn-danger btn-simple">Area Riservata</a>
+				</li>
+				</s:if>
+			
+				</s:if>
+				<s:else>
+				<li><a href="<s:url action='LoginForm' namespace='/'/>" class="btn btn-danger btn-fill">Login </a></li>
+				</s:else>
+		
 			</ul>
 		</div>
 	</div>

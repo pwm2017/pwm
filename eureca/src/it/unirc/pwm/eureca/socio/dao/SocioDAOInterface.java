@@ -7,4 +7,5 @@ public interface SocioDAOInterface
 	public boolean creaSocio(Socio s) ;
 	public boolean modificaSocio(Socio s) ;
 	public Socio verificaLogin(Socio s);
+	public Boolean verificaUsername(String username);
 }

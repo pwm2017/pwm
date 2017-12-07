@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE struts PUBLIC
+        "-//Apache Software Foundation//DTD Struts Configuration 2.0//EN"
+        "http://struts.apache.org/dtds/struts-2.0.dtd">
+
+<struts>
+
+	<package name="login" namespace="/" extends="struts-default">
+		<action name="LoginForm" class="it.unirc.pwm.eureca.action.login.LoginForm">
+			<result>/webApp/LoginForm.jsp</result>
+		</action>
+
+		<action name="Login" class="it.unirc.pwm.eureca.action.login.Login">
+			<result type="redirectAction" name="successAdmin">
+				aereaRiservata/AuthenticatedAmministratore.action
+			</result>
+			<result type="redirectAction" name="successSocio">
+				aereaRiservata/AuthenticatedSocio.action
+			</result>
+
+			<result name="input" >/webApp/LoginForm.jsp</result>
+		</action>
+	</package>
+	
+	
+	<package name="logout" namespace="/" extends="struts-default">
+		<action name="Logout" class="it.unirc.pwm.eureca.action.login.Logout">
+			<result type="redirect" name="success">/HOME</result>
+		</action>
+	</package>
+	
+
+	<package name="Secure" namespace="/aereaRiservata" extends="struts-default">
+
+		<action name="AuthenticatedAmministratore" class="it.unirc.pwm.eureca.action.login.Authenticated">
+			<result name="success">/WEB-INF/areaRiservata/amministratore/indexAmministratore.jsp
+			</result>
+			<interceptor-ref name="authenticationAdministratorInterceptor" />
+		</action>
+
+		<action name="AuthenticatedSocio"
+			class="it.unirc.pwm.eureca.action.login.AuthenticatedSocio">
+			<result name="success">/WEB-INF/areaRiservata/socio/indexSocio.jsp
+			</result>
+			<interceptor-ref name="authenticationInterceptor" />
+		</action>
+	</package>
+
+</struts>

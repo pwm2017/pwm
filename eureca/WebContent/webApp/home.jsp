@@ -80,6 +80,7 @@
 	</div>
 
 	<%@ include file="layout/Footer.jsp"%>
+
 	</div>
 </body>
 
