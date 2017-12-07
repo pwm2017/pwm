@@ -5,7 +5,7 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
-<title>Header</title>
+
 
 </head>
 <body>
@@ -19,7 +19,7 @@
 			<a href="<s:url action='HOME'/>">
 				<div class="logo-container">
 					<div class="logo">
-						<img src="/eureca/webApp/assets/img/new_logo.png" alt="Creative Tim Logo">
+						<img src="/eureca/webApp/assets/img/logo.png" alt="Eureca">
 					</div>
 					<div class="brand">Eureca</div>
 				</div>

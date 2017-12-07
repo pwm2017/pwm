@@ -35,15 +35,18 @@ public class Login extends ActionSupport implements SessionAware {
 		this.password = password;
 	}
 
-	public String execute()
+	public String execute()throws Exception
 	{
 		Socio socio=new Socio();
 		socio.setUsername(username);
 		socio.setPassword(password);
 		socio=daoS.verificaLogin(socio);
-
 		if(socio==(null))
+		{
+			addActionMessage(getText("error.message"));
 			return INPUT;
+		}
+			
 
 		else if(socio.isAmministratore())
 		{
@@ -56,9 +59,26 @@ public class Login extends ActionSupport implements SessionAware {
 			return "successSocio";
 		}
 	}
-	
 
-	
+	public void validate()
+	{
+		addActionMessage(getText("errorGeneric.message"));
+
+		if(getPassword().length()==0){
+			this.addFieldError("password",getText( "password.required"));
+		}
+
+		if(getPassword().length()<3){
+			this.addFieldError("password", getText("password.short"));
+		}
+
+		if(getUsername().length()==0){
+			this.addFieldError("username", getText("username.required"));
+		}	
+	}
+
+
+
 	public void setSession(Map<String, Object> session) {
 		this.session = session;
 	}

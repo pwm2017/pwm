@@ -6,37 +6,60 @@
 <struts>
 
 	<package name="login" namespace="/" extends="struts-default">
+	
+	
+	    <global-results>
+			<result name="genericException">webApp/Exception.jsp</result>
+		</global-results>
+		<global-exception-mappings>
+			<exception-mapping exception="java.lang.Exception"
+				result="genericException" />
+		</global-exception-mappings>
+		
+		
 		<action name="LoginForm" class="it.unirc.pwm.eureca.action.login.LoginForm">
 			<result>/webApp/LoginForm.jsp</result>
 		</action>
 
 		<action name="Login" class="it.unirc.pwm.eureca.action.login.Login">
 			<result type="redirectAction" name="successAdmin">
-				aereaRiservata/AuthenticatedAmministratore.action
+				areaRiservata/amministratore/AuthenticatedAmministratore.action
 			</result>
 			<result type="redirectAction" name="successSocio">
-				aereaRiservata/AuthenticatedSocio.action
+				areaRiservata/socio/AuthenticatedSocio.action
 			</result>
 
-			<result name="input" >/webApp/LoginForm.jsp</result>
+			<result name="input">/webApp/LoginForm.jsp</result>
 		</action>
 	</package>
-	
-	
+
+
 	<package name="logout" namespace="/" extends="struts-default">
 		<action name="Logout" class="it.unirc.pwm.eureca.action.login.Logout">
 			<result type="redirect" name="success">/HOME</result>
 		</action>
 	</package>
-	
 
-	<package name="Secure" namespace="/aereaRiservata" extends="struts-default">
 
-		<action name="AuthenticatedAmministratore" class="it.unirc.pwm.eureca.action.login.Authenticated">
-			<result name="success">/WEB-INF/areaRiservata/amministratore/indexAmministratore.jsp
-			</result>
-			<interceptor-ref name="authenticationAdministratorInterceptor" />
-		</action>
+
+	<package name="Secure" namespace="/areaRiservata/socio"
+		extends="struts-default">
+		<interceptors>
+			<interceptor name="authenticationInterceptor"
+				class="it.unirc.pwm.eureca.action.login.utils.AuthenticationSocioInterceptor" />
+
+			<interceptor-stack name="secureStack">
+				<interceptor-ref name="authenticationInterceptor" />
+				<interceptor-ref name="defaultStack" />
+			</interceptor-stack>
+		</interceptors>
+
+		<default-interceptor-ref name="secureStack" />
+
+		<global-results>
+			<result name="login" type="redirectAction">LoginForm.action</result>
+			<!-- vale per qualunque action -->
+		</global-results>
 
 		<action name="AuthenticatedSocio"
 			class="it.unirc.pwm.eureca.action.login.AuthenticatedSocio">
@@ -44,6 +67,37 @@
 			</result>
 			<interceptor-ref name="authenticationInterceptor" />
 		</action>
+
+	</package>
+
+
+	<package name="SecureAdministrator" namespace="/areaRiservata/amministratore"
+		extends="struts-default">
+
+		<interceptors>
+			<interceptor name="authenticationAdministratorInterceptor"
+				class="it.unirc.pwm.eureca.action.login.utils.AuthenticationAmministratoreInterceptor" />
+
+			<interceptor-stack name="secureAdministratorStack">
+				<interceptor-ref name="defaultStack" />
+				<interceptor-ref name="authenticationAdministratorInterceptor" />
+			</interceptor-stack>
+
+		</interceptors>
+
+		<default-interceptor-ref name="secureAdministratorStack" />
+
+		<global-results>
+			<result name="login" type="redirectAction">LoginForm.action</result><!-- vale per 
+				qualunque action -->
+		</global-results>
+
+		<action name="AuthenticatedAmministratore" class="it.unirc.pwm.eureca.action.login.Authenticated">
+			<result name="success">/WEB-INF/areaRiservata/amministratore/indexAmministratore.jsp
+			</result>
+			<interceptor-ref name="authenticationAdministratorInterceptor" />
+		</action>
+		
 	</package>
 
 </struts>

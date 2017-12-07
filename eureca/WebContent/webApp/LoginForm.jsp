@@ -14,7 +14,7 @@
 <body>
 
 	<s:include value="layout/Header.jsp"></s:include>
-	
+
 	<div class="main">
 		<div class="section">
 			<div class="container tim-container">
@@ -26,7 +26,12 @@
 			</div>
 		</div>
 	</div>
-  
+	<s:if test="hasActionMessages()">
+	<div class="alert alert-danger">
+		<h4><s:actionmessage/></h4>
+	</div>
+	</s:if>
+
 	<div class="container">
 		<div class="row">
 			<div
@@ -38,11 +43,11 @@
 					<hr>
 					<s:form class="register-form" action="Login">
 
-						<s:textfield name="username" class="form-control" key="label.user.username"
-							placeholder="Username" />
+						<s:textfield name="username" class="form-control"
+							key="label.user.username" placeholder="Username" />
 
-						<s:password name="password" class="form-control" key="label.user.password"
-							placeholder="Password" />
+						<s:password name="password" class="form-control"
+							key="label.user.password" placeholder="Password" />
 						<s:submit class="btn btn-danger btn-block" value="Accedi" />
 
 					</s:form>

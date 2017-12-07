@@ -9,15 +9,15 @@
 	<constant name="struts.devMode" value="true" />
 
 	<package name="default" namespace="/" extends="struts-default">
+
 		<action name="HOME">
 			<result>/webApp/home.jsp</result>
 		</action>
+
 	</package>
 
-
-
-    <include file="it/unirc/pwm/eureca/action/socio/login.xml" />
-	<include file="it/unirc/pwm/eureca/action/socio/socio.xml" />  
+    <include file="it/unirc/pwm/eureca/action/login/login.xml" />
+	<include file="it/unirc/pwm/eureca/action/socio/socio.xml" />
 
 
 </struts>

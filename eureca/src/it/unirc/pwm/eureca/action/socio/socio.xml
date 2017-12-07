@@ -5,7 +5,7 @@
 
 <struts>
 
-	<package name="socio" namespace="/" extends="SecureAdministrator">
+	<package name="socio" namespace="/amministratore/socio" extends="SecureAdministrator">
 
 		<action name="InserisciSocioRedirect">
  			<interceptor-ref name="authenticationAdministratorInterceptor" /> 

@@ -6,6 +6,8 @@
 <head>
 <%@ include file="layout/Head.jsp"%>
 
+<title><s:text name="global.title.home"/></title>
+
 </head>
 <body>
 
