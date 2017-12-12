@@ -11,7 +11,6 @@ public class Socio extends PersonaFisica
 	private String password;
 	private String username;
 	private String codiceFiscale;
-	private String biografia;
 	private Indirizzo indirizzo;
 	private String foto;//ho immaginato fosse un url altrimenti non saprei come gestirla
 	private Tessera tessera;
@@ -78,14 +77,6 @@ public class Socio extends PersonaFisica
 
 	public void setCodiceFiscale(String codiceFiscale) {
 		this.codiceFiscale = codiceFiscale;
-	}
-
-	public String getBiografia() {
-		return biografia;
-	}
-
-	public void setBiografia(String biografia) {
-		this.biografia = biografia;
 	}
 
 	public Indirizzo getIndirizzo() {

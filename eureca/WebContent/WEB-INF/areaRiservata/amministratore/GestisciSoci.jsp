@@ -38,17 +38,22 @@
 												<div class="row">
 													<div
 														class="col-md-2 col-md-offset-0 col-xs-3 col-xs-offset-2">
-														<img src="/eureca/webApp/assets/img/<s:property value="idPersonaFisica"/>.jpg"
+														<img
+															src="/eureca/webApp/assets/img/<s:property value="idPersonaFisica"/>.jpg"
 															alt="Circle Image"
 															class="img-circle img-no-padding img-responsive">
 													</div>
 													<div class="col-md-7 col-xs-4">
 														<h6>
-															<s:property value="nome" /><br/> 
-															<small>Musical Producer</small>
+															<s:property value="nome" />
+															<br /> <small><s:property value="cognome" /></small> 
 															<a href="<s:url action='EliminaSocio' namespace='/amministratore/socio'>
 															<s:param name="socio.idPersonaFisica"><s:property value="idPersonaFisica" /></s:param>
-															</s:url>">Elimina</a>
+															</s:url>">Elimina</a> <br/>
+															<a href="<s:url action='ModificaSocio' namespace='/amministratore/socio'> 
+															<s:param name="socio.idPersonaFisica"><s:property value="idPersonaFisica" /></s:param>
+															</s:url>">Modifica</a>
+															 <br/>
 														</h6>
 													</div>
 
@@ -58,10 +63,6 @@
 										</s:iterator>
 								</div>
 							</div>
-						</div>
-						<div class="tab-pane text-center" id="following">
-							<h3 class="text-muted">Not following anyone yet :(</h3>
-							<btn class="btn btn-warning btn-fill">Find artists</btn>
 						</div>
 					</div>
 

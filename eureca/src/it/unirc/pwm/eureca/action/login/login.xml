@@ -5,11 +5,10 @@
 
 <struts>
 
-
 	<package name="login" namespace="/" extends="struts-default">
 	
 	    <global-results>
-			<result name="genericException">webApp/Exception.jsp</result>
+			<result name="genericException">/webApp/Exception.jsp</result>
 		</global-results>
 		<global-exception-mappings>
 			<exception-mapping exception="java.lang.Exception"

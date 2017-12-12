@@ -11,7 +11,6 @@ PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
 		<property name="password" />
 		<property name="username" />
 		<property name="codiceFiscale" />
-		<property name="biografia" />
 		<component name="indirizzo" class="it.unirc.pwm.eureca.socio.model.Indirizzo">
 			<property name="cap" column="indirizzo_cap" type="int" />
 			<property name="civico" column="indirizzo_civico" type="string" />

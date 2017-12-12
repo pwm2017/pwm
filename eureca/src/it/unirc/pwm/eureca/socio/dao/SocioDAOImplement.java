@@ -183,6 +183,25 @@ public class SocioDAOImplement implements SocioDAOInterface{
 			
 		}
 		
+		
+		public Socio getSocio(Socio s){
+			Socio so = null;
+			
+			String hql = "from Socio where idPersonaFisica ='"+s.getIdPersonaFisica()+"'";
+			try {
+				session = HibernateUtil.getSessionFactory().openSession();
+				Query query = session.createQuery(hql);
+				if (query.list().size()>0)
+				so=(Socio)query.list().get(0);
+				System.out.println(so.getNome()+"sdfsdfsdf");
+			} catch (Exception e) {
+				e.printStackTrace();
+			}finally{
+				session.close();
+			}
+			return so;
+		}
+		
 		public Socio getSocioById(Socio s){
 			session = HibernateUtil.getSessionFactory().openSession();
 			Socio trovato = null;

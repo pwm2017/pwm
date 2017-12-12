@@ -19,11 +19,13 @@
 				<div
 					class="col-md-4 col-md-offset-4 col-sm-6 col-sm-offset-3 col-xs-10 col-xs-offset-1">
 
-					<s:form action="AggiungiSocio" >
+
+					<s:form action="AggiungiSocio">
+
 						<s:textfield label="Nome" name="socio.nome" class="form-control" />
 						<s:textfield label="Cognome" name="socio.cognome" />
 						<s:textfield label="email" requiredLabel="true" name="socio.email" />
-						<s:textfield label="Telefono" name="socio.telefono" type="number"/>
+						<s:textfield label="Telefono" name="socio.telefono" type="number" />
 						<s:textfield label="Data di nascita (gg/mm/aa)"
 							name="socio.dataNascita" />
 						<s:textfield label="Username" requiredLabel="true"
@@ -32,7 +34,8 @@
 							requiredLabel="true" name="socio.password" />
 						<s:textfield label="Codice Fiscale" requiredLabel="true"
 							name="socio.codiceFiscale" />
-						<s:checkbox name="socio.amministratore" label="È un amministratore?"/>
+						<s:checkbox name="socio.amministratore"
+							label="È un amministratore?" />
 
 						<s:submit value="Aggiungi" class="btn btn-danger btn-block" />
 					</s:form>

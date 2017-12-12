@@ -12,4 +12,5 @@ public interface SocioDAOInterface
 	public Boolean verificaUsername(String username);
 	public List<Socio> getSoci();
 	public Boolean eliminaSocio(Socio s);
+	public Socio getSocio(Socio s);
 }

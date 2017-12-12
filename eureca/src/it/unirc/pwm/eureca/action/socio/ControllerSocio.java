@@ -42,9 +42,6 @@ public class ControllerSocio extends ActionSupport
 		this.listaSoci = listaSoci;
 	}
 
-
-
-
 	public String execute() throws Exception{
 
 		setListaSoci(sdao.getSoci());
@@ -69,7 +66,6 @@ public class ControllerSocio extends ActionSupport
 
 	public String eliminaSocio()
 	{
-		System.out.println(socio.getIdPersonaFisica());
 		if(sdao.eliminaSocio(socio))
 		{
 			addActionMessage("Socio eliminato correttemente");
@@ -79,5 +75,20 @@ public class ControllerSocio extends ActionSupport
 		else 
 			addActionMessage("errore");
 		return INPUT;
+	}
+	
+	public String modificaSocio()
+	{
+		socio=sdao.getSocio(socio);
+		
+//		if(sdao.modificaSocio(socio))
+//		{
+//			addActionMessage("Socio modificato correttemente");
+
+			return SUCCESS;
+//		}
+//		else 
+//			addActionMessage("errore");
+//		return INPUT;
 	}
 }
