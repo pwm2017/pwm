@@ -1,5 +1,8 @@
 package it.unirc.pwm.eureca.socio.dao;
 
+import java.util.ArrayList;
+import java.util.List;
+
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 import org.hibernate.Criteria;
@@ -67,7 +70,7 @@ public class SocioDAOImplement implements SocioDAOInterface{
 		return result;
 	}
 
-
+//con hql
 //	public Socio verificaLogin(Socio s)
 //	{
 //		Socio trovato =null;
@@ -139,6 +142,61 @@ public class SocioDAOImplement implements SocioDAOInterface{
 			
 			return trovato;
 			
+		}
+		
+		public List<Socio> getSoci()
+		{
+
+			List<Socio> soci = new ArrayList<>();
+			session = HibernateUtil.getSessionFactory().openSession();
+			try {
+				String hql = "FROM Socio";
+				Query query = session.createQuery(hql);
+				soci=query.list();
+
+			} catch (Exception e) {
+				e.printStackTrace();
+			}finally{
+				session.close();
+			}
+
+			return soci;
+
+		}
+		
+		public Boolean eliminaSocio(Socio s){
+			boolean result=false;
+			
+			try {
+				session = HibernateUtil.getSessionFactory().openSession();
+				transaction = session.beginTransaction();
+				session.delete(s);
+				transaction.commit();
+				result=true;
+				
+			} catch (Exception e) {
+				e.printStackTrace();
+			}finally{
+				session.close();
+			}
+			return result;
+			
+		}
+		
+		public Socio getSocioById(Socio s){
+			session = HibernateUtil.getSessionFactory().openSession();
+			Socio trovato = null;
+			try {
+				Criteria cr = session.createCriteria(Socio.class);
+				cr.add(Restrictions.eq("nome", s.getNome()));
+				trovato = (Socio)cr.uniqueResult();
+
+			} catch (Exception e) {
+				e.printStackTrace();
+			}finally{
+				session.close();
+			}
+			return trovato;
 		}
 		
 }

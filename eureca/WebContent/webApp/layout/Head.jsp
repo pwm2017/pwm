@@ -3,7 +3,7 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 
 <head>
-<link rel="icon" type="image/png" href="webApp/assets/img/favicon.ico">
+<link rel="icon" type="image/png" href="/eureca/webApp/assets/img/favicon.ico">
 <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
 
 <meta

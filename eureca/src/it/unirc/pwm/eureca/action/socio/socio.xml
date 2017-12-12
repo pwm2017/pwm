@@ -7,18 +7,33 @@
 
 	<package name="socio" namespace="/amministratore/socio" extends="SecureAdministrator">
 
-		<action name="InserisciSocioRedirect">
+		<action name="InserisciSocioRedirect" class="it.unirc.pwm.eureca.action.socio.ControllerSocio" method="redirectInserisciSocio">
  			<interceptor-ref name="authenticationAdministratorInterceptor" /> 
 			<result>/WEB-INF/areaRiservata/amministratore/AggiungiSocio.jsp </result>
 		</action>
 
 
-		<action name="AggiungiSocio" class="it.unirc.pwm.eureca.action.socio.AggiungiSocio">
+		<action name="AggiungiSocio" class="it.unirc.pwm.eureca.action.socio.ControllerSocio" method="inserisciSocio">
 			<interceptor-ref name="defaultStack" />
-			<interceptor-ref name="timer" />
-			<interceptor-ref name="logger" />
 			<interceptor-ref name="authenticationAdministratorInterceptor" />
-			<result name="success">/WEB-INF/areaRiservata/amministratore/indexAmministratore.jsp
+			<result name="success" type="redirectAction">/WEB-INF/areaRiservata/amministratore/indexAmministratore.jsp
+			</result>
+			<result name="input">/HOME.action</result>
+		</action>
+		
+		
+		<action name="GestisciSoci" class="it.unirc.pwm.eureca.action.socio.ControllerSocio" >
+			<interceptor-ref name="defaultStack" />
+			<interceptor-ref name="authenticationAdministratorInterceptor" />
+			<result name="success">/WEB-INF/areaRiservata/amministratore/GestisciSoci.jsp
+			</result>
+			<result name="input">/HOME.action</result>
+		</action>
+		
+		<action name="EliminaSocio" class="it.unirc.pwm.eureca.action.socio.ControllerSocio" method="eliminaSocio">
+			<interceptor-ref name="defaultStack" />
+			<interceptor-ref name="authenticationAdministratorInterceptor" />
+			<result name="success" type="redirectAction">GestisciSoci.action
 			</result>
 			<result name="input">/HOME.action</result>
 		</action>

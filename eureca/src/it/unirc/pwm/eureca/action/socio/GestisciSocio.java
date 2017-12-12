@@ -6,7 +6,7 @@ import it.unirc.pwm.eureca.socio.dao.SocioDAOFactory;
 import it.unirc.pwm.eureca.socio.dao.SocioDAOInterface;
 import it.unirc.pwm.eureca.socio.model.Socio;
 
-public class AggiungiSocio extends ActionSupport
+public class GestisciSocio extends ActionSupport
 {
 	private static final long serialVersionUID = 1L;
 	private Socio socio;
@@ -22,13 +22,17 @@ public class AggiungiSocio extends ActionSupport
 	
      public String execute() throws Exception{
 		
-		if(sdao.creaSocio(socio)){
-		addActionMessage("Socio Aggiunto correttemente");
-		
-		return SUCCESS;}
-		else 
-			addActionMessage("errore");
-		return INPUT;
-		
+		return SUCCESS;
 	}
+     
+    public String inserisicSocio()
+    {
+    	if(sdao.creaSocio(socio)){
+    		addActionMessage("Socio Aggiunto correttemente");
+    		
+    		return SUCCESS;}
+    		else 
+    			addActionMessage("errore");
+    		return INPUT;
+    }
 }

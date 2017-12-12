@@ -35,12 +35,12 @@
 				<li><a href="<s:url action='Logout' namespace='/'/>" class="btn btn-danger btn-fill">Logout</a>
 				</li>
 				<s:if test="%{(#session.amministratore.username!=null)}">
-				<li><a href="<s:url action='AuthenticatedAmministratore' namespace='/secure'/>" class="btn btn-danger btn-simple">Area Riservata</a>
+				<li><a href="<s:url action='AuthenticatedAmministratore' namespace='/areaRiservata/amministratore'/>" class="btn btn-danger btn-simple">Area Riservata</a>
 				</li>
 				</s:if>
 				
 				<s:if test="%{(#session.socio.username!=null)}">
-				<li><a href="<s:url action='AuthenticatedSocio.action' namespace='/secure'/>" class="btn btn-danger btn-simple">Area Riservata</a>
+				<li><a href="<s:url action='AuthenticatedSocio.action' namespace='/areaRiservata/socio'/>" class="btn btn-danger btn-simple">Area Riservata</a>
 				</li>
 				</s:if>
 			
