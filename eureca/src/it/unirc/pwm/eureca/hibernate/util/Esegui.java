@@ -104,20 +104,21 @@ public class Esegui
 		
 		
 		
-		Socio so=new Socio();
-		so.setNome("antonio");
-		so.setPassword("ciao");
-		so.setUsername("ciao");
-		
+//		Socio so=new Socio();
+//		so.setNome("antonio");
+//		so.setPassword("ciao");
+//		so.setUsername("ciao");
+//		
 		SocioDAOInterface daoS= SocioDAOFactory.getDAO();
-		daoS.creaSocio(so);
-		so.setPassword("ciao");
-		so.setAmministratore(false);
+//		daoS.creaSocio(so);
+//		so.setPassword("ciao");
+//		so.setAmministratore(false);
 		
+//		System.out.println(daoS.getSoci().size());
 		//System.out.println(daoS.verificaLogin(so).toString());
-		System.out.println(daoS.verificaLogin(so).toString());
-		if(daoS.verificaLogin(so)==(null))
-			System.out.println("non trovato");
+//		System.out.println(daoS.verificaLogin(so).toString());
+//		if(daoS.verificaLogin(so)==(null))
+//			System.out.println("non trovato");
 //		so.setIdPersonaFisica(1);
 //		a.setIdAttivita(1);
 //		daoS.creaSocio(so);

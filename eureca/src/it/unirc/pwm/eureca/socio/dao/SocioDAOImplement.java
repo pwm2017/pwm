@@ -146,13 +146,13 @@ public class SocioDAOImplement implements SocioDAOInterface{
 		
 		public List<Socio> getSoci()
 		{
-
 			List<Socio> soci = new ArrayList<>();
 			session = HibernateUtil.getSessionFactory().openSession();
 			try {
 				String hql = "FROM Socio";
 				Query query = session.createQuery(hql);
 				soci=query.list();
+				
 
 			} catch (Exception e) {
 				e.printStackTrace();
@@ -193,7 +193,6 @@ public class SocioDAOImplement implements SocioDAOInterface{
 				Query query = session.createQuery(hql);
 				if (query.list().size()>0)
 				so=(Socio)query.list().get(0);
-				System.out.println(so.getNome()+"sdfsdfsdf");
 			} catch (Exception e) {
 				e.printStackTrace();
 			}finally{

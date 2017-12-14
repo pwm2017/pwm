@@ -5,45 +5,68 @@
 
 <struts>
 
-	<package name="socio" namespace="/amministratore/socio" extends="SecureAdministrator">
+	<package name="socio" namespace="/amministratore/socio"
+		extends="SecureAdministrator">
 
-		<action name="InserisciSocioRedirect" class="it.unirc.pwm.eureca.action.socio.ControllerSocio" method="redirectInserisciSocio">
- 			<interceptor-ref name="authenticationAdministratorInterceptor" /> 
-			<result name="success">/WEB-INF/areaRiservata/amministratore/AggiungiSocio.jsp </result>
-		</action>
-
-
-		<action name="AggiungiSocio" class="it.unirc.pwm.eureca.action.socio.ControllerSocio" method="inserisciSocio">
-			<interceptor-ref name="defaultStack" />
+		<action name="InserisciSocioRedirect" class="it.unirc.pwm.eureca.action.socio.ControllerSocio"
+			method="redirectInserisciSocio">
 			<interceptor-ref name="authenticationAdministratorInterceptor" />
-			<result name="success" >/WEB-INF/areaRiservata/amministratore/indexAmministratore.jsp
+			<result name="success">/WEB-INF/areaRiservata/amministratore/AddSocio.jsp
 			</result>
-			<result name="input" type="redirectAction">HOME.action</result>
 		</action>
-		
-		
-		<action name="GestisciSoci" class="it.unirc.pwm.eureca.action.socio.ControllerSocio" >
+
+
+		<action name="AggiungiSocio" class="it.unirc.pwm.eureca.action.socio.ControllerSocio"
+			method="inserisciSocio">
+			<interceptor-ref name="defaultStack" />
+			<interceptor-ref name="fileUpload">
+				<param name="allowedTypes">
+					image/png,image/gif,image/jpeg
+				</param>
+				<param name="maximumSize">20971520</param>
+			</interceptor-ref>
+			<interceptor-ref name="authenticationAdministratorInterceptor" />
+			<result name="success">/WEB-INF/areaRiservata/amministratore/indexAmministratore.jsp
+			</result>
+			<result name="input">/WEB-INF/areaRiservata/amministratore/AddSocio.jsp
+			</result>
+		</action>
+
+
+		<action name="GestisciSoci" class="it.unirc.pwm.eureca.action.socio.ControllerSocio">
 			<interceptor-ref name="defaultStack" />
 			<interceptor-ref name="authenticationAdministratorInterceptor" />
 			<result name="success">/WEB-INF/areaRiservata/amministratore/GestisciSoci.jsp
 			</result>
-			<result name="input">/HOME.action</result>
+			<result name="input" type="">/WEB-INF/areaRiservata/amministratore/GestisciSoci.jsp
+			</result>
 		</action>
-		
-		<action name="EliminaSocio" class="it.unirc.pwm.eureca.action.socio.ControllerSocio" method="eliminaSocio">
+
+		<action name="EliminaSocio" class="it.unirc.pwm.eureca.action.socio.ControllerSocio"
+			method="eliminaSocio">
 			<interceptor-ref name="defaultStack" />
 			<interceptor-ref name="authenticationAdministratorInterceptor" />
 			<result name="success" type="redirectAction">GestisciSoci.action
 			</result>
 			<result name="input">/HOME.action</result>
 		</action>
-		
-		<action name="ModificaSocio" class="it.unirc.pwm.eureca.action.socio.ControllerSocio" method="modificaSocio">
+
+		<action name="SettingSocio" class="it.unirc.pwm.eureca.action.socio.ControllerSocio"
+			method="settingSocio">
 			<interceptor-ref name="defaultStack" />
 			<interceptor-ref name="authenticationAdministratorInterceptor" />
-			<result name="success">/WEB-INF/areaRiservata/amministratore/ModificaSocio.jsp
+			<result name="success">/WEB-INF/areaRiservata/amministratore/SettingSocio.jsp
 			</result>
 			<result name="input">/HOME.action</result>
+		</action>
+
+		<action name="ModificaSocio" class="it.unirc.pwm.eureca.action.socio.ControllerSocio"
+			method="modificaSocio">
+			<interceptor-ref name="defaultStack" />
+			<interceptor-ref name="authenticationAdministratorInterceptor" />
+			<result name="success">/WEB-INF/areaRiservata/amministratore/indexAmministratore.jsp
+			</result>
+			<result name="input" type="redirectAction">HOME.action</result>
 		</action>
 
 	</package>

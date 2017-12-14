@@ -54,11 +54,8 @@
 												href="<s:url action='InserisciSocioRedirect' namespace='/amministratore/socio'/>">Aggiungi
 													Socio</a></li>
 											<li class="divider"></li>
-											<li><a href="#">Modifica Socio</a></li>
+											<li><a href="<s:url action='GestisciSoci' namespace='/amministratore/socio'/>">Gestisci Soci</a></li>
 											<li class="divider"></li>
-											<li><a href="#">Elimina Socio</a></li>
-											<li class="divider"></li>
-											<li><a href="#">Elenco Soci</a></li>
 
 										</ul>
 									</li>
@@ -66,7 +63,7 @@
 									<li class="dropdown">
 										<button href="#" class="dropdown-toggle btn"
 											data-toggle="dropdown">
-											Socio <b class="caret"></b>
+											Eventi <b class="caret"></b>
 										</button> <!--                                  You can add classes for different colours on the next element -->
 										<ul class="dropdown-menu dropdown-primary dropdown-menu-right">
 											<li><a
@@ -100,5 +97,13 @@
 
 		</div>
 	</div>
+
+	<s:if test="hasActionMessages()">
+		<div class="alert alert-success">
+			<h4>
+				<s:actionmessage />
+			</h4>
+		</div>
+	</s:if>
 </body>
 </html>

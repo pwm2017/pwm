@@ -32,6 +32,14 @@ public class Indirizzo
 	public void setVia(String via) {
 		this.via = via;
 	}
+	public Indirizzo(int cap, String civico, String citta, String via) {
+		super();
+		this.cap = cap;
+		this.civico = civico;
+		this.citta = citta;
+		this.via = via;
+	}
+	 
 	
 	
 }

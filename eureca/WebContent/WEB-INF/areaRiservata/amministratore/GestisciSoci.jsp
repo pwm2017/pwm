@@ -39,21 +39,22 @@
 													<div
 														class="col-md-2 col-md-offset-0 col-xs-3 col-xs-offset-2">
 														<img
-															src="/eureca/webApp/assets/img/<s:property value="idPersonaFisica"/>.jpg"
+															src="/eureca/webApp/assets/img/<s:property value="nome"/>.jpeg"
 															alt="Circle Image"
 															class="img-circle img-no-padding img-responsive">
 													</div>
 													<div class="col-md-7 col-xs-4">
 														<h6>
 															<s:property value="nome" />
-															<br /> <small><s:property value="cognome" /></small> 
-															<a href="<s:url action='EliminaSocio' namespace='/amministratore/socio'>
+															<br /> <small><s:property value="cognome" /></small> <a
+																href="<s:url action='EliminaSocio' namespace='/amministratore/socio'>
 															<s:param name="socio.idPersonaFisica"><s:property value="idPersonaFisica" /></s:param>
-															</s:url>">Elimina</a> <br/>
-															<a href="<s:url action='ModificaSocio' namespace='/amministratore/socio'> 
+															</s:url>">Elimina</a>
+															<a
+																href="<s:url action='SettingSocio' namespace='/amministratore/socio'> 
 															<s:param name="socio.idPersonaFisica"><s:property value="idPersonaFisica" /></s:param>
 															</s:url>">Modifica</a>
-															 <br/>
+
 														</h6>
 													</div>
 

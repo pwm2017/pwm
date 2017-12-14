@@ -56,7 +56,7 @@
 		<default-interceptor-ref name="secureStack" />
 
 		<global-results>
-			<result name="login" type="redirectAction">LoginForm.action</result>
+			<result name="login" type="redirect">LoginForm.action</result>
 			<!-- vale per qualunque action -->
 		</global-results>
 
@@ -87,8 +87,9 @@
 		<default-interceptor-ref name="secureAdministratorStack" />
 
 		<global-results>
-			<result name="login" type="redirectAction">LoginForm.action</result><!-- vale per 
+			<result name="login" type="redirect" >/LoginForm.action</result><!-- vale per 
 				qualunque action -->
+				
 		</global-results>
 
 		<action name="AuthenticatedAmministratore" class="it.unirc.pwm.eureca.action.login.Authenticated">

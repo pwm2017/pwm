@@ -4,6 +4,7 @@
         "http://struts.apache.org/dtds/xwork-validator-definition-1.0.dtd">
 <validators>
 
+<validator name="usernameexist" class="it.unirc.pwm.eureca.action.socio.validator.CheckUsernameValidator" />
 	<validator name="required"
 		class="com.opensymphony.xwork2.validator.validators.RequiredFieldValidator" />
 	<validator name="requiredstring"

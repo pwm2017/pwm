@@ -13,11 +13,6 @@
 <body>
 
 	<%@ include file="../../../webApp/layout/Header.jsp"%>
-
-	<div style="background-color: #aaffcc;">
-		<s:actionmessage />
-	</div>
-
 	<%@ include file="MenuAdmin.jsp"%>
 	
 	<div class="profile-content section-nude">
