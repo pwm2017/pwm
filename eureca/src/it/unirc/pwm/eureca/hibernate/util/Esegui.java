@@ -130,6 +130,12 @@ public class Esegui
 //		s.setId(id);
 		
 		
+		
+		
+		
+		
+		
+		
 		HibernateUtil.close();
 	}
 

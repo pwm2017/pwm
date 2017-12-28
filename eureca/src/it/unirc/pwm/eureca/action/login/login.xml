@@ -6,15 +6,14 @@
 <struts>
 
 	<package name="login" namespace="/" extends="struts-default">
-	
-	    <global-results>
+		
+		<global-results>
 			<result name="genericException">/webApp/Exception.jsp</result>
 		</global-results>
 		<global-exception-mappings>
 			<exception-mapping exception="java.lang.Exception"
 				result="genericException" />
 		</global-exception-mappings>
-		
 		
 		<action name="LoginForm" class="it.unirc.pwm.eureca.action.login.LoginForm">
 			<result>/webApp/LoginForm.jsp</result>

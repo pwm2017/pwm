@@ -13,7 +13,6 @@
 			<div id="menu-dropdown">
 				<div class="row">
 					<div class="col-md-6">
-
 						<br>
 
 					</div>
@@ -37,17 +36,35 @@
 										class="icon-bar"></span>
 								</button>
 								<a class="navbar-brand">Menu</a>
+								
 							</div>
 
 							<!-- Collect the nav links, forms, and other content for toggling -->
 							<div class="collapse navbar-collapse"
 								id="bs-example-navbar-collapse-1">
 								<ul class="nav navbar-nav pull-right">
+								<a href="<s:url action='AuthenticatedAmministratore' namespace='/areaRiservata/amministratore'/>" class="btn">Home</a>
 
 									<li class="dropdown">
 										<button href="#" class="dropdown-toggle btn"
 											data-toggle="dropdown">
-											Socio <b class="caret"></b>
+											Soci <b class="caret"></b>
+										</button> <!--                                  You can add classes for different colours on the next element -->
+										<ul class="dropdown-menu dropdown-primary dropdown-menu-right">
+											<li><a
+												href="<s:url action='InserisciSocioRedirect' namespace='/amministratore/socio'/>">Aggiungi
+													Socio</a></li>
+											<li class="divider"></li>
+											<li><a href="<s:url action='GestisciSoci' namespace='/amministratore/socio'/>">Gestisci Soci</a></li>
+											<li class="divider"></li>
+
+										</ul>
+									</li>
+									
+									<li class="dropdown">
+										<button href="#" class="dropdown-toggle btn"
+											data-toggle="dropdown">
+											Viaggi <b class="caret"></b>
 										</button> <!--                                  You can add classes for different colours on the next element -->
 										<ul class="dropdown-menu dropdown-primary dropdown-menu-right">
 											<li><a
@@ -90,7 +107,7 @@
 					<!--  end navbar -->
 				</div>
 				<br />
-				<div class="tim-title"></div>
+				
 
 			</div>
 			<!-- end menu-dropdown -->

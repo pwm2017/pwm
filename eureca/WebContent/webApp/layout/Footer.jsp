@@ -20,7 +20,7 @@
 		</ul>
 		</nav>
 		<div class="copyright pull-right">
-			&copy; Copyright © Eureca 2017 <i class="fa fa-heart heart"></i>
+			&copy; Copyright Eureca 2017 <i class="fa fa-heart heart"></i>
 		</div>
 	</div>
 	</footer>

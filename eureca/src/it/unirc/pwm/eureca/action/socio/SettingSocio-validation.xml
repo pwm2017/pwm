@@ -1,0 +1,55 @@
+<!DOCTYPE validators PUBLIC "-//Apache Struts//XWork Validator 1.0.3//EN"
+        "http://struts.apache.org/dtds/xwork-validator-1.0.3.dtd">
+<validators>
+
+	<field name="socio.username">
+		<field-validator type="requiredstring">
+			<message key="username.required"></message>
+		</field-validator>
+		<field-validator type="usernameexist">
+			<message key="username.exist"></message>
+		</field-validator>
+
+
+	</field>
+
+	<field name="socio.nome">
+		<field-validator type="requiredstring">
+			<message key="name.required"></message>
+		</field-validator>
+	</field>
+
+	<field name="socio.cognome">
+		<field-validator type="requiredstring">
+			<message key="surname.required"></message>
+		</field-validator>
+	</field>
+	
+	<field name="socio.telefono">
+		<field-validator type="required">
+			<message key="telephone.required"></message>
+		</field-validator>
+	</field>
+	
+
+	<!-- <field name="account.password">
+		<field-validator type="requiredstring">
+			<message key="password.required"></message>
+		</field-validator>
+
+		<field-validator type="stringlength">
+			<param name="minLength">8</param>
+			<param name="maxLength">20</param>
+			<message key="password.short"></message>
+		</field-validator>
+		<field-validator type="passwordstrenght">
+			<message key="password.mustContain"></message>
+		</field-validator>
+	</field> -->
+
+</validators>
+
+
+
+
+

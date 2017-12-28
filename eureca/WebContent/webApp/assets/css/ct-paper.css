@@ -24,7 +24,7 @@ h1, .h1, h2, .h2, h3, .h3, h4, .h4, h5, .h5, h6, .h6, p, .navbar, .brand, a, .td
 
 h1, .h1, h2, .h2, h3, .h3, h4, .h4 {
   font-weight: 400;
-  margin: 30px 0 15px;
+  margin: 20px 0 15px;
 }
 
 h1, .h1 {
@@ -1351,7 +1351,7 @@ textarea.form-control {
 .popover {
   border: 0;
   border-radius: 4px;
-  background-color: #FF8F5E;
+  background-color: #b6b2ab;
   color: #FFFFFF;
   font-weight: 400;
   padding: 0;
@@ -1361,14 +1361,14 @@ textarea.form-control {
 }
 
 .popover-title {
-  background-color: #FF8F5E;
+  background-color: #b6b2ab;
   border-bottom: 0 none;
   font-size: 16px;
   font-weight: normal;
   line-height: 22px;
   padding: 15px 15px 8px 15px;
   margin: 0;
-  color: #B33C12;
+  color: #ffffff;
   text-align: center;
   border-radius: 4px 4px 0 0;
 }

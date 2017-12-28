@@ -46,8 +46,11 @@ public class Login extends ActionSupport implements SessionAware {
 			addActionMessage(getText("error.message"));
 			return INPUT;
 		}
-			
-
+		else if(socio.isAbilitato()==false)
+		{
+			addActionMessage(getText("Socio non abilitato"));
+			return INPUT;
+		}
 		else if(socio.isAmministratore())
 		{
 			session.put("amministratore", socio); 

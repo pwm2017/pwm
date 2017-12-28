@@ -11,8 +11,8 @@ PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
 			</generator>
         </id>
         <property name="punti"/>
-        <property name="dataRilascio"/>
-         <property name="dataScadenza"/>
+        <property name="dataRilascio" type="date"/>
+         <property name="dataScadenza" type="date"/>
         <one-to-one name="socio" constrained="true" cascade="save-update"/>  
     </class>
 </hibernate-mapping>

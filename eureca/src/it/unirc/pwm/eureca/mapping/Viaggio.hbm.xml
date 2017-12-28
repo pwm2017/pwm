@@ -12,8 +12,8 @@ PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
 		<property name="locandina" />
 		<property name="descrizione" />
 		<property name="numPartecipanti" />
-		<property name="dataInizio" />
-		<property name="dataFine" />
+		<property name="dataInizio" type="date"/>
+		<property name="dataFine" type="date"/>
 		
 		<set name="soci" table="SOCIO_VIAGGIO" cascade="save-update" >
             <key column="IDVIAGGIO"/>

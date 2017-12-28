@@ -30,9 +30,10 @@ public class SocioDAOImplement implements SocioDAOInterface{
 	public boolean creaSocio(Socio s) 
 	{
 		session = HibernateUtil.getSessionFactory().openSession();
+		transaction=session.beginTransaction();
 		boolean control=false;
 		try {
-			transaction=session.beginTransaction();
+			s.setAbilitato(true);;
 			session.save(s);
 			logger.info("Socio inserito");
 			control=true;
@@ -56,6 +57,7 @@ public class SocioDAOImplement implements SocioDAOInterface{
 		try {
 			session = HibernateUtil.getSessionFactory().openSession();
 			transaction = session.beginTransaction();
+			s.setAbilitato(true);
 			session.update(s);
 			result=true;
 			logger.info("Socio modificato");
@@ -70,34 +72,34 @@ public class SocioDAOImplement implements SocioDAOInterface{
 		return result;
 	}
 
-//con hql
-//	public Socio verificaLogin(Socio s)
-//	{
-//		Socio trovato =null;
-//		session = HibernateUtil.getSessionFactory().openSession();
-//		try {
-//
-//			String hql = "from Socio s "
-//					+ "where  "
-//					+ "s.username ='"+s.getUsername()+"' and "
-//					+ "s.password ='"+s.getPassword()+"'";
-//			Query query = session.createQuery(hql);
-//			if(query.list().size()>0)
-//			{
-//				trovato = (Socio) query.list().get(0);
-//				logger.info("socio trovato");
-//			}
-//		} catch (Exception e) {
-//			e.printStackTrace();
-//			logger.error("socio non trovato");
-//		}finally{
-//			if(session.isOpen())
-//				session.close();
-//		}
-//		return trovato;
-//	}
-	
-	
+	//con hql
+	//	public Socio verificaLogin(Socio s)
+	//	{
+	//		Socio trovato =null;
+	//		session = HibernateUtil.getSessionFactory().openSession();
+	//		try {
+	//
+	//			String hql = "from Socio s "
+	//					+ "where  "
+	//					+ "s.username ='"+s.getUsername()+"' and "
+	//					+ "s.password ='"+s.getPassword()+"'";
+	//			Query query = session.createQuery(hql);
+	//			if(query.list().size()>0)
+	//			{
+	//				trovato = (Socio) query.list().get(0);
+	//				logger.info("socio trovato");
+	//			}
+	//		} catch (Exception e) {
+	//			e.printStackTrace();
+	//			logger.error("socio non trovato");
+	//		}finally{
+	//			if(session.isOpen())
+	//				session.close();
+	//		}
+	//		return trovato;
+	//	}
+
+
 	public Socio verificaLogin(Socio s) {
 		session = HibernateUtil.getSessionFactory().openSession();
 		Socio res = null;
@@ -117,104 +119,108 @@ public class SocioDAOImplement implements SocioDAOInterface{
 		return res;
 
 	}
-	
-	
+
+
 	//Criteria
-		public Boolean verificaUsername(String username) 
+	public Boolean verificaUsername(String username) 
+	{
+		session = HibernateUtil.getSessionFactory().openSession();
+		transaction = session.beginTransaction();
+		Socio s = null;
+		Boolean trovato = false;
+		try 
 		{
-			session = HibernateUtil.getSessionFactory().openSession();
-			transaction = session.beginTransaction();
-			Socio s = null;
-			Boolean trovato = false;
-			try 
-			{
-				Criteria cr = session.createCriteria(Socio.class);
-				cr.add(Restrictions.eq("username", username));
-				s = (Socio)cr.uniqueResult();
-				if(s!=null)
-					trovato = true;
-				
-			} catch (Exception e) {
-				e.printStackTrace();
-			}finally{
-				session.close();
-			}
-			
-			return trovato;
-			
+			Criteria cr = session.createCriteria(Socio.class);
+			cr.add(Restrictions.eq("username", username));
+			s = (Socio)cr.uniqueResult();
+			if(s!=null)
+				trovato = true;
+
+		} catch (Exception e) {
+			e.printStackTrace();
+		}finally{
+			session.close();
 		}
-		
-		public List<Socio> getSoci()
+
+		return trovato;
+
+	}
+
+	public List<Socio> getSoci()
+	{
+		List<Socio> soci = new ArrayList<>();
+		session = HibernateUtil.getSessionFactory().openSession();
+		try {
+			String hql = "FROM Socio where abilitato=1";
+			Query query = session.createQuery(hql);
+			soci=query.list();
+
+
+		} catch (Exception e) {
+			e.printStackTrace();
+		}finally{
+			session.close();
+		}
+
+		return soci;
+
+	}
+
+	public Boolean eliminaSocio(Socio s)
+	{
+		session = HibernateUtil.getSessionFactory().openSession();
+		transaction = session.beginTransaction();
+		boolean result=false;
+
+		try 
 		{
-			List<Socio> soci = new ArrayList<>();
+			Socio res = (Socio)session.createQuery( "from Socio where idPersonaFisica= :idPersonaFisica" ).setParameter("idPersonaFisica", s.getIdPersonaFisica()).uniqueResult();
+			res.setAbilitato(false);;
+			session.update(res);
+			logger.info("Socio cancellato");
+			transaction.commit();
+			result=true;
+		} catch (Exception e) {
+			e.printStackTrace();
+		}finally{
+			session.close();
+		}
+		return result;
+
+	}
+
+
+	public Socio getSocio(Socio s){
+		Socio so = null;
+
+		String hql = "from Socio where idPersonaFisica ='"+s.getIdPersonaFisica()+"'";
+		try {
 			session = HibernateUtil.getSessionFactory().openSession();
-			try {
-				String hql = "FROM Socio";
-				Query query = session.createQuery(hql);
-				soci=query.list();
-				
-
-			} catch (Exception e) {
-				e.printStackTrace();
-			}finally{
-				session.close();
-			}
-
-			return soci;
-
-		}
-		
-		public Boolean eliminaSocio(Socio s){
-			boolean result=false;
-			
-			try {
-				session = HibernateUtil.getSessionFactory().openSession();
-				transaction = session.beginTransaction();
-				session.delete(s);
-				transaction.commit();
-				result=true;
-				
-			} catch (Exception e) {
-				e.printStackTrace();
-			}finally{
-				session.close();
-			}
-			return result;
-			
-		}
-		
-		
-		public Socio getSocio(Socio s){
-			Socio so = null;
-			
-			String hql = "from Socio where idPersonaFisica ='"+s.getIdPersonaFisica()+"'";
-			try {
-				session = HibernateUtil.getSessionFactory().openSession();
-				Query query = session.createQuery(hql);
-				if (query.list().size()>0)
+			Query query = session.createQuery(hql);
+			if (query.list().size()>0)
 				so=(Socio)query.list().get(0);
-			} catch (Exception e) {
-				e.printStackTrace();
-			}finally{
-				session.close();
-			}
-			return so;
+		} catch (Exception e) {
+			e.printStackTrace();
+		}finally{
+			session.close();
 		}
-		
-		public Socio getSocioById(Socio s){
-			session = HibernateUtil.getSessionFactory().openSession();
-			Socio trovato = null;
-			try {
-				Criteria cr = session.createCriteria(Socio.class);
-				cr.add(Restrictions.eq("nome", s.getNome()));
-				trovato = (Socio)cr.uniqueResult();
+		return so;
+	}
 
-			} catch (Exception e) {
-				e.printStackTrace();
-			}finally{
-				session.close();
-			}
-			return trovato;
+	public Socio getSocioById(Socio s){
+		session = HibernateUtil.getSessionFactory().openSession();
+		Socio trovato = null;
+		try {
+			Criteria cr = session.createCriteria(Socio.class);
+			cr.add(Restrictions.eq("nome", s.getNome()));
+			trovato = (Socio)cr.uniqueResult();
+
+		} catch (Exception e) {
+			e.printStackTrace();
+		}finally{
+			session.close();
 		}
-		
+		return trovato;
+	}
+
 }

@@ -14,11 +14,28 @@
 
 	<%@ include file="../../../webApp/layout/Header.jsp"%>
 
-	<div style="background-color: #aaffcc;">
-		<s:actionmessage />
-	</div>
 
 	<%@ include file="MenuAdmin.jsp"%>
+	<div class="main">
+		<div class="section">
+			<div class="container tim-container">
+				<div class="tim-title">
+					<h2>
+						<s:text name="title.gestisciSoci" />
+					</h2>
+				</div>
+			</div>
+		</div>
+	</div>
+	
+	<s:if test="listaSoci.isEmpty()">
+	<div class="alert alert-success">
+			<h4>
+				<h3> Non ci sono soci</h3>
+			</h4>
+		</div>
+	
+	 </s:if>
 
 	<div class="profile-content section-nude">
 		<div class="container">
@@ -33,15 +50,25 @@
 							<div class="row">
 								<div class="col-md-6 col-md-offset-3">
 									<ul class="list-unstyled follows">
-										<s:iterator value="listaSoci">
+										<%-- <s:iterator value="listaSoci" status="incr"> --%>
+										<s:iterator value="listaSoci" >
 											<li>
 												<div class="row">
+												<%-- <s:property value="%{#incr.index}"/> --%>
 													<div
 														class="col-md-2 col-md-offset-0 col-xs-3 col-xs-offset-2">
+														<s:if test="foto==null">
 														<img
-															src="/eureca/webApp/assets/img/<s:property value="nome"/>.jpeg"
+															src="/eureca/webApp/assets/img/placeholder.jpg"
 															alt="Circle Image"
 															class="img-circle img-no-padding img-responsive">
+														</s:if>
+														<s:else>
+														<img
+															src="/eureca/webApp/assets/img/soci/<s:property value="foto"/>"
+															alt="Circle Image"
+															class="img-circle img-no-padding img-responsive">
+															</s:else>
 													</div>
 													<div class="col-md-7 col-xs-4">
 														<h6>
@@ -51,7 +78,7 @@
 															<s:param name="socio.idPersonaFisica"><s:property value="idPersonaFisica" /></s:param>
 															</s:url>">Elimina</a>
 															<a
-																href="<s:url action='SettingSocio' namespace='/amministratore/socio'> 
+																href="<s:url action='SetSocio' namespace='/amministratore/socio'> 
 															<s:param name="socio.idPersonaFisica"><s:property value="idPersonaFisica" /></s:param>
 															</s:url>">Modifica</a>
 

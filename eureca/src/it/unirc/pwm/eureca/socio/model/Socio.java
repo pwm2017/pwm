@@ -15,6 +15,7 @@ public class Socio extends PersonaFisica
 	private String foto;//ho immaginato fosse un url altrimenti non saprei come gestirla
 	private Tessera tessera;
 	private boolean amministratore;
+	private boolean abilitato;
 	private Set<Viaggio> viaggi = new HashSet<Viaggio>(0);
 	private Set<Svolge> svolges = new HashSet<Svolge>(0);
 	
@@ -25,11 +26,21 @@ public class Socio extends PersonaFisica
 	
 	
 
-	public boolean isAmministratore() {
-		return amministratore;
+	public boolean isAbilitato() {
+		return abilitato;
 	}
 
 
+
+	public void setAbilitato(boolean abilitato) {
+		this.abilitato = abilitato;
+	}
+
+
+
+	public boolean isAmministratore() {
+		return amministratore;
+	}
 
 	public void setAmministratore(boolean amministratore) {
 		this.amministratore = amministratore;

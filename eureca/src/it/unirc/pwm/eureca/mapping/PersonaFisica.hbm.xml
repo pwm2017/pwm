@@ -19,6 +19,6 @@ PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
             <column name="email" />
         </property>
         <property name="telefono" />  
-        <property name="dataNascita" />   
+        <property name="dataNascita" type="date"/>   
     </class>
 </hibernate-mapping>

@@ -18,8 +18,8 @@ public class IndirizzoConverter  extends StrutsTypeConverter
 
 	@Override
 	public String convertToString(Map arg0, Object value) {
-		Indirizzo env  = (Indirizzo) value;
-	      return env == null ? null : env.getCap()+env.getCitta()+env.getCivico()+env.getVia();
+		Indirizzo ind  = (Indirizzo) value;
+	      return ind == null ? null : ind.getCap()+ind.getCitta()+ind.getCivico()+ind.getVia();
 	}
 	
 }

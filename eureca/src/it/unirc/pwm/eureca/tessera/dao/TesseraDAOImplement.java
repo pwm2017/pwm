@@ -6,6 +6,7 @@ import org.hibernate.Session;
 import org.hibernate.Transaction;
 
 import it.unirc.pwm.eureca.hibernate.util.HibernateUtil;
+import it.unirc.pwm.eureca.socio.model.Socio;
 import it.unirc.pwm.eureca.tessera.model.Tessera;
 
 
@@ -63,4 +64,25 @@ public class TesseraDAOImplement implements TesseraDAOInterface
 		}
 		return result;
 	}
+	
+	public Tessera getTesseraSocio(Socio s) 
+	{
+		session = HibernateUtil.getSessionFactory().openSession();
+		transaction=session.beginTransaction();
+		Tessera res = null;
+		try {
+			
+		    res = (Tessera)session.createQuery( "from Tessera where idSocio= :idSocio" ).setParameter("idSocio", s.getIdPersonaFisica()).uniqueResult();
+			transaction.commit();
+		} catch (Exception e) {
+			transaction.rollback();
+			e.printStackTrace();
+			logger.error("errore nella ricerca della TesseraSocio");
+		}finally{
+			session.close();
+		}
+		
+		return res;
+	}
+
 }

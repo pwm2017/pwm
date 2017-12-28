@@ -8,37 +8,61 @@
 
 <%@ include file="../../../webApp/layout/Head.jsp"%>
 
-<title>Registration</title>
+<title><s:text name="title.addSocio" /></title>
 </head>
 
 <body>
 	<%@ include file="../../../webApp/layout/Header.jsp"%>
 	<%@ include file="MenuAdmin.jsp"%>
+	<div class="main">
+		<div class="section">
+			<div class="container tim-container">
+				<div class="tim-title">
+					<h2>
+						<s:text name="title.addSocio" />
+					</h2>
+				</div>
+			</div>
+		</div>
+	</div>
 	<div class="section">
 		<div class="container">
 			<div class="row">
 				<div
-					class="col-md-7 col-md-offset-4 col-sm-6 col-sm-offset-3 col-xs-10 col-xs-offset-1">
+					class="col-md-6 col-md-offset-3 col-sm-6 col-sm-offset-3 col-xs-10 col-xs-offset-1">
 
 					<s:form action="AggiungiSocio" enctype="multipart/form-data">
-						<s:textfield key="label.user.nome" name="socio.nome" class="form-control" />
-						<s:textfield label="Cognome" name="socio.cognome" class="form-control" />
-						<s:textfield label="cap" name="socio.indirizzo" class="form-control" />
-						<s:textfield label="civico" name="socio.indirizzo" class="form-control" />
-						<s:textfield label="citta" name="socio.indirizzo" class="form-control" />
-						<s:textfield label="via"  name="socio.indirizzo" class="form-control" />
-						<s:textfield label="email" requiredLabel="true" name="socio.email" class="form-control" />
-						<s:textfield label="Telefono" name="socio.telefono" type="number" class="form-control"/>
-						<s:textfield label="Data di nascita (gg/mm/aa)"
-							name="socio.dataNascita"  class="datepicker form-control"/>
+						<s:textfield key="label.socio.nome" requiredLabel="true" name="socio.nome"
+							class="form-control" />
+						<s:textfield key="label.socio.surname" name="socio.cognome"
+							class="form-control" requiredLabel="true" />
+						<s:textfield key="label.socio.indirizzo.cap"
+							name="socio.indirizzo.cap" requiredLabel="true"
+							class="form-control" />
+						<s:textfield key="label.socio.indirizzo.civico"
+							name="socio.indirizzo.civico" requiredLabel="true"
+							class="form-control" />
+						<s:textfield key="label.socio.indirizzo.citta"
+							name="socio.indirizzo.citta" requiredLabel="true"
+							class="form-control" />
+						<s:textfield key="label.socio.indirizzo.via"
+							name="socio.indirizzo.via" requiredLabel="true"
+							class="form-control" />
+						<s:textfield key="label.socio.email" name="socio.email"
+							class="form-control" />
+						<s:textfield key="label.socio.Telefono" name="socio.telefono"
+							requiredLabel="true" type="number" class="form-control" />
+						<s:textfield key="label.socio.dataNascita"
+							name="socio.dataNascita" class="form-control" />
 						<s:textfield key="label.user.username" requiredLabel="true"
 							name="socio.username" class="form-control" />
-						<s:password label="Password" showPassword="true"
+						<s:password key="label.user.password" showPassword="true"
 							requiredLabel="true" name="socio.password" class="form-control" />
-						<s:textfield label="Codice Fiscale" requiredLabel="true"
+						<s:textfield key="label.socio.codiceFiscale"
 							name="socio.codiceFiscale" class="form-control" />
-						<s:checkbox name="socio.amministratore" label="È un amministratore?"/>
-						<s:file name="uploadDoc" label="carica immagine" />
+						<s:checkbox name="socio.amministratore"
+							key="label.socio.amministratore" />
+						<s:file name="uploadDoc" key="Carica immagine" />
 
 						<s:submit value="Aggiungi" class="btn btn-danger btn-block" />
 					</s:form>

@@ -19,6 +19,7 @@ PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
 		</component>
 		<property name="foto" />
 		<property name="amministratore" />
+		<property name="abilitato" />
 		
 		<one-to-one name="tessera" cascade="all"/> 
 		

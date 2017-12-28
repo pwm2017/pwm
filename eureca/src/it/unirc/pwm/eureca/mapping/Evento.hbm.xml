@@ -12,7 +12,7 @@ PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
 		<property name="locandina" />
 		<property name="descrizione" />
 		<property name="luogo" />
-		<property name="dataEvento" />
+		<property name="dataEvento" type="date"/>
 		
 		
 		<set name="attivita" lazy="true" cascade="save-update" sort="unsorted" table="ATTIVITA" >
