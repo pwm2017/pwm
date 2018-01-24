@@ -2,10 +2,7 @@ package it.unirc.pwm.eureca.action.socio;
 
 import java.io.File;
 import java.io.IOException;
-import java.util.Calendar;
 import java.util.Date;
-import java.util.GregorianCalendar;
-
 import javax.servlet.http.HttpServletRequest;
 
 import org.apache.commons.io.FileUtils;
@@ -20,14 +17,14 @@ import it.unirc.pwm.eureca.tessera.dao.TesseraDAOFactory;
 import it.unirc.pwm.eureca.tessera.dao.TesseraDAOInterface;
 import it.unirc.pwm.eureca.tessera.model.Tessera;
 
-public class SettingSocio extends ActionSupport implements ServletRequestAware
+public class AddSocio extends ActionSupport implements ServletRequestAware
 {
 	private static final long serialVersionUID = 1L;
 	private Socio socio = null;
 	private SocioDAOInterface sdao=SocioDAOFactory.getDAO();
+	private TesseraDAOInterface tdao=TesseraDAOFactory.getDAO();
 	private Tessera tessera=new Tessera();
 	private File uploadDoc;
-	private TesseraDAOInterface tdao=TesseraDAOFactory.getDAO();
 	private String uploadDocFileName;
 	private String uploadDocContentType;
 	public HttpServletRequest request;
@@ -84,9 +81,7 @@ public class SettingSocio extends ActionSupport implements ServletRequestAware
 	public String inserisciSocio()
 	{
 		String appPath = request.getServletContext().getRealPath("");
-		
-		
-		System.out.println(appPath);
+
 		if ((uploadDocFileName!=null)){
 			String[] parts = uploadDocContentType.split("/");
 			String part2 = parts[1];
@@ -106,7 +101,7 @@ public class SettingSocio extends ActionSupport implements ServletRequestAware
 		}
 		if(sdao.creaSocio(socio))
 		{
-			addActionMessage("Socio aggiunto correttemente");
+			addActionMessage("Socio aggiunto correttamente");
 			
 			tessera.setSocio(socio);
 			tessera.setPunti(0);
@@ -125,22 +120,7 @@ public class SettingSocio extends ActionSupport implements ServletRequestAware
 			return SUCCESS;
 		}
 		else 
-			addActionMessage("errore");
-		return INPUT;
-	}
-
-
-
-	public String modificaSocio()
-	{
-		if(sdao.modificaSocio(socio))
-		{
-			addActionMessage("Socio modificato correttemente");
-
-			return SUCCESS;
-		}
-		else 
-			addActionMessage("errore");
+			addActionError("Errore");
 		return INPUT;
 	}
 

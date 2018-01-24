@@ -17,15 +17,15 @@ import it.unirc.pwm.eureca.viaggio.dao.ViaggioDAOFactory;
 import it.unirc.pwm.eureca.viaggio.dao.ViaggioDAOInterface;
 import it.unirc.pwm.eureca.viaggio.model.Viaggio;
 
-public class ControllerViaggio extends ActionSupport implements ServletRequestAware
+public class ControllerViaggio extends ActionSupport
 {
 	private static final long serialVersionUID = 1L;
 	private Viaggio viaggio = null;
 	private ViaggioDAOInterface vdao=ViaggioDAOFactory.getDAO();
 	private List<Viaggio> listaViaggi= null;
-	
-	public HttpServletRequest request;
 
+	
+	
 	public String execute() throws Exception{
 		
 		//listaViaggi=vdao.getViaggi();
@@ -65,14 +65,5 @@ public class ControllerViaggio extends ActionSupport implements ServletRequestAw
 			return SUCCESS;
 	}
 
-	public void setServletRequest(HttpServletRequest request) {
-		this.request = request;
-	}
 	
-//	public void validate()
-//	{
-//		if(socio.getNome().length()==0){
-//			this.addFieldError("socio.nome","nome richiesto");
-//		}
-//	}
 }

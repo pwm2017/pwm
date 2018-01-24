@@ -80,8 +80,6 @@ public class UpdateSocio extends ActionSupport implements ServletRequestAware
 		return SUCCESS;
 	}
 
-
-
 	public String modificaSocio()
 	{
 		if(sdao.modificaSocio(socio))
@@ -94,7 +92,7 @@ public class UpdateSocio extends ActionSupport implements ServletRequestAware
 			addActionError("Errore nel modifica socio");;
 		return INPUT;
 	}
-
+	
 	@Override
 	public void setServletRequest(HttpServletRequest request) {
 		this.request = request;

@@ -1,7 +1,5 @@
 package it.unirc.pwm.eureca.action.socio;
 import java.util.List;
-
-import javax.servlet.http.HttpServletRequest;
 import com.opensymphony.xwork2.ActionSupport;
 
 import it.unirc.pwm.eureca.socio.dao.SocioDAOFactory;
@@ -19,7 +17,6 @@ public class ControllerSocio extends ActionSupport
 	private List<Socio> listaSoci= null;
 	private Tessera tessera=new Tessera();
 	private TesseraDAOInterface tdao=TesseraDAOFactory.getDAO();
-	public HttpServletRequest request;
 
 
 	public Socio getSocio() {
@@ -29,8 +26,8 @@ public class ControllerSocio extends ActionSupport
 	public void setSocio(Socio socio) {
 		this.socio = socio;
 	}
-	
-	
+
+
 	public Tessera getTessera() {
 		return tessera;
 	}
@@ -47,11 +44,12 @@ public class ControllerSocio extends ActionSupport
 		this.listaSoci = listaSoci;
 	}
 
-	public String execute() throws Exception{
-		
+	public String execute()
+	{
 		listaSoci=sdao.getSoci();
-		if(listaSoci==null)
-		return INPUT;
+		if(listaSoci==null){
+			addActionError("Errore nel visuliazzare i soci");
+			return INPUT;}
 		else
 			return SUCCESS;
 	}
@@ -66,12 +64,12 @@ public class ControllerSocio extends ActionSupport
 	{
 		if(sdao.eliminaSocio(socio))
 		{
-			addActionMessage("Socio eliminato correttemente");
+			addActionMessage("Socio eliminato correttamente");
 
 			return SUCCESS;
 		}
 		else 
-			addActionMessage("errore");
+			addActionError("Errore nell'eliminare il socio"+ getText(socio.getNome()));
 		return INPUT;
 	}
 
@@ -80,8 +78,10 @@ public class ControllerSocio extends ActionSupport
 		socio=sdao.getSocio(socio);
 		tessera=tdao.getTesseraSocio(socio);
 		if(socio==null)
+		{
+			addActionError("Impossibile caricare il socio "+ getText(socio.getNome()));
 			return INPUT;
-
+		}
 		else 
 			return SUCCESS;
 	}

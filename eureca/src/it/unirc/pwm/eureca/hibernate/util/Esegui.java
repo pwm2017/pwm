@@ -109,7 +109,12 @@ public class Esegui
 //		so.setPassword("ciao");
 //		so.setUsername("ciao");
 //		
-		SocioDAOInterface daoS= SocioDAOFactory.getDAO();
+		ViaggioDAOInterface daoS= ViaggioDAOFactory.getDAO();
+		Viaggio v=new Viaggio();
+		v.setIdViaggio(1);
+		Socio s=new Socio();
+		s.setIdPersonaFisica(1);
+		daoS.aggiungiSocioViaggio(v, s);
 //		daoS.creaSocio(so);
 //		so.setPassword("ciao");
 //		so.setAmministratore(false);

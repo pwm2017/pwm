@@ -27,6 +27,8 @@
 
 	<include file="it/unirc/pwm/eureca/action/login/login.xml" />
 	<include file="it/unirc/pwm/eureca/action/socio/socio.xml" />
+	<include file="it/unirc/pwm/eureca/action/viaggio/viaggio.xml" />
+	<include file="it/unirc/pwm/eureca/action/evento/evento.xml" />
 
 
 </struts>

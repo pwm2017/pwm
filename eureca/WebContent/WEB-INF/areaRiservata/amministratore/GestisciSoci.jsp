@@ -28,6 +28,7 @@
 		</div>
 	</div>
 	
+	
 	<s:if test="listaSoci.isEmpty()">
 	<div class="alert alert-success">
 			<h4>
@@ -36,7 +37,8 @@
 		</div>
 	
 	 </s:if>
-
+	 
+	
 	<div class="profile-content section-nude">
 		<div class="container">
 
@@ -48,6 +50,7 @@
 					<div id="my-tab-content" class="tab-content">
 						<div class="tab-pane active" id="follows">
 							<div class="row">
+		
 								<div class="col-md-6 col-md-offset-3">
 									<ul class="list-unstyled follows">
 										<%-- <s:iterator value="listaSoci" status="incr"> --%>

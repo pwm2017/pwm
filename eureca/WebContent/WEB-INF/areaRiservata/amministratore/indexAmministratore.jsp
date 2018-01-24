@@ -54,7 +54,73 @@
 					</btn>
 				</div>
 			</div>
-			<div class="profile-tabs"></div>
+
+			<div class="profile-tabs">
+				<div class="nav-tabs-navigation">
+					<div class="nav-tabs-wrapper">
+						<ul id="tabs" class="nav nav-tabs" data-tabs="tabs">
+							<li class="active"><a href="#follows" data-toggle="tab">Info</a></li>
+
+						</ul>
+					</div>
+				</div>
+				<div id="my-tab-content" class="tab-content">
+					<div class="tab-pane active" id="follows">
+						<div class="row">
+							<div class="col-md-6 col-md-offset-3">
+								<ul class="list-unstyled follows">
+									<li>
+										<div class="row">
+
+											<div class="col-md-11 col-xs-4">
+												<div class="tim-typo">
+													<span class="tim-note">Informazioni</span>
+													<blockquote>
+														<p>Codice Fiscale:</p>
+														<small> <s:property
+																value="#session.amministratore.codiceFiscale" /> <br>
+														</small>
+														<p>Username:</p>
+														<small> <s:property
+																value="#session.amministratore.username" /> <br>
+														</small>
+														<p>Indirizzo:</p>
+														<small> <s:property
+																value="#session.amministratore.indirizzo.citta" /> <br>
+															<s:property value="#session.amministratore.indirizzo.via" />
+															<br> <s:property
+																value="#session.amministratore.indirizzo.civico" /> <br>
+															<s:property value="#session.amministratore.indirizzo.cap" />
+															<br>
+														</small>
+														<p>Telefono:</p>
+														<small> <s:property
+																value="#session.amministratore.telefono" /> <br>
+														</small>
+														<p>E-mail:</p>
+														<small> <s:property
+																value="#session.amministratore.email" /> <br>
+														</small>
+
+														<p>Data di nascita:</p>
+														<small> <s:property
+																value="#session.amministratore.dataNascita" /> <br>
+														</small>
+													</blockquote>
+												</div>
+											</div>
+										</div>
+									</li>
+									<hr />
+
+								</ul>
+							</div>
+						</div>
+					</div>
+
+				</div>
+
+			</div>
 
 		</div>
 

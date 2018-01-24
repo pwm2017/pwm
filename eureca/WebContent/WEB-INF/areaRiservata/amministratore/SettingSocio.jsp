@@ -8,13 +8,13 @@
 
 <%@ include file="../../../webApp/layout/Head.jsp"%>
 
-<title>Registration</title>
+<title><s:text name="title.modificaSocio" /></title>
 </head>
 
 <body>
 	<%@ include file="../../../webApp/layout/Header.jsp"%>
 	<%@ include file="MenuAdmin.jsp"%>
-	
+
 	<div class="main">
 		<div class="section">
 			<div class="container tim-container">
@@ -26,7 +26,7 @@
 			</div>
 		</div>
 	</div>
-	
+
 	<div class="section">
 		<div class="container">
 			<div class="row">
@@ -36,8 +36,8 @@
 					<s:form action="ModificaSocio">
 						<s:hidden name="socio.idPersonaFisica"
 							value="%{socio.idPersonaFisica}"></s:hidden>
-						<s:textfield key="label.socio.nome" requiredLabel="true" name="socio.nome"
-							class="form-control" />
+						<s:textfield key="label.socio.nome" requiredLabel="true"
+							name="socio.nome" class="form-control" />
 						<s:textfield key="label.socio.surname" name="socio.cognome"
 							class="form-control" requiredLabel="true" />
 						<s:textfield key="label.socio.indirizzo.cap"
@@ -72,7 +72,7 @@
 					</s:form>
 				</div>
 				<div class="col-md-4">
-					<div  ALIGN="CENTER">
+					<div ALIGN="CENTER">
 						<h3>Tessera</h3>
 					</div>
 					<div class=" col-md-offset-2">
@@ -95,14 +95,18 @@
 									<div class="modal-header">
 										<button type="button" class="close" data-dismiss="modal"
 											aria-hidden="true">&times;</button>
-										<h4 class="modal-title" id="myModalLabel">Modal title</h4>
+										<h4 class="modal-title" id="myModalLabel">
+											<s:text name="title.updateTessera" />
+										</h4>
 									</div>
 									<div class="modal-body">
 										<div class="section">
 											<div class="container">
 												<div class="row">
 													<div class="col-md-5 col-md-offset2">
-														<s:form action="ModificaSocio">
+														<s:form action="ModificaTessera">
+															<s:hidden name="tessera.idSocio"
+																value="%{socio.idPersonaFisica}"></s:hidden>
 															<s:textfield label="Punti" name="tessera.punti"
 																class="form-control" />
 															<s:textfield label="DataRilascio"

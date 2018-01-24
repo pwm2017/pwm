@@ -68,8 +68,8 @@
 										</button> <!--                                  You can add classes for different colours on the next element -->
 										<ul class="dropdown-menu dropdown-primary dropdown-menu-right">
 											<li><a
-												href="<s:url action='InserisciSocioRedirect' namespace='/amministratore/socio'/>">Aggiungi
-													Socio</a></li>
+												href="<s:url action='InserisciViaggioRedirect' namespace='/amministratore/viaggio'/>">Aggiungi
+													Viaggio</a></li>
 											<li class="divider"></li>
 											<li><a href="<s:url action='GestisciSoci' namespace='/amministratore/socio'/>">Gestisci Soci</a></li>
 											<li class="divider"></li>
@@ -84,8 +84,8 @@
 										</button> <!--                                  You can add classes for different colours on the next element -->
 										<ul class="dropdown-menu dropdown-primary dropdown-menu-right">
 											<li><a
-												href="<s:url action='InserisciSocioRedirect' namespace='/'/>">Aggiungi
-													Socio</a></li>
+												href="<s:url action='InserisciEventoRedirect' namespace='/amministratore/evento'/>">Aggiungi
+													Evento</a></li>
 											<li class="divider"></li>
 											<li><a
 												href="<s:url action='GestisciSoci' namespace='/amministratore/socio'/>">Modifica
@@ -122,5 +122,14 @@
 			</h4>
 		</div>
 	</s:if>
+	
+	<s:if test="hasActionError()">
+	<div class="alert alert-danger">
+			<h4>
+				<h3> <s:actionerror /></h3>
+			</h4>
+		</div>
+	
+	 </s:if>
 </body>
 </html>
