@@ -75,7 +75,12 @@
 													<div class="col-md-7 col-xs-4">
 														<h6>
 															<s:property value="nome" />
-															<br /> <small><s:property value="cognome" /></small> <a
+															<br /> <small><s:property value="cognome" /></small>
+														</h6>
+													</div>
+													<div class="col-md-3 col-xs-2">
+														<h6>
+															<a 
 																href="<s:url action='EliminaSocio' namespace='/amministratore/socio'>
 															<s:param name="socio.idPersonaFisica"><s:property value="idPersonaFisica" /></s:param>
 															</s:url>">Elimina</a>
@@ -83,10 +88,8 @@
 																href="<s:url action='SetSocio' namespace='/amministratore/socio'> 
 															<s:param name="socio.idPersonaFisica"><s:property value="idPersonaFisica" /></s:param>
 															</s:url>">Modifica</a>
-
 														</h6>
 													</div>
-
 												</div>
 											</li>
 											<hr />
