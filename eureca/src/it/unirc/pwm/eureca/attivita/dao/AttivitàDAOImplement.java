@@ -65,7 +65,6 @@ public class Attivit‡DAOImplement implements Attivit‡DAOInterface{
 	}
 	
 	
-	@Override
 	public Attivita getAttivita(Attivita a) 
 	{
 		Attivita attivita = null;
@@ -81,6 +80,28 @@ public class Attivit‡DAOImplement implements Attivit‡DAOInterface{
 		} catch (Exception e) {
 			e.printStackTrace();
 			logger.error("errore dentro il getAttivita");
+		}finally{
+			session.close();
+		}
+		return attivita;
+	}
+	
+	
+	public Attivita getUltimaAttivita() 
+	{
+		Attivita attivita = null;
+		
+		String hql = "from Attivita order by idAttivita DESC";
+		try {
+			session = HibernateUtil.getSessionFactory().openSession();
+			@SuppressWarnings("deprecation")
+			Query<?> query = session.createQuery(hql);
+			if (query.getResultList().size()>0)
+				attivita=(Attivita)query.getResultList().get(0);
+			logger.info("Attivit‡ trovata");
+		} catch (Exception e) {
+			e.printStackTrace();
+			logger.error("errore dentro il getUltimaAttivita");
 		}finally{
 			session.close();
 		}

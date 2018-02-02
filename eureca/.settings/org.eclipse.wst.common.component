@@ -2,7 +2,7 @@
     <wb-module deploy-name="eureca">
         <wb-resource deploy-path="/" source-path="/WebContent" tag="defaultRootSource"/>
         <wb-resource deploy-path="/WEB-INF/classes" source-path="/src"/>
-        <property name="context-root" value="eureca"/>
         <property name="java-output-path" value="/eureca/build/classes"/>
+        <property name="context-root" value="eureca"/>
     </wb-module>
 </project-modules>

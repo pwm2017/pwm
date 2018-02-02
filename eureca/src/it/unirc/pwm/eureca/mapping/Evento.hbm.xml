@@ -23,7 +23,7 @@ PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
 			<one-to-many class="it.unirc.pwm.eureca.attivita.model.Attivita" />
 		</set>
 		
-		<set name="utenti" table="UTENTE_EVENTO" cascade="save-update" >
+		<set name="utenti" table="UTENTE_EVENTO" cascade="save-update" inverse="true">
             <key column="IDEVENTO"/>
             <many-to-many column="IDUTENTE"  class="it.unirc.pwm.eureca.utente.model.Utente" />  
         </set>

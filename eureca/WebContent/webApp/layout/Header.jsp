@@ -16,7 +16,7 @@
 		<!-- Brand and toggle get grouped for better mobile display -->
 		<div class="navbar-header">
 
-			<a href="<s:url action='HOME'/>">
+			<a href="<s:url action='HOME' namespace='/'/>">
 				<div class="logo-container">
 					<div class="logo">
 						<img src="/eureca/webApp/assets/img/logo.png" alt="Eureca">
@@ -32,21 +32,21 @@
 				
 				<s:if test="%{!(#session.isEmpty())}">
 				
-				<li><a href="<s:url action='Logout' namespace='/'/>" class="btn btn-danger btn-fill">Logout</a>
+				<li><a href="<s:url action='Logout' namespace='/'/>" class="btn btn-fill">Logout</a>
 				</li>
 				<s:if test="%{(#session.amministratore.username!=null)}">
-				<li><a href="<s:url action='AuthenticatedAmministratore' namespace='/areaRiservata/amministratore'/>" class="btn btn-danger btn-simple">Area Riservata</a>
+				<li><a href="<s:url action='AuthenticatedAmministratore' namespace='/areaRiservata/amministratore'/>" class="btn btn-fill">Area Riservata</a>
 				</li>
 				</s:if>
 				
 				<s:if test="%{(#session.socio.username!=null)}">
-				<li><a href="<s:url action='AuthenticatedSocio.action' namespace='/areaRiservata/socio'/>" class="btn btn-danger btn-simple">Area Riservata</a>
+				<li><a href="<s:url action='AuthenticatedSocio.action' namespace='/areaRiservata/socio'/>" class="btn btn-fill">Area Riservata</a>
 				</li>
 				</s:if>
 			
 				</s:if>
 				<s:else>
-				<li><a href="<s:url action='LoginForm' namespace='/'/>" class="btn btn-danger btn-fill">Login </a></li>
+				<li><a href="<s:url action='LoginForm' namespace='/'/>" class="btn btn-fill">Login </a></li>
 				</s:else>
 		
 			</ul>

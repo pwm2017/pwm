@@ -19,7 +19,7 @@ public class AddEvento extends ActionSupport implements ServletRequestAware
 {
 	private static final long serialVersionUID = 1L;
 	private Evento evento = new Evento();
-	private Attivita attivita=null;
+	private Attivita attivita;
 	private SocioDAOInterface sdao=SocioDAOFactory.getDAO();
 	private List<Socio> listaSoci= null;
 	private File uploadDoc;
@@ -76,7 +76,7 @@ public class AddEvento extends ActionSupport implements ServletRequestAware
 	}
 	
 	
-	public String execute() throws Exception
+	public String execute() 
 	{
 		return SUCCESS;
 	}
@@ -113,7 +113,8 @@ public class AddEvento extends ActionSupport implements ServletRequestAware
 		return INPUT;
 	}
 
-	public void validate(){
+	public void validate()
+	{
 
 		if( evento.getNome().length()==0)
 		{

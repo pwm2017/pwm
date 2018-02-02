@@ -5,5 +5,5 @@ import it.unirc.pwm.eureca.svolge.model.Svolge;
 public interface SvolgeDAOInterface 
 {
 	
-	public boolean creaSocio_Svolge_Attivita(Svolge s);
+	public boolean Socio_Svolge_Attivita(Svolge s);
 }

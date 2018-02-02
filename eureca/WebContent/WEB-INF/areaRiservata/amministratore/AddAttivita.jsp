@@ -30,7 +30,9 @@
 			<div class="row">
 				<div
 					class="col-md-6 col-md-offset-3 col-sm-6 col-sm-offset-3 col-xs-10 col-xs-offset-1">
-					<s:form action="AggiungiAttivita" enctype="multipart/form-data">
+					<form action="AggiungiAttivita" enctype="multipart/form-data"
+						method="post">
+
 						<s:hidden name="attivita.evento.nome" value="%{evento.nome}"></s:hidden>
 						<s:hidden name="attivita.evento.locandina"
 							value="%{evento.locandina}"></s:hidden>
@@ -49,8 +51,41 @@
 						<s:textfield key="label.attivita.dataScadenza"
 							name="attivita.dataScadenza" class="form-control" />
 
+						<s:iterator value="listaSoci">
+
+							<div class="row">
+								<div class="col-md-6 col-md-offset-3">
+									<ul class="list-unstyled follows">
+										<li>
+											<div class="row">
+
+												<div class="col-md-7 col-xs-4">
+													<h6>
+														<s:property value="nome" />
+														<br /> <small><s:property value="cognome" /></small>
+													</h6>
+												</div>
+												<div class="col-md-3 col-xs-2">
+													<div class="unfollow" rel="tooltip" title="Seleziona">
+														<label class="checkbox" for="checkbox1"> <input
+															type="checkbox" value="<s:property value="idPersonaFisica" />"
+															name="idSocio" data-toggle="checkbox"
+															checked>
+														</label>
+													</div>
+												</div>
+											</div>
+										</li>
+										<hr />
+									</ul>
+								</div>
+							</div>
+
+
+						</s:iterator>
+
 						<s:submit value="Aggiungi" class="btn btn-danger btn-block" />
-					</s:form>
+					</form>
 				</div>
 			</div>
 		</div>

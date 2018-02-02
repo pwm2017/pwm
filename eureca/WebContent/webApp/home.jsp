@@ -6,7 +6,7 @@
 <head>
 <%@ include file="layout/Head.jsp"%>
 
-<title><s:text name="global.title.home"/></title>
+<title><s:text name="global.title.home" /></title>
 
 </head>
 <body>
@@ -55,35 +55,71 @@
 
 		</div>
 
-
-
-		<div class="section section-nude section-with-space">
+		<div class="section section-dark-blue">
 			<div class="container tim-container">
 				<div class="row">
 					<div class="col-md-8 col-md-offset-2 text-center">
-						<h2>bohhhhhhhhhhhhhhh</h2>
-						<p>ciiiiiiaaaaaaaaaa</p>
+						<h2>Eventi</h2>
 					</div>
+
 					<div
 						class="col-xs-8 col-xs-offset-2 col-sm-4 col-sm-offset-4 col-md-4 col-md-offset-4 download-area">
 						<a href="http://www.creative-tim.com/product/paper-kit"
-							class="btn btn-danger btn-fill btn-block btn-lg">Download</a>
+							class="btn btn-fill btn-block btn-lg">Tutti gli eventi</a>
 					</div>
+
+					<div class="col-md-8 col-md-offset-2 text-center">
+						<h2>Eventi Recenti</h2>
+					</div>
+
 				</div>
-				<div class="row sharing-area text-center">
-					<h3>Sharing is caring!</h3>
-					<a href="#" class="btn"> <i class="fa fa-twitter"></i> Twitter
-					</a> <a href="#" class="btn"> <i class="fa fa-facebook-square"></i>
-						Facebook
-					</a>
-				</div>
+				<s:if test="eventiRecenti==null">
+					<h2>Non ci sono eventi in programma</h2>
+				</s:if>
+				<s:else>
+					<s:iterator status="status" value="eventiRecenti">
+						<s:if test="#status.index <=3">
+
+							<div class="col-xs-6 col-sm-6 col-md-3">
+								<h4>
+									<s:property value="nome" />
+								</h4>
+								<s:if test="locandina==''">
+									<img src="/eureca/webApp/assets/img/placeholder.jpg"
+										alt="Circle Image" class="img-rounded img-responsive"
+										style="width: 300px; height: 300px;">
+								</s:if>
+								<s:else>
+
+									<img
+										src="/eureca/webApp/assets/img/eventi/<s:property value="locandina"/>"
+										alt="Imagine evento <s:property value="nome"/>"
+										class="img-rounded img-responsive"
+										style="width: 300px; height: 300px;">
+								</s:else>
+								<div class="img-details">
+									<p>
+										<s:property value="luogo" />
+									</p>
+								</div>
+
+								<div class="col-md-6 col-md-offset-3">
+
+									<a class="btn btn-neutral btn-tooltip"
+										href="<s:url action='RedirectPertecipaEvento' namespace='/evento'>
+								 <s:param name="evento.idEvento"><s:property value="idEvento" /></s:param>
+											</s:url>">Partecipa</a>
+								</div>
+							</div>
+						</s:if>
+					</s:iterator>
+				</s:else>
 			</div>
 		</div>
 	</div>
 
 	<%@ include file="layout/Footer.jsp"%>
 
-	</div>
 </body>
 
 </html>

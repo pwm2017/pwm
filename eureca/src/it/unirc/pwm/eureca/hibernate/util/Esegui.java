@@ -37,9 +37,8 @@ public class Esegui
 
 	public static void main(String[] args)
 	{
-//		
-//		Attivita a=new Attivita();
-//		a.setNome("pinco");
+		Attivita a=new Attivita();
+		a.setNome("pinco");
 //		a.setIdAttivita(0);
 //        Evento e=new Evento();
 //        e.setNome("ciao");
@@ -66,8 +65,8 @@ public class Esegui
 //			System.out.println("errore dentro il main");		
 //		}
 //        
-//          Evento e=new Evento();
-//         e.setNome("veventomodificato");
+          Evento e=new Evento();
+         e.setNome("veventomodificato");
 //        Evento e1=new Evento();
 //        e1.setNome("veventomodificato");
 		
@@ -76,8 +75,8 @@ public class Esegui
 //       Viaggio v=new Viaggio();
 //       v.setDescrizione("primo viaggio");
 //       
-//       Socio s=new Socio();
-//       s.setNome("antonio");
+       Socio s=new Socio();
+       s.setNome("antonio");
 //       v.getSoci().add(s);
 //    
 //       
@@ -95,10 +94,15 @@ public class Esegui
 		
 //		Attivit‡DAOInterface daoA= Attivit‡DAOFactory.getDAO();
 //		SocioDAOInterface daoS= SocioDAOFactory.getDAO();
-//		SvolgeDAOInterface dao= SvolgeDAOFactory.getDAO();
-//		Svolge s=new Svolge();
-		//a.setEvento(e);
-//		a.setEvento(e);
+		SvolgeDAOInterface dao= SvolgeDAOFactory.getDAO();
+		Svolge sv=new Svolge();
+		a.setEvento(e);
+		a.setEvento(e);
+		SvolgeId svo=new SvolgeId();
+		svo.setIdAttivita(1);
+		svo.setIdSocio(1);
+		sv.setId(svo);
+		dao.Socio_Svolge_Attivita(sv);
 //		daoA.creaAttivit‡(a);
 //		System.out.println(daoA.getAttivita(a).getNome());
 		
@@ -108,13 +112,13 @@ public class Esegui
 //		so.setNome("antonio");
 //		so.setPassword("ciao");
 //		so.setUsername("ciao");
-//		
-		ViaggioDAOInterface daoS= ViaggioDAOFactory.getDAO();
-		Viaggio v=new Viaggio();
-		v.setIdViaggio(1);
-		Socio s=new Socio();
-		s.setIdPersonaFisica(1);
-		daoS.aggiungiSocioViaggio(v, s);
+////		
+//		ViaggioDAOInterface daoS= ViaggioDAOFactory.getDAO();
+//		Viaggio v=new Viaggio();
+//		v.setIdViaggio(1);
+//		Socio s=new Socio();
+//		s.setIdPersonaFisica(1);
+//		daoS.aggiungiSocioViaggio(v, s);
 //		daoS.creaSocio(so);
 //		so.setPassword("ciao");
 //		so.setAmministratore(false);

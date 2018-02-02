@@ -48,7 +48,7 @@
 
 						<s:password name="password" class="form-control"
 							key="label.user.password" placeholder="Password" />
-						<s:submit class="btn btn-danger btn-block" value="Accedi" />
+						<s:submit class="btn btn-block" value="Accedi" />
 
 					</s:form>
 					<hr>

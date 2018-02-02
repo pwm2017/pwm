@@ -1,7 +1,10 @@
 package it.unirc.pwm.eureca.evento.dao;
 
+import java.util.List;
+
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
+import org.hibernate.Query;
 import org.hibernate.Session;
 import org.hibernate.Transaction;
 import it.unirc.pwm.eureca.evento.model.Evento;
@@ -61,5 +64,42 @@ public class EventoDAOImplement implements EventoDAOInterface{
 			session.close();
 		}
 		return result;
+	}
+	
+	@SuppressWarnings("unchecked")
+	public List<Evento> getEventi(){
+		session = HibernateUtil.getSessionFactory().openSession();
+		List<Evento> res = null;
+		try {
+			transaction=session.beginTransaction();
+		    res = (List<Evento>)session.createQuery("from Evento ORDER BY idEvento DESC").list();
+		    transaction.commit();
+		} catch (Exception e) {
+			transaction.rollback();
+			e.printStackTrace();
+			logger.error("errore nella ricerca degli Eventi");
+		}finally{
+			session.close();
+		}
+		
+		return res;
+	}
+	
+	public Evento getEvento(Evento ev){
+		Evento eve = null;
+
+		String hql = "from Evento where idEvento ='"+ev.getIdEvento()+"'";
+		try {
+			session = HibernateUtil.getSessionFactory().openSession();
+			Query query = session.createQuery(hql);
+			if (query.list().size()>0)
+				eve=(Evento)query.list().get(0);
+		} catch (Exception e) {
+			e.printStackTrace();
+			logger.error("errore nel getEvento");
+		}finally{
+			session.close();
+		}
+		return eve;
 	}
 }

@@ -193,7 +193,7 @@ public class SocioDAOImplement implements SocioDAOInterface{
 	public Socio getSocio(Socio s){
 		Socio so = null;
 
-		String hql = "from Socio where idPersonaFisica ='"+s.getIdPersonaFisica()+"'";
+		String hql = "from Socio where abilitato=1 and idPersonaFisica ='"+s.getIdPersonaFisica()+"'";
 		try {
 			session = HibernateUtil.getSessionFactory().openSession();
 			Query query = session.createQuery(hql);

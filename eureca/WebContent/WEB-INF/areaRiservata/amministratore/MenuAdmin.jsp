@@ -71,8 +71,6 @@
 												href="<s:url action='InserisciViaggioRedirect' namespace='/amministratore/viaggio'/>">Aggiungi
 													Viaggio</a></li>
 											<li class="divider"></li>
-											<li><a href="<s:url action='GestisciSoci' namespace='/amministratore/socio'/>">Gestisci Soci</a></li>
-											<li class="divider"></li>
 
 										</ul>
 									</li>
@@ -87,13 +85,6 @@
 												href="<s:url action='InserisciEventoRedirect' namespace='/amministratore/evento'/>">Aggiungi
 													Evento</a></li>
 											<li class="divider"></li>
-											<li><a
-												href="<s:url action='GestisciSoci' namespace='/amministratore/socio'/>">Modifica
-													Socio</a></li>
-											<li class="divider"></li>
-											<li><a href="#">Elimina Socio</a></li>
-											<li class="divider"></li>
-											<li><a href="#">Elenco Soci</a></li>
 
 										</ul>
 									</li>

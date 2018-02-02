@@ -8,5 +8,5 @@ public interface Attivit‡DAOInterface {
 	public boolean creaAttivit‡(Attivita a) ;
 	public boolean modificaAttivit‡(Attivita a) ;
 	public Attivita getAttivita(Attivita a);
-	
+	public Attivita getUltimaAttivita();
 }

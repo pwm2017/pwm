@@ -19,7 +19,7 @@
 		</global-exception-mappings>
 
 
-		<action name="HOME">
+		<action name="HOME" class="it.unirc.pwm.eureca.action.support.Home">
 			<result>/webApp/home.jsp</result>
 		</action>
 
@@ -29,6 +29,7 @@
 	<include file="it/unirc/pwm/eureca/action/socio/socio.xml" />
 	<include file="it/unirc/pwm/eureca/action/viaggio/viaggio.xml" />
 	<include file="it/unirc/pwm/eureca/action/evento/evento.xml" />
+	<include file="it/unirc/pwm/eureca/action/utente/utente.xml" />
 
 
 </struts>

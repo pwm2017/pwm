@@ -27,18 +27,18 @@
 			</div>
 		</div>
 	</div>
-	
-	
+
+
 	<s:if test="listaSoci.isEmpty()">
-	<div class="alert alert-success">
+		<div class="alert alert-success">
 			<h4>
-				<h3> Non ci sono soci</h3>
+				<h3>Non ci sono soci</h3>
 			</h4>
 		</div>
-	
-	 </s:if>
-	 
-	
+
+	</s:if>
+
+
 	<div class="profile-content section-nude">
 		<div class="container">
 
@@ -50,28 +50,27 @@
 					<div id="my-tab-content" class="tab-content">
 						<div class="tab-pane active" id="follows">
 							<div class="row">
-		
+
 								<div class="col-md-6 col-md-offset-3">
 									<ul class="list-unstyled follows">
 										<%-- <s:iterator value="listaSoci" status="incr"> --%>
-										<s:iterator value="listaSoci" >
+										<s:iterator value="listaSoci">
 											<li>
 												<div class="row">
-												<%-- <s:property value="%{#incr.index}"/> --%>
+													<%-- <s:property value="%{#incr.index}"/> --%>
 													<div
 														class="col-md-2 col-md-offset-0 col-xs-3 col-xs-offset-2">
 														<s:if test="foto==null">
-														<img
-															src="/eureca/webApp/assets/img/placeholder.jpg"
-															alt="Circle Image"
-															class="img-circle img-no-padding img-responsive">
+															<img src="/eureca/webApp/assets/img/placeholder.jpg"
+																alt="Circle Image"
+																class="img-circle img-no-padding img-responsive">
 														</s:if>
 														<s:else>
-														<img
-															src="/eureca/webApp/assets/img/soci/<s:property value="foto"/>"
-															alt="Circle Image"
-															class="img-circle img-no-padding img-responsive">
-															</s:else>
+															<img
+																src="/eureca/webApp/assets/img/soci/<s:property value="foto"/>"
+																alt="Circle Image"
+																class="img-circle img-no-padding img-responsive">
+														</s:else>
 													</div>
 													<div class="col-md-7 col-xs-4">
 														<h6>
@@ -102,8 +101,6 @@
 			</div>
 		</div>
 		<div class="profile-tabs"></div>
-
-	</div>
 
 	</div>
 

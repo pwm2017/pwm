@@ -1,18 +1,11 @@
 package it.unirc.pwm.eureca.action.evento;
 import java.util.List;
 
-import javax.servlet.http.HttpServletRequest;
 import com.opensymphony.xwork2.ActionSupport;
-
 import it.unirc.pwm.eureca.evento.dao.EventoDAOFactory;
 import it.unirc.pwm.eureca.evento.dao.EventoDAOInterface;
 import it.unirc.pwm.eureca.evento.model.Evento;
-import it.unirc.pwm.eureca.socio.dao.SocioDAOFactory;
-import it.unirc.pwm.eureca.socio.dao.SocioDAOInterface;
-import it.unirc.pwm.eureca.socio.model.Socio;
-import it.unirc.pwm.eureca.tessera.dao.TesseraDAOFactory;
-import it.unirc.pwm.eureca.tessera.dao.TesseraDAOInterface;
-import it.unirc.pwm.eureca.tessera.model.Tessera;
+
 
 public class ControllerEvento extends ActionSupport
 {
@@ -32,15 +25,21 @@ public class ControllerEvento extends ActionSupport
 
 	public String execute(){
 		
-//		listaEventi=edao.getEventi();
-//		if(listaEventi==null){
-//			addActionError("Errore nel visuliazzare gli eventi");
-//		return INPUT;}
-//		else
+		listaEventi=edao.getEventi();
+		if(listaEventi==null){
+			addActionError("Non ci sono eventi");
+		return INPUT;}
+		else
 			return SUCCESS;
 	}
 
 	public String redirectInserisciEvento()
+	{
+		return SUCCESS;
+	}
+	
+	
+	public String redirectPertecipaEvento()
 	{
 		return SUCCESS;
 	}
@@ -70,4 +69,5 @@ public class ControllerEvento extends ActionSupport
 //		else 
 			return SUCCESS;
 	}
+	
 }

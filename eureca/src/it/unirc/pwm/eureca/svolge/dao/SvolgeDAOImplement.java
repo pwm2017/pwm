@@ -7,11 +7,9 @@ import it.unirc.pwm.eureca.hibernate.util.HibernateUtil;
 import it.unirc.pwm.eureca.svolge.model.Svolge;
 import it.unirc.pwm.eureca.svolge.model.SvolgeId;
 
-
 public class SvolgeDAOImplement implements SvolgeDAOInterface
 {
 	
-
 	private static Logger logger = LogManager.getLogger(SvolgeDAOImplement.class); 
 	Session session = HibernateUtil.getSessionFactory().openSession();
 	Transaction transaction = null;
@@ -21,11 +19,11 @@ public class SvolgeDAOImplement implements SvolgeDAOInterface
 	
 	}
 	@Override
-	public boolean creaSocio_Svolge_Attivita(Svolge s)
+	public boolean Socio_Svolge_Attivita(Svolge s)
 	{
-		boolean control=false;
-		SvolgeId id=new SvolgeId();
+		boolean control=false;;
 		session = HibernateUtil.getSessionFactory().openSession();
+		SvolgeId id=new SvolgeId();
 		try {
 			transaction=session.beginTransaction();
 			id =(SvolgeId) session.save(s);
@@ -36,7 +34,7 @@ public class SvolgeDAOImplement implements SvolgeDAOInterface
 		} catch (Exception ex) {
 			control=false;
 			ex.printStackTrace();
-			System.out.println("errore dentro il creaSocio_Svolge_Attivita");
+			logger.info("errore dentro il Socio_Svolge_Attivita");
 			transaction.rollback();
 		}finally{
 			session.close();

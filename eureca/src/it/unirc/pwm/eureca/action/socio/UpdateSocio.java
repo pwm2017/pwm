@@ -1,14 +1,7 @@
 package it.unirc.pwm.eureca.action.socio;
 
 import java.io.File;
-import java.io.IOException;
-import java.util.Calendar;
-import java.util.Date;
-import java.util.GregorianCalendar;
-
 import javax.servlet.http.HttpServletRequest;
-
-import org.apache.commons.io.FileUtils;
 import org.apache.struts2.interceptor.ServletRequestAware;
 
 import com.opensymphony.xwork2.ActionSupport;
@@ -16,8 +9,6 @@ import com.opensymphony.xwork2.ActionSupport;
 import it.unirc.pwm.eureca.socio.dao.SocioDAOFactory;
 import it.unirc.pwm.eureca.socio.dao.SocioDAOInterface;
 import it.unirc.pwm.eureca.socio.model.Socio;
-import it.unirc.pwm.eureca.tessera.dao.TesseraDAOFactory;
-import it.unirc.pwm.eureca.tessera.dao.TesseraDAOInterface;
 import it.unirc.pwm.eureca.tessera.model.Tessera;
 
 public class UpdateSocio extends ActionSupport implements ServletRequestAware
@@ -27,7 +18,6 @@ public class UpdateSocio extends ActionSupport implements ServletRequestAware
 	private SocioDAOInterface sdao=SocioDAOFactory.getDAO();
 	private Tessera tessera=new Tessera();
 	private File uploadDoc;
-	private TesseraDAOInterface tdao=TesseraDAOFactory.getDAO();
 	private String uploadDocFileName;
 	private String uploadDocContentType;
 	public HttpServletRequest request;
@@ -84,7 +74,7 @@ public class UpdateSocio extends ActionSupport implements ServletRequestAware
 	{
 		if(sdao.modificaSocio(socio))
 		{
-			addActionMessage("Socio modificato correttemente");
+			addActionMessage("Socio modificato correttamente");
 
 			return SUCCESS;
 		}
