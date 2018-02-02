@@ -54,7 +54,7 @@
 								<div class="col-md-6 col-md-offset-3">
 									<ul class="list-unstyled follows">
 										<%-- <s:iterator value="listaSoci" status="incr"> --%>
-										<s:iterator value="listaSoci">
+										<s:iterator value="listaSociPagina">
 											<li>
 												<div class="row">
 													<%-- <s:property value="%{#incr.index}"/> --%>

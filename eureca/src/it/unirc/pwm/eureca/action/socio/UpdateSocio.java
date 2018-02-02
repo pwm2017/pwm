@@ -83,6 +83,8 @@ public class UpdateSocio extends ActionSupport implements ServletRequestAware, S
 	{
 		if(sdao.modificaSocio(socio))
 		{
+			Socio s = (Socio) session.get( "amministratore" );
+			if(socio.getIdPersonaFisica()==s.getIdPersonaFisica())
 			session.replace("amministratore", socio);
 			addActionMessage("Socio modificato correttamente");
 

@@ -46,8 +46,8 @@ public class AddAttivita extends ActionSupport
 	
 	public String inserisciEventoDefinitivo()
 	{	
-		adao.creaAttività(attivita);//todo
-		int idAttivita = adao.getUltimaAttivita().getIdAttivita();
+		
+		int idAttivita = adao.creaAttività(attivita);
 		HttpServletRequest request= ServletActionContext.getRequest();
 		System.out.println(request.getParameterValues("idSocio"));
 		for(String idS:request.getParameterValues("idSocio"))

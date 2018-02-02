@@ -21,18 +21,19 @@ public class Attivit‡DAOImplement implements Attivit‡DAOInterface{
 		super();
 	}
 	@Override
-	public boolean creaAttivit‡(Attivita a) 
+	public int creaAttivit‡(Attivita a) 
 	{
+		int id=0;
 		session = HibernateUtil.getSessionFactory().openSession();
-		boolean control=false;
+		
 		try {
 			transaction=session.beginTransaction();
-			session.save(a);
+			id=(int)session.save(a);
 			logger.info("Attivit‡ inserita");
-			control=true;
+			
 			transaction.commit();
 		} catch (Exception e) {
-			control=false;
+			
 			e.printStackTrace();
 			System.out.println("errore dentro il creaAttivit‡");
 			transaction.rollback();
@@ -40,7 +41,7 @@ public class Attivit‡DAOImplement implements Attivit‡DAOInterface{
 			session.close();
 		}
 
-		return control;
+		return id;
 	}
 	
 	

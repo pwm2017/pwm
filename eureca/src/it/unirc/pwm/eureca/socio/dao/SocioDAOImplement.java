@@ -223,4 +223,24 @@ public class SocioDAOImplement implements SocioDAOInterface{
 		return trovato;
 	}
 
+	
+	@SuppressWarnings("unchecked")
+	public List<Socio> cercaSociPagina(int numeroPagina)
+	{
+		session = HibernateUtil.getSessionFactory().openSession();
+		List<Socio> res = null;
+		try {
+			transaction=session.beginTransaction();
+		    res = (List<Socio>)session.createQuery("from Socio where abilitato=1").setFirstResult((numeroPagina*4)).setMaxResults(4).list();
+		    transaction.commit();
+		} catch (Exception e) {
+			transaction.rollback();
+			e.printStackTrace();
+			logger.error("errore nella ricerca dei soci");
+		}finally{
+			session.close();
+		}
+		
+		return res;
+	}
 }

@@ -36,14 +36,16 @@
 										class="icon-bar"></span>
 								</button>
 								<a class="navbar-brand">Menu</a>
-								
+
 							</div>
 
 							<!-- Collect the nav links, forms, and other content for toggling -->
 							<div class="collapse navbar-collapse"
 								id="bs-example-navbar-collapse-1">
 								<ul class="nav navbar-nav pull-right">
-								<a href="<s:url action='AuthenticatedAmministratore' namespace='/areaRiservata/amministratore'/>" class="btn">Home</a>
+									<a
+										href="<s:url action='AuthenticatedAmministratore' namespace='/areaRiservata/amministratore'/>"
+										class="btn">Home</a>
 
 									<li class="dropdown">
 										<button href="#" class="dropdown-toggle btn"
@@ -55,12 +57,17 @@
 												href="<s:url action='InserisciSocioRedirect' namespace='/amministratore/socio'/>">Aggiungi
 													Socio</a></li>
 											<li class="divider"></li>
-											<li><a href="<s:url action='GestisciSoci' namespace='/amministratore/socio'/>">Gestisci Soci</a></li>
-											<li class="divider"></li>
 
+											<li><a
+												href="<s:url action='GestisciSoci' namespace='/amministratore/socio'>
+															<s:param name="numeroPagina"><s:property value="0" /></s:param>
+															</s:url>">Gestisci
+													Soci</a>
+											</li>
+											<li class="divider"></li>
 										</ul>
 									</li>
-									
+
 									<li class="dropdown">
 										<button href="#" class="dropdown-toggle btn"
 											data-toggle="dropdown">
@@ -98,7 +105,7 @@
 					<!--  end navbar -->
 				</div>
 				<br />
-				
+
 
 			</div>
 			<!-- end menu-dropdown -->
@@ -113,14 +120,16 @@
 			</h4>
 		</div>
 	</s:if>
-	
+
 	<s:if test="hasActionError()">
-	<div class="alert alert-danger">
+		<div class="alert alert-danger">
 			<h4>
-				<h3> <s:actionerror /></h3>
+				<h3>
+					<s:actionerror />
+				</h3>
 			</h4>
 		</div>
-	
-	 </s:if>
+
+	</s:if>
 </body>
 </html>

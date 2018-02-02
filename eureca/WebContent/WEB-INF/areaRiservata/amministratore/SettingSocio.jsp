@@ -71,6 +71,7 @@
 						<s:submit value="Modifica" class="btn btn-danger btn-block" />
 					</s:form>
 				</div>
+
 				<div class="col-md-4">
 					<div ALIGN="CENTER">
 						<h3>Tessera</h3>
@@ -85,9 +86,11 @@
                         "
 							data-html="true">Visualizza</button>
 
-
-						<button class="btn btn btn-fill" data-toggle="modal"
-							data-target="#myModal">Modifica</button>
+						<s:if
+							test="%{(#session.amministratore.idPersonaFisica!=socio.idPersonaFisica)}">
+							<button class="btn btn btn-fill" data-toggle="modal"
+								data-target="#myModal">Modifica</button>
+						</s:if>
 						<div class="modal fade" id="myModal" tabindex="-1" role="dialog"
 							aria-labelledby="myModalLabel" aria-hidden="true">
 							<div class="modal-dialog">
@@ -128,6 +131,7 @@
 						</div>
 					</div>
 				</div>
+
 				<div class="clearfix"></div>
 				<div class="clearfix"></div>
 

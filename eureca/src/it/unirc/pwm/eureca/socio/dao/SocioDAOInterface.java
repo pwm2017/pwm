@@ -13,4 +13,5 @@ public interface SocioDAOInterface
 	public List<Socio> getSoci();
 	public Boolean eliminaSocio(Socio s);
 	public Socio getSocio(Socio s);
+	public List<Socio> cercaSociPagina(int numeroPagina);
 }

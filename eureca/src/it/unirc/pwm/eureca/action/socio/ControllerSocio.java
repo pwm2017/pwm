@@ -12,12 +12,39 @@ import it.unirc.pwm.eureca.tessera.model.Tessera;
 public class ControllerSocio extends ActionSupport
 {
 	private static final long serialVersionUID = 1L;
-	private Socio socio = null;
+	private Socio socio;
 	private SocioDAOInterface sdao=SocioDAOFactory.getDAO();
-	private List<Socio> listaSoci= null;
+	private List<Socio> listaSoci;
+	private List<Socio> listaSociPagina;
 	private Tessera tessera=new Tessera();
 	private TesseraDAOInterface tdao=TesseraDAOFactory.getDAO();
+	private int numeroPagina;
+	private int pagine;
 
+
+	public List<Socio> getListaSociPagina() {
+		return listaSociPagina;
+	}
+
+	public void setListaSociPagina(List<Socio> listaSociPagina) {
+		this.listaSociPagina = listaSociPagina;
+	}
+
+	public int getNumeroPagina() {
+		return numeroPagina;
+	}
+
+	public void setNumeroPagina(int numeroPagina) {
+		this.numeroPagina = numeroPagina;
+	}
+
+	public int getPagine() {
+		return pagine;
+	}
+
+	public void setPagine(int pagine) {
+		this.pagine = pagine;
+	}
 
 	public Socio getSocio() {
 		return socio;
@@ -47,9 +74,13 @@ public class ControllerSocio extends ActionSupport
 	public String execute()
 	{
 		listaSoci=sdao.getSoci();
-		if(listaSoci==null){
+		pagine= (int) Math.ceil((double) listaSoci.size()/4);
+		listaSociPagina=sdao.cercaSociPagina(numeroPagina);
+		if(listaSociPagina==null)
+		{
 			addActionError("Errore nel visuliazzare i soci");
-			return INPUT;}
+			return INPUT;
+		}
 		else
 			return SUCCESS;
 	}
