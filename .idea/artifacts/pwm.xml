@@ -1,0 +1,6 @@
+<component name="ArtifactManager">
+  <artifact type="war" name="pwm">
+    <output-path>$PROJECT_DIR$/out/artifacts/pwm</output-path>
+    <root id="archive" name="pwm.war" />
+  </artifact>
+</component>
