@@ -1,11 +1,12 @@
 package it.unirc.pwm.eureca.svolge.dao;
+
+import it.unirc.pwm.eureca.hibernate.util.HibernateUtil;
+import it.unirc.pwm.eureca.svolge.model.Svolge;
+import it.unirc.pwm.eureca.svolge.model.SvolgeId;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 import org.hibernate.Session;
 import org.hibernate.Transaction;
-import it.unirc.pwm.eureca.hibernate.util.HibernateUtil;
-import it.unirc.pwm.eureca.svolge.model.Svolge;
-import it.unirc.pwm.eureca.svolge.model.SvolgeId;
 
 public class SvolgeDAOImplement implements SvolgeDAOInterface
 {
@@ -77,7 +78,7 @@ public class SvolgeDAOImplement implements SvolgeDAOInterface
 //				session.delete(e);;
 //				logger.info("E' stato inserito un nuovo esame");
 //			}else{
-//				logger.info("L'esame non è stato modificato");
+//				logger.info("L'esame non a stato modificato");
 //			}
 //			transaction.commit();
 //		} catch (Exception e2) {

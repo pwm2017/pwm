@@ -1,15 +1,16 @@
 package it.unirc.pwm.eureca.action.viaggio;
 
-import java.io.File;
-import java.io.IOException;
-import javax.servlet.http.HttpServletRequest;
-import org.apache.commons.io.FileUtils;
-import org.apache.struts2.interceptor.ServletRequestAware;
 import com.opensymphony.xwork2.ActionSupport;
 import com.opensymphony.xwork2.ModelDriven;
 import it.unirc.pwm.eureca.viaggio.dao.ViaggioDAOFactory;
 import it.unirc.pwm.eureca.viaggio.dao.ViaggioDAOInterface;
 import it.unirc.pwm.eureca.viaggio.model.Viaggio;
+import org.apache.commons.io.FileUtils;
+import org.apache.struts2.interceptor.ServletRequestAware;
+
+import javax.servlet.http.HttpServletRequest;
+import java.io.File;
+import java.io.IOException;
 
 public class AddViaggio extends ActionSupport implements ModelDriven<Viaggio>, ServletRequestAware 
 {
@@ -111,13 +112,13 @@ public class AddViaggio extends ActionSupport implements ModelDriven<Viaggio>, S
 
 		if( getModel().getNome().length()==0){
 
-			this.addFieldError("nome", "Il nome è rischiesto.");
+            this.addFieldError("nome", "Il nome a rischiesto.");
 
 		}
 		
 		if(getModel().getNumPartecipanti()==0){
 
-			this.addFieldError("numPartecipanti", "NumPartecipant è richiesto");
+            this.addFieldError("numPartecipanti", "NumPartecipant a richiesto");
 
 		}	
 

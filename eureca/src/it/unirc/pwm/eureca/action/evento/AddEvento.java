@@ -1,19 +1,18 @@
 package it.unirc.pwm.eureca.action.evento;
 
-import java.io.File;
-import java.io.IOException;
-import java.util.List;
-
-import javax.servlet.http.HttpServletRequest;
-import org.apache.commons.io.FileUtils;
-import org.apache.struts2.interceptor.ServletRequestAware;
 import com.opensymphony.xwork2.ActionSupport;
-
 import it.unirc.pwm.eureca.attivita.model.Attivita;
 import it.unirc.pwm.eureca.evento.model.Evento;
 import it.unirc.pwm.eureca.socio.dao.SocioDAOFactory;
 import it.unirc.pwm.eureca.socio.dao.SocioDAOInterface;
 import it.unirc.pwm.eureca.socio.model.Socio;
+import org.apache.commons.io.FileUtils;
+import org.apache.struts2.interceptor.ServletRequestAware;
+
+import javax.servlet.http.HttpServletRequest;
+import java.io.File;
+import java.io.IOException;
+import java.util.List;
 
 public class AddEvento extends ActionSupport implements ServletRequestAware
 {
@@ -105,8 +104,8 @@ public class AddEvento extends ActionSupport implements ServletRequestAware
 		if(evento!=null)
 		{
 			listaSoci=sdao.getSoci();
-			addActionMessage("Dati evento aggiunti correttamente!!! Associa una attività all'evento "+getText(evento.getNome()));
-			return SUCCESS;
+            addActionMessage("Dati evento aggiunti correttamente!!! Associa una attivita all'evento " + getText(evento.getNome()));
+            return SUCCESS;
 		}
 		else 
 			addActionError("Errore");
@@ -118,8 +117,8 @@ public class AddEvento extends ActionSupport implements ServletRequestAware
 
 		if( evento.getNome().length()==0)
 		{
-			this.addFieldError("evento.nome", "Il nome è rischiesto.");
-		}
+            this.addFieldError("evento.nome", "Il nome a rischiesto.");
+        }
 	}
 
 	@Override

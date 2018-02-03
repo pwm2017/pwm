@@ -1,25 +1,23 @@
 package it.unirc.pwm.eureca.action.evento;
-import javax.servlet.http.HttpServletRequest;
-
-import org.apache.struts2.ServletActionContext;
 
 import com.opensymphony.xwork2.ActionSupport;
-
-
-import it.unirc.pwm.eureca.attivita.dao.Attivit‡DAOFactory;
-import it.unirc.pwm.eureca.attivita.dao.Attivit‡DAOInterface;
+import it.unirc.pwm.eureca.attivita.dao.AttivitaDAOFactory;
+import it.unirc.pwm.eureca.attivita.dao.AttivitaDAOInterface;
 import it.unirc.pwm.eureca.attivita.model.Attivita;
 import it.unirc.pwm.eureca.svolge.dao.SvolgeDAOFactory;
 import it.unirc.pwm.eureca.svolge.dao.SvolgeDAOInterface;
 import it.unirc.pwm.eureca.svolge.model.Svolge;
 import it.unirc.pwm.eureca.svolge.model.SvolgeId;
+import org.apache.struts2.ServletActionContext;
+
+import javax.servlet.http.HttpServletRequest;
 
 public class AddAttivita extends ActionSupport
 {
 	private static final long serialVersionUID = 1L;
 	private Attivita attivita=new Attivita();
 	private String idSocio;
-	private Attivit‡DAOInterface adao=Attivit‡DAOFactory.getDAO();
+	private AttivitaDAOInterface adao = AttivitaDAOFactory.getDAO();
 	private SvolgeDAOInterface svodao=SvolgeDAOFactory.getDAO();
 	
 	
@@ -45,8 +43,8 @@ public class AddAttivita extends ActionSupport
 	}
 	
 	public String inserisciEventoDefinitivo()
-	{	
-		adao.creaAttivit‡(attivita);//todo
+	{
+		adao.creaAttivita(attivita);//todo
 		int idAttivita = adao.getUltimaAttivita().getIdAttivita();
 		HttpServletRequest request= ServletActionContext.getRequest();
 		System.out.println(request.getParameterValues("idSocio"));
