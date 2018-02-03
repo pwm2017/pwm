@@ -41,8 +41,8 @@
 
 	<div class="profile-content section-nude">
 		<div class="container">
-
 			<div class="row">
+
 				<div class="profile-tabs">
 					<div class="nav-tabs-navigation">
 						<div class="nav-tabs-wrapper"></div>
@@ -80,7 +80,7 @@
 													</div>
 													<div class="col-md-3 col-xs-2">
 														<h6>
-															<a 
+															<a
 																href="<s:url action='EliminaSocio' namespace='/amministratore/socio'>
 															<s:param name="socio.idPersonaFisica"><s:property value="idPersonaFisica" /></s:param>
 															</s:url>">Elimina</a>
@@ -94,10 +94,35 @@
 											</li>
 											<hr />
 										</s:iterator>
+
+										<div class="row">
+											<div class="col-md-12">
+												<div class="product-pagination text-center">
+													<nav>
+													<ul class="pagination">
+														<s:iterator begin="1" end="pagine" status="pagina">
+															<li><a
+																href="<s:url action='GestisciSoci' namespace='/amministratore/socio'><s:param name="numeroPagina"><s:property value="#pagina.index"/></s:param></s:url>"><s:property
+																		value="#pagina.index+1" /></a></li>
+														</s:iterator>
+													</ul>
+													</nav>
+												</div>
+											</div>
+										</div>
 								</div>
 							</div>
 						</div>
 					</div>
+
+					<div
+						class="col-xs-9 col-xs-offset-2 col-sm-4 col-sm-offset-3 col-md-8 col-md-offset-5 download-area">
+						<a class="btn btn-fill"
+							href="<s:url action='InserisciSocioRedirect' namespace='/amministratore/socio'/>">Aggiungi
+							Socio</a>
+
+					</div>
+
 
 				</div>
 

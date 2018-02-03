@@ -12,6 +12,7 @@ import org.hibernate.Transaction;
 import org.hibernate.criterion.Restrictions;
 import it.unirc.pwm.eureca.hibernate.util.HibernateUtil;
 import it.unirc.pwm.eureca.socio.model.Socio;
+import it.unirc.pwm.eureca.utils.Costant;
 
 public class SocioDAOImplement implements SocioDAOInterface{
 
@@ -231,7 +232,7 @@ public class SocioDAOImplement implements SocioDAOInterface{
 		List<Socio> res = null;
 		try {
 			transaction=session.beginTransaction();
-		    res = (List<Socio>)session.createQuery("from Socio where abilitato=1").setFirstResult((numeroPagina*4)).setMaxResults(4).list();
+		    res = (List<Socio>)session.createQuery("from Socio where abilitato=1").setFirstResult((numeroPagina*Costant.SIZE_LIST_SOCI)).setMaxResults(Costant.SIZE_LIST_SOCI).list();
 		    transaction.commit();
 		} catch (Exception e) {
 			transaction.rollback();

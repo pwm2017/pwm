@@ -2,6 +2,7 @@ package it.unirc.pwm.eureca.action.socio;
 import java.util.List;
 import com.opensymphony.xwork2.ActionSupport;
 
+import it.unirc.pwm.eureca.utils.Costant;
 import it.unirc.pwm.eureca.socio.dao.SocioDAOFactory;
 import it.unirc.pwm.eureca.socio.dao.SocioDAOInterface;
 import it.unirc.pwm.eureca.socio.model.Socio;
@@ -74,7 +75,7 @@ public class ControllerSocio extends ActionSupport
 	public String execute()
 	{
 		listaSoci=sdao.getSoci();
-		pagine= (int) Math.ceil((double) listaSoci.size()/4);
+		pagine= (int) Math.ceil((double) listaSoci.size()/Costant.SIZE_LIST_SOCI);
 		listaSociPagina=sdao.cercaSociPagina(numeroPagina);
 		if(listaSociPagina==null)
 		{

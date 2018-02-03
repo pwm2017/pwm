@@ -64,12 +64,15 @@
 
 					<div
 						class="col-xs-8 col-xs-offset-2 col-sm-4 col-sm-offset-4 col-md-4 col-md-offset-4 download-area">
-						<a href="http://www.creative-tim.com/product/paper-kit"
-							class="btn btn-fill btn-block btn-lg">Tutti gli eventi</a>
+						<a href="<s:url action='TuttiGliEventi' namespace='/'/>"
+							class="btn btn-fill btn-block btn-lg" >Tutti gli eventi</a>
+	
 					</div>
+					
 
 					<div class="col-md-8 col-md-offset-2 text-center">
 						<h2>Eventi Recenti</h2>
+						
 					</div>
 
 				</div>
@@ -85,17 +88,27 @@
 									<s:property value="nome" />
 								</h4>
 								<s:if test="locandina==''">
+								<a
+								href="<s:url action='Evento' namespace='/'>
+							<s:param name="evento.idEvento"><s:property value="idEvento" /></s:param>
+											</s:url>">
 									<img src="/eureca/webApp/assets/img/placeholder.jpg"
 										alt="Circle Image" class="img-rounded img-responsive"
 										style="width: 300px; height: 300px;">
+										</a>
 								</s:if>
 								<s:else>
+								<a
+								href="<s:url action='Evento' namespace='/'>
+							<s:param name="evento.idEvento"><s:property value="idEvento" /></s:param>
+											</s:url>">
 
 									<img
 										src="/eureca/webApp/assets/img/eventi/<s:property value="locandina"/>"
 										alt="Imagine evento <s:property value="nome"/>"
 										class="img-rounded img-responsive"
 										style="width: 300px; height: 300px;">
+										</a>
 								</s:else>
 								<div class="img-details">
 									<p>

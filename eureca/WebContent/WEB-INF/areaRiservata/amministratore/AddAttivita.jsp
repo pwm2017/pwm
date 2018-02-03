@@ -84,7 +84,7 @@
 
 						</s:iterator>
 
-						<s:submit value="Aggiungi" class="btn btn-danger btn-block" />
+						<s:submit value="Aggiungi" class="btn btn-block" />
 					</form>
 				</div>
 			</div>

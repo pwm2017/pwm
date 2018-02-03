@@ -18,9 +18,16 @@
 				result="genericException" />
 		</global-exception-mappings>
 
-
 		<action name="HOME" class="it.unirc.pwm.eureca.action.support.Home">
 			<result>/webApp/home.jsp</result>
+		</action>
+		
+		<action name="TuttiGliEventi" class="it.unirc.pwm.eureca.action.support.AllEvents">
+			<result>/webApp/AllEvents.jsp</result>
+		</action>
+		
+		<action name="Evento" class="it.unirc.pwm.eureca.action.support.Event">
+			<result>/webApp/SingleEvent.jsp</result>
 		</action>
 
 	</package>

@@ -43,7 +43,7 @@
 
 						<s:file name="uploadDoc" key="label.evento.Caricaimmagine" />
 
-						<s:submit value="Aggiungi" class="btn btn-danger btn-block" />
+						<s:submit value="Aggiungi Attività" class="btn btn-block" />
 					</s:form>
 				</div>
 			</div>

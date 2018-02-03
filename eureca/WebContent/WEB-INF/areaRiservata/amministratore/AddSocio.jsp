@@ -64,7 +64,7 @@
 							key="label.socio.amministratore" />
 						<s:file name="uploadDoc" key="Carica immagine" />
 
-						<s:submit value="Aggiungi" class="btn btn-danger btn-block" />
+						<s:submit value="Aggiungi" class="btn btn-block" />
 					</s:form>
 				</div>
 			</div>

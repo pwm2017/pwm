@@ -46,7 +46,7 @@
 
 						<s:file name="uploadDoc" key="label.viaggio.Caricaimmagine" />
 
-						<s:submit value="Aggiungi" class="btn btn-danger btn-block" />
+						<s:submit value="Aggiungi" class="btn btn-block" />
 					</s:form>
 				</div>
 			</div>

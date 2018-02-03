@@ -68,7 +68,7 @@
 							key="label.socio.amministratore" />
 
 
-						<s:submit value="Modifica" class="btn btn-danger btn-block" />
+						<s:submit value="Modifica" class="btn btn-block" />
 					</s:form>
 				</div>
 
@@ -118,7 +118,7 @@
 																name="tessera.dataScadenza" class="form-control" />
 
 															<s:submit value="Modifica"
-																class="btn btn-danger btn-block" />
+																class="btn btn-block" />
 														</s:form>
 													</div>
 												</div>
