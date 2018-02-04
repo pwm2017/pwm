@@ -17,7 +17,7 @@ PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
 		
 		<set name="attivita" lazy="true" cascade="save-update" sort="unsorted" table="ATTIVITA" >
 			<key>
-				<column name="EVENTO" precision="22" scale="0" /><!-- Devo indicare l'attributo di join - 
+				<column name="EVENTO" precision="22" scale="0"/><!-- Devo indicare l'attributo di join - 
 					nell'oggetto manca -->
 			</key>
 			<one-to-many class="it.unirc.pwm.eureca.attivita.model.Attivita" />

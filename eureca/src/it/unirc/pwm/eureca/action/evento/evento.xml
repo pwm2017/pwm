@@ -41,19 +41,19 @@
 			</result>
 		</action>
 
-<!-- 
-		<action name="GestisciSoci" class="it.unirc.pwm.eureca.action.socio.ControllerSocio">
+
+		<action name="GestisciEventi" class="it.unirc.pwm.eureca.action.evento.ControllerEvento">
 			<interceptor-ref name="defaultStack" />
 			<interceptor-ref name="authenticationAdministratorInterceptor" />
-			<result name="success">/WEB-INF/areaRiservata/amministratore/GestisciSoci.jsp
+			<result name="success">/WEB-INF/areaRiservata/amministratore/GestisciEventi.jsp
 			</result>
-			<result name="input" type="">/WEB-INF/areaRiservata/amministratore/GestisciSoci.jsp
+			<result name="input" type="">/WEB-INF/areaRiservata/amministratore/GestisciEventi.jsp
 			</result>
 		</action>
 		
 		
-		<action name="EliminaSocio" class="it.unirc.pwm.eureca.action.socio.ControllerSocio"
-			method="eliminaSocio">
+		<action name="EliminaEvento" class="it.unirc.pwm.eureca.action.evento.ControllerEvento"
+			method="eliminaEvento">
 			<interceptor-ref name="defaultStack" />
 			<interceptor-ref name="authenticationAdministratorInterceptor" />
 			<result name="success">/WEB-INF/areaRiservata/amministratore/indexAmministratore.jsp
@@ -63,7 +63,7 @@
 		</action>
 		
 		
-		<action name="SetSocio" class="it.unirc.pwm.eureca.action.socio.ControllerSocio"
+		<action name="SetEvento" class="it.unirc.pwm.eureca.action.evento.ControllerEvento"
 			method="setSocio">
 			<interceptor-ref name="defaultStack" />
 			<interceptor-ref name="authenticationAdministratorInterceptor" />
@@ -73,9 +73,9 @@
 			</result>
 		</action>
 		
-		
-		<action name="ModificaSocio" class="it.unirc.pwm.eureca.action.socio.UpdateSocio"
-			method="modificaSocio">
+	<!-- 	
+		<action name="ModificaEvento" class="it.unirc.pwm.eureca.action.socio.UpdateEvento"
+			method="modificaEvento">
 			<interceptor-ref name="defaultStack" />
 			<interceptor-ref name="authenticationAdministratorInterceptor" />
 			<result name="success">/WEB-INF/areaRiservata/amministratore/indexAmministratore.jsp
@@ -93,8 +93,8 @@
 			</result>
 			<result name="input">/WEB-INF/areaRiservata/amministratore/SettingSocio.jsp
 			</result>
-		</action>
- -->
+		</action> -->
+ 
 	</package>
 
 </struts>

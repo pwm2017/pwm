@@ -9,15 +9,15 @@ PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
 			<column name="idAttivita" />
 			<generator class="increment" />
 		</id>
-		<many-to-one class="it.unirc.pwm.eureca.evento.model.Evento" name="evento" not-null="true" cascade="save-update">
-			<column name="EVENTO" precision="10" scale="0" not-null="true"/>
+		<many-to-one class="it.unirc.pwm.eureca.evento.model.Evento" name="evento" not-null="false" cascade="save-update">
+			<column name="EVENTO" precision="10" scale="0"/>
 		</many-to-one>
 		<property name="nome" />
 		<property name="tipologia" />
 		<property name="descrizione" />
 		<property name="dataScadenza" type="date" />
 		
-		<set name="svolges" table="socio_svolge_attivita" inverse="true" lazy="true" fetch="select">
+		<set name="svolges" table="socio_svolge_attivita" inverse="true" lazy="true" fetch="select" >
 			<key>
 				<column name="IDATTIVITA" not-null="true" />
 			</key>

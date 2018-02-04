@@ -7,7 +7,7 @@
 
 <%@ include file="../../../webApp/layout/Head.jsp"%>
 
-<title><s:text name="title.gestisciSoci" /></title>
+<title><s:text name="title.gestisciEventi" /></title>
 </head>
 
 <body>
@@ -21,7 +21,7 @@
 			<div class="container tim-container">
 				<div class="tim-title">
 					<h2>
-						<s:text name="title.gestisciSoci" />
+						<s:text name="title.gestisciEventi" />
 					</h2>
 				</div>
 			</div>
@@ -29,10 +29,10 @@
 	</div>
 
 
-	<s:if test="listaSoci.isEmpty()">
+	<s:if test="listaEventi.isEmpty()">
 		<div class="alert alert-success">
 			<h4>
-				<h3>Non ci sono soci</h3>
+				<h3>Non ci sono Eventi</h3>
 			</h4>
 		</div>
 
@@ -54,20 +54,20 @@
 								<div class="col-md-6 col-md-offset-3">
 									<ul class="list-unstyled follows">
 										<%-- <s:iterator value="listaSoci" status="incr"> --%>
-										<s:iterator value="listaSociPagina">
+										<s:iterator value="listaEventiPagina">
 											<li>
 												<div class="row">
 													<%-- <s:property value="%{#incr.index}"/> --%>
 													<div
 														class="col-md-2 col-md-offset-0 col-xs-3 col-xs-offset-2">
-														<s:if test="foto==null">
+														<s:if test="locandina==''">
 															<img src="/eureca/webApp/assets/img/placeholder.jpg"
 																alt="Circle Image"
 																class="img-circle img-no-padding img-responsive">
 														</s:if>
 														<s:else>
 															<img
-																src="/eureca/webApp/assets/img/soci/<s:property value="foto"/>"
+																src="/eureca/webApp/assets/img/eventi/<s:property value="locandina"/>"
 																alt="Circle Image"
 																class="img-circle img-no-padding img-responsive">
 														</s:else>
@@ -75,19 +75,19 @@
 													<div class="col-md-7 col-xs-4">
 														<h6>
 															<s:property value="nome" />
-															<br /> <small><s:property value="cognome" /></small>
+															
 														</h6>
 													</div>
 													<div class="col-md-3 col-xs-2">
 														<h6>
 															<a
-																href="<s:url action='EliminaSocio' namespace='/amministratore/socio'>
-															<s:param name="socio.idPersonaFisica"><s:property value="idPersonaFisica" /></s:param>
+																href="<s:url action='EliminaEvento' namespace='/amministratore/evento'>
+															<s:param name="evento.idEvento"><s:property value="idEvento" /></s:param>
 															</s:url>">Elimina</a>
 															<a
-																href="<s:url action='SetSocio' namespace='/amministratore/socio'> 
-															<s:param name="socio.idPersonaFisica"><s:property value="idPersonaFisica" /></s:param>
-															</s:url>">Modifica</a>
+																href="<s:url action='SetEvento' namespace='/amministratore/evento'> 
+															<s:param name="evento.idEvento"><s:property value="idEvento" /></s:param>
+															</s:url>">Edit</a>
 														</h6>
 													</div>
 												</div>
@@ -102,7 +102,7 @@
 													<ul class="pagination">
 														<s:iterator begin="1" end="pagine" status="pagina">
 															<li><a
-																href="<s:url action='GestisciSoci' namespace='/amministratore/socio'><s:param name="numeroPagina"><s:property value="#pagina.index"/></s:param></s:url>"><s:property
+																href="<s:url action='GestisciEventi' namespace='/amministratore/evento'><s:param name="numeroPagina"><s:property value="#pagina.index"/></s:param></s:url>"><s:property
 																		value="#pagina.index+1" /></a></li>
 														</s:iterator>
 													</ul>
@@ -118,8 +118,8 @@
 					<div
 						class="col-xs-9 col-xs-offset-2 col-sm-4 col-sm-offset-3 col-md-8 col-md-offset-5 download-area">
 						<a class="btn btn-fill"
-							href="<s:url action='InserisciSocioRedirect' namespace='/amministratore/socio'/>">Aggiungi
-							Socio</a>
+							href="<s:url action='InserisciEventoRedirect' namespace='/amministratore/evento'/>">Aggiungi
+							Evento</a>
 
 					</div>
 

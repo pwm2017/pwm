@@ -49,7 +49,6 @@ public class AddAttivita extends ActionSupport
 		
 		int idAttivita = adao.creaAttività(attivita);
 		HttpServletRequest request= ServletActionContext.getRequest();
-		System.out.println(request.getParameterValues("idSocio"));
 		for(String idS:request.getParameterValues("idSocio"))
 		{
 			Svolge svolge=new Svolge();

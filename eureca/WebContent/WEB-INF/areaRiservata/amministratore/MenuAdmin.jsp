@@ -92,6 +92,14 @@
 												href="<s:url action='InserisciEventoRedirect' namespace='/amministratore/evento'/>">Aggiungi
 													Evento</a></li>
 											<li class="divider"></li>
+											
+											<li><a
+												href="<s:url action='GestisciEventi' namespace='/amministratore/evento'>
+															<s:param name="numeroPagina"><s:property value="0" /></s:param>
+															</s:url>">Gestisci
+													Eventi</a>
+											</li>
+											<li class="divider"></li>
 
 										</ul>
 									</li>

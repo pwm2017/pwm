@@ -9,19 +9,20 @@ import org.hibernate.Session;
 import org.hibernate.Transaction;
 import it.unirc.pwm.eureca.evento.model.Evento;
 import it.unirc.pwm.eureca.hibernate.util.HibernateUtil;
- 
+import it.unirc.pwm.eureca.utils.Costant;
+
 public class EventoDAOImplement implements EventoDAOInterface{
-	
+
 	private static Logger logger = LogManager.getLogger(EventoDAOImplement.class); 
-	
+
 	Session session = HibernateUtil.getSessionFactory().openSession();
 	Transaction transaction = null;
 
 	public EventoDAOImplement() {
 		super();
-	
+
 	}
-	
+
 	@Override
 	public boolean creaEvento(Evento eve) 
 	{
@@ -44,8 +45,8 @@ public class EventoDAOImplement implements EventoDAOInterface{
 
 		return control;
 	}
-	
-	
+
+
 	public boolean modificaEvento(Evento eve) 
 	{
 		boolean result=false;
@@ -65,15 +66,15 @@ public class EventoDAOImplement implements EventoDAOInterface{
 		}
 		return result;
 	}
-	
+
 	@SuppressWarnings("unchecked")
 	public List<Evento> getEventi(){
 		session = HibernateUtil.getSessionFactory().openSession();
 		List<Evento> res = null;
 		try {
 			transaction=session.beginTransaction();
-		    res = (List<Evento>)session.createQuery("from Evento ORDER BY idEvento DESC").list();
-		    transaction.commit();
+			res = (List<Evento>)session.createQuery("from Evento ORDER BY idEvento DESC").list();
+			transaction.commit();
 		} catch (Exception e) {
 			transaction.rollback();
 			e.printStackTrace();
@@ -81,10 +82,10 @@ public class EventoDAOImplement implements EventoDAOInterface{
 		}finally{
 			session.close();
 		}
-		
+
 		return res;
 	}
-	
+
 	public Evento getEvento(Evento ev){
 		Evento eve = null;
 
@@ -102,4 +103,48 @@ public class EventoDAOImplement implements EventoDAOInterface{
 		}
 		return eve;
 	}
+
+	@SuppressWarnings("unchecked")
+	public List<Evento> cercaEventiPagina(int numeroPagina)
+	{
+		session = HibernateUtil.getSessionFactory().openSession();
+		List<Evento> res = null;
+		try {
+			transaction=session.beginTransaction();
+			res = (List<Evento>)session.createQuery("from Evento").setFirstResult((numeroPagina*Costant.SIZE_LIST_SOCI)).setMaxResults(Costant.SIZE_LIST_SOCI).list();
+			transaction.commit();
+		} catch (Exception e) {
+			transaction.rollback();
+			e.printStackTrace();
+			logger.error("errore nella ricerca dei Eventi");
+		}finally{
+			session.close();
+		}
+
+		return res;
+	}
+
+	public Boolean eliminaEvento(Evento ev)
+	{
+		session = HibernateUtil.getSessionFactory().openSession();
+		boolean control=false;
+		try {
+			transaction=session.beginTransaction();
+			session.delete(ev);
+			logger.info("Evento cancellato");
+			control=true;
+			transaction.commit();
+		} catch (Exception e) {
+			control=false;
+			e.printStackTrace();
+			System.out.println("errore dentro l'eliminaEvento");
+			transaction.rollback();
+		} finally{
+			session.close();
+		}
+
+		return control;
+
+	}
+
 }
