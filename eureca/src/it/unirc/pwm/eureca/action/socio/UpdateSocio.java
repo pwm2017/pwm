@@ -88,8 +88,6 @@ public class UpdateSocio extends ActionSupport implements ServletRequestAware, S
 
 		if ((uploadDocFileName!=null))
 		{
-			
-			System.out.println("sono qui");
 			String[] parts = uploadDocContentType.split("/");
 			String part2 = parts[1];
 			String nomeFile=socio.getUsername()+"."+part2;

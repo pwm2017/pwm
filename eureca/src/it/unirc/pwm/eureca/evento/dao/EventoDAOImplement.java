@@ -132,8 +132,8 @@ public class EventoDAOImplement implements EventoDAOInterface{
 			transaction=session.beginTransaction();
 			session.delete(ev);
 			logger.info("Evento cancellato");
-			control=true;
 			transaction.commit();
+			control=true;
 		} catch (Exception e) {
 			control=false;
 			e.printStackTrace();

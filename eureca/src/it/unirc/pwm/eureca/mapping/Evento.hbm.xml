@@ -6,7 +6,7 @@ PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
 	<class name="it.unirc.pwm.eureca.evento.model.Evento" table="EVENTO">
 		<id name="idEvento">
 		    <column name="idEvento" />
-			<generator class="increment" />
+			<generator class="identity" />
 		</id>
 		<property name="nome" />
 		<property name="locandina" />

@@ -18,8 +18,8 @@ PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
 			<property name="via" column="indirizzo_via" type="string" />
 		</component>
 		<property name="foto" />
-		<property name="amministratore" />
-		<property name="abilitato" />
+		<property name="amministratore" type="boolean"  />
+		<property name="abilitato" type="boolean" />
 		
 		<one-to-one name="tessera" cascade="all"/> 
 		

@@ -129,4 +129,27 @@ public class Attivit‡DAOImplement implements Attivit‡DAOInterface{
 		}
 		return attivita;
 	}
+	
+	public Boolean eliminaAttivit‡(Attivita a)
+	{
+		session = HibernateUtil.getSessionFactory().openSession();
+		boolean control=false;
+		try {
+			transaction=session.beginTransaction();
+			session.delete(a);
+			logger.info("Attivita cancellata");
+			transaction.commit();
+			control=true;
+		} catch (Exception e) {
+			control=false;
+			e.printStackTrace();
+			System.out.println("errore dentro l'eliminaAttivit‡");
+			transaction.rollback();
+		} finally{
+			session.close();
+		}
+
+		return control;
+
+	}
 }

@@ -6,7 +6,7 @@ PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
     <class name="it.unirc.pwm.eureca.personaFisica.model.PersonaFisica" table="PERSONAFISICA">
         <id name="idPersonaFisica" type="int">
             <column name="idPersonaFisica" />
-            <generator class="increment" />
+            <generator class="identity" />
         </id>
         <property name="nome" type="java.lang.String">
             <column name="nome" />

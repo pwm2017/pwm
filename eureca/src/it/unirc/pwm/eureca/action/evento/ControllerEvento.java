@@ -113,6 +113,20 @@ public class ControllerEvento extends ActionSupport
 		    addActionMessage("Errore nell'eliminare l'evento");
 		return INPUT;
 	}
+	
+	public String eliminaAttività()
+	{
+		if(edao.eliminaEvento(evento))
+		{
+			addActionMessage("Attività eliminata correttamente");
+
+			return SUCCESS;
+		}
+		else 
+			addActionError("Errore nell'eliminare Attività");
+		    addActionMessage("Errore nell'eliminare Attività");
+		return INPUT;
+	}
 
 	public String setEvento()
 	{
