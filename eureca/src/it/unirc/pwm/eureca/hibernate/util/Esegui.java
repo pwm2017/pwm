@@ -66,7 +66,7 @@ public class Esegui
 //		}
 //        
           Evento e=new Evento();
-         e.setNome("veventomodificato");
+          
 //        Evento e1=new Evento();
 //        e1.setNome("veventomodificato");
 		
@@ -76,7 +76,7 @@ public class Esegui
 //       v.setDescrizione("primo viaggio");
 //       
        Socio s=new Socio();
-       s.setNome("antonio");
+      
 //       v.getSoci().add(s);
 //    
 //       
@@ -93,32 +93,35 @@ public class Esegui
 //      dao.creaEvento(e);
 		
 //		Attivit‡DAOInterface daoA= Attivit‡DAOFactory.getDAO();
-//		SocioDAOInterface daoS= SocioDAOFactory.getDAO();
-		SvolgeDAOInterface dao= SvolgeDAOFactory.getDAO();
-		Svolge sv=new Svolge();
-		a.setEvento(e);
-		a.setEvento(e);
-		SvolgeId svo=new SvolgeId();
-		svo.setIdAttivita(1);
-		svo.setIdSocio(1);
-		sv.setId(svo);
-		dao.Socio_Svolge_Attivita(sv);
+		SocioDAOInterface daoS= SocioDAOFactory.getDAO();
+//		SvolgeDAOInterface dao= SvolgeDAOFactory.getDAO();
+//		Svolge sv=new Svolge();
+//		a.setEvento(e);
+//		a.setEvento(e);
+//		SvolgeId svo=new SvolgeId();
+//		svo.setIdAttivita(1);
+//		svo.setIdSocio(1);
+//		sv.setId(svo);
+//		dao.Socio_Svolge_Attivita(sv);
 //		daoA.creaAttivit‡(a);
 //		System.out.println(daoA.getAttivita(a).getNome());
-		
-		
+//		e.setIdEvento(12);
+//		System.out.println(daoA.getAttivit‡Evento(e).get(1).getNome());
 		
 //		Socio so=new Socio();
 //		so.setNome("antonio");
 //		so.setPassword("ciao");
 //		so.setUsername("ciao");
 ////		
-//		ViaggioDAOInterface daoS= ViaggioDAOFactory.getDAO();
-//		Viaggio v=new Viaggio();
-//		v.setIdViaggio(1);
-//		Socio s=new Socio();
-//		s.setIdPersonaFisica(1);
-//		daoS.aggiungiSocioViaggio(v, s);
+		ViaggioDAOInterface vdaoS= ViaggioDAOFactory.getDAO();
+		Viaggio v=new Viaggio();
+		v.setIdViaggio(1);	
+		Socio so=new Socio();
+		so.setIdPersonaFisica(4);
+		so=daoS.getSocio(so);
+		v=vdaoS.getViaggio(v);
+		so.getViaggi().add(v);
+		daoS.modificaSocio(so);
 //		daoS.creaSocio(so);
 //		so.setPassword("ciao");
 //		so.setAmministratore(false);
@@ -137,13 +140,6 @@ public class Esegui
 //		id.setIdAttivita(1);
 //		id.setIdSocio(1);
 //		s.setId(id);
-		
-		
-		
-		
-		
-		
-		
 		
 		HibernateUtil.close();
 	}

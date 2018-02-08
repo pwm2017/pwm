@@ -1,15 +1,14 @@
 package it.unirc.pwm.eureca.action.socio;
-
 import java.io.File;
 import java.io.IOException;
+import java.util.Calendar;
 import java.util.Date;
-import javax.servlet.http.HttpServletRequest;
+import java.util.GregorianCalendar;
 
+import javax.servlet.http.HttpServletRequest;
 import org.apache.commons.io.FileUtils;
 import org.apache.struts2.interceptor.ServletRequestAware;
-
 import com.opensymphony.xwork2.ActionSupport;
-
 import it.unirc.pwm.eureca.socio.dao.SocioDAOFactory;
 import it.unirc.pwm.eureca.socio.dao.SocioDAOInterface;
 import it.unirc.pwm.eureca.socio.model.Socio;
@@ -20,7 +19,7 @@ import it.unirc.pwm.eureca.tessera.model.Tessera;
 public class AddSocio extends ActionSupport implements ServletRequestAware
 {
 	private static final long serialVersionUID = 1L;
-	private Socio socio = null;
+	private Socio socio = new Socio();
 	private SocioDAOInterface sdao=SocioDAOFactory.getDAO();
 	private TesseraDAOInterface tdao=TesseraDAOFactory.getDAO();
 	private Tessera tessera=new Tessera();
@@ -78,6 +77,7 @@ public class AddSocio extends ActionSupport implements ServletRequestAware
 	}
 
 
+	@SuppressWarnings("deprecation")
 	public String inserisciSocio()
 	{
 		String appPath = request.getServletContext().getRealPath("");
@@ -103,18 +103,13 @@ public class AddSocio extends ActionSupport implements ServletRequestAware
 		{
 			addActionMessage("Socio aggiunto correttamente");
 			
+			Date d=new Date();
+			tessera.setDataRilascio(d);
 			tessera.setSocio(socio);
 			tessera.setPunti(0);
-			Date d=new Date();
-			int anno= d.getYear()+1;
-			int mese=d.getMonth();
-			int giorno=d.getDay();
-			Date d1=new Date(anno,mese,giorno);
-			System.out.println(d);
-			System.out.println(d1);
-			tessera.setDataRilascio(d);
-			tessera.setDataScadenza(d1);
-			
+			GregorianCalendar gc=new GregorianCalendar();
+			String validita=(gc.get(Calendar.YEAR)+1)+"/"+(gc.get(Calendar.MONTH)+1)+"/"+gc.get(Calendar.DAY_OF_MONTH);
+			tessera.setDataScadenza(new Date(validita));
 			tdao.creaTessera(tessera);
 
 			return SUCCESS;

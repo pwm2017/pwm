@@ -50,5 +50,29 @@
 			</result> <result name="input">/WEB-INF/areaRiservata/amministratore/SettingSocio.jsp</result> 
 			</action> -->
 	</package>
+	
+	<package name="viaggioSocio" namespace="/socio/viaggio"
+		extends="Secure">
+
+		<action name="VisualizzaViaggiRedirect"
+			class="it.unirc.pwm.eureca.action.viaggio.ControllerViaggio" method="visualizzaViaggiSocio">
+			<interceptor-ref name="defaultStack" />
+			<interceptor-ref name="authenticationInterceptor" />
+			<result name="success">/WEB-INF/areaRiservata/socio/ViewViaggi.jsp
+			</result>
+			<result name="input">/WEB-INF/areaRiservata/socio/indexSocio.jsp
+			</result>
+		</action>
+		
+		<action name="PartecipaViaggio"
+			class="it.unirc.pwm.eureca.action.viaggio.ControllerViaggio" method="socioPartecipaViaggio">
+			<interceptor-ref name="defaultStack" />
+			<interceptor-ref name="authenticationInterceptor" />
+			<result name="success">/WEB-INF/areaRiservata/socio/indexSocio.jsp
+			</result>
+			<result name="input">/WEB-INF/areaRiservata/socio/ViewViaggi.jsp
+			</result>
+		</action>
+	</package>
 
 </struts>

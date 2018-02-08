@@ -63,6 +63,12 @@
 		<action name="ModificaSocio" class="it.unirc.pwm.eureca.action.socio.UpdateSocio"
 			method="modificaSocio">
 			<interceptor-ref name="defaultStack" />
+			<interceptor-ref name="fileUpload">
+				<param name="allowedTypes">
+					image/png,image/gif,image/jpeg
+				</param>
+				<param name="maximumSize">20971520</param>
+			</interceptor-ref>
 			<interceptor-ref name="authenticationAdministratorInterceptor" />
 			<result name="success">/WEB-INF/areaRiservata/amministratore/indexAmministratore.jsp
 			</result>

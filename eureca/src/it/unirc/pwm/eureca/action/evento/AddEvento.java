@@ -21,7 +21,7 @@ public class AddEvento extends ActionSupport implements ServletRequestAware
 	private Evento evento = new Evento();
 	private Attivita attivita;
 	private SocioDAOInterface sdao=SocioDAOFactory.getDAO();
-	private List<Socio> listaSoci= null;
+	private List<Socio> listaSoci;
 	private File uploadDoc;
 	private String uploadDocFileName;
 	private String uploadDocContentType;

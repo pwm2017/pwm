@@ -75,7 +75,7 @@ public class ControllerSocio extends ActionSupport
 	public String execute()
 	{
 		listaSoci=sdao.getSoci();
-		pagine= (int) Math.ceil((double) listaSoci.size()/Costant.SIZE_LIST_SOCI);
+		pagine= (int) Math.ceil((double) listaSoci.size()/Costant.SIZE_LIST);
 		listaSociPagina=sdao.cercaSociPagina(numeroPagina);
 		if(listaSociPagina==null)
 		{

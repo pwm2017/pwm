@@ -3,7 +3,7 @@ package it.unirc.pwm.eureca.utils;
 public class Costant {
 	//public static String URL_GAZZETTA = "http://xml2.temporeale.gazzettaobjects.it/optatrsport/";
 	
-	public static Integer SIZE_LIST_SOCI = 5;
+	public static Integer SIZE_LIST =10;
 	
 	
 	static int dot1 = System.getProperty("catalina.base").indexOf(".");

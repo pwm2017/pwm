@@ -48,7 +48,7 @@
 		<default-interceptor-ref name="secureStack" />
 
 		<global-results>
-			<result name="login" type="redirect">LoginForm.action</result>
+			<result name="login" type="redirect">/LoginForm.action</result>
 			<!-- vale per qualunque action -->
 		</global-results>
 

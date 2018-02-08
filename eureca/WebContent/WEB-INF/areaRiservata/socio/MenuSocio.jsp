@@ -9,7 +9,7 @@
 </head>
 <body>
 
-	<div class="section section-light-blue">
+	<div class="section section-light-brown landing-section">
 		<div class="container">
 			<div id="menu-dropdown">
 				<div class="row">
@@ -45,29 +45,9 @@
 								id="bs-example-navbar-collapse-1">
 								<ul class="nav navbar-nav pull-right">
 									<a
-										href="<s:url action='AuthenticatedAmministratore' namespace='/areaRiservata/amministratore'/>"
+										href="<s:url action='Authenticated' namespace='/areaRiservata/socio'/>"
 										class="btn">Home</a>
 
-									<li class="dropdown">
-										<button href="#" class="dropdown-toggle btn"
-											data-toggle="dropdown">
-											Soci <b class="caret"></b>
-										</button> <!--                                  You can add classes for different colours on the next element -->
-										<ul class="dropdown-menu dropdown-primary dropdown-menu-right">
-											<li><a
-												href="<s:url action='InserisciSocioRedirect' namespace='/amministratore/socio'/>">Aggiungi
-													Socio</a></li>
-											<li class="divider"></li>
-
-											<li><a
-												href="<s:url action='GestisciSoci' namespace='/amministratore/socio'>
-															<s:param name="numeroPagina"><s:property value="0" /></s:param>
-															</s:url>">Gestisci
-													Soci</a>
-											</li>
-											<li class="divider"></li>
-										</ul>
-									</li>
 
 									<li class="dropdown">
 										<button href="#" class="dropdown-toggle btn"
@@ -76,8 +56,7 @@
 										</button> <!--                                  You can add classes for different colours on the next element -->
 										<ul class="dropdown-menu dropdown-primary dropdown-menu-right">
 											<li><a
-												href="<s:url action='InserisciViaggioRedirect' namespace='/amministratore/viaggio'/>">Aggiungi
-													Viaggio</a></li>
+												href="<s:url action='VisualizzaViaggiRedirect' namespace='/socio/viaggio'/>">Visualizza Viaggi</a></li>
 											<li class="divider"></li>
 
 										</ul>

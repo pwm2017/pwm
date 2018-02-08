@@ -15,7 +15,7 @@ PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
 		<property name="dataInizio" type="date"/>
 		<property name="dataFine" type="date"/>
 		
-		<set name="soci" table="SOCIO_VIAGGIO" cascade="save-update" >
+		<set name="soci" table="SOCIO_VIAGGIO" cascade="save-update" lazy="false">
             <key column="IDVIAGGIO"/>
             <many-to-many column="IDSOCIO"  class="it.unirc.pwm.eureca.socio.model.Socio" />  
         </set>

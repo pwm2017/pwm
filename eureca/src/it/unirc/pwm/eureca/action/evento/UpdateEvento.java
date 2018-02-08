@@ -1,42 +1,33 @@
-package it.unirc.pwm.eureca.action.socio;
+package it.unirc.pwm.eureca.action.evento;
 
 import java.io.File;
 import java.io.IOException;
-import java.util.Map;
-
 import javax.servlet.http.HttpServletRequest;
-
 import org.apache.commons.io.FileUtils;
 import org.apache.struts2.interceptor.ServletRequestAware;
-import org.apache.struts2.interceptor.SessionAware;
-
 import com.opensymphony.xwork2.ActionSupport;
+import it.unirc.pwm.eureca.evento.dao.EventoDAOFactory;
+import it.unirc.pwm.eureca.evento.dao.EventoDAOInterface;
+import it.unirc.pwm.eureca.evento.model.Evento;
 
-import it.unirc.pwm.eureca.socio.dao.SocioDAOFactory;
-import it.unirc.pwm.eureca.socio.dao.SocioDAOInterface;
-import it.unirc.pwm.eureca.socio.model.Socio;
-import it.unirc.pwm.eureca.tessera.model.Tessera;
 
-public class UpdateSocio extends ActionSupport implements ServletRequestAware, SessionAware
+public class UpdateEvento extends ActionSupport implements ServletRequestAware
 {
 	private static final long serialVersionUID = 1L;
-	private Socio socio=new Socio();
-	private Map<String,Object> session;
-	private SocioDAOInterface sdao=SocioDAOFactory.getDAO();
-	private Tessera tessera=new Tessera();
+	private Evento evento=new Evento();
+	private EventoDAOInterface edao=EventoDAOFactory.getDAO();
 	private File uploadDoc;
 	private String uploadDocFileName;
 	private String uploadDocContentType;
 	public HttpServletRequest request;
 
-
-
-	public Tessera getTessera() {
-		return tessera;
+	
+	public Evento getEvento() {
+		return evento;
 	}
 
-	public void setTessera(Tessera tessera) {
-		this.tessera = tessera;
+	public void setEvento(Evento evento) {
+		this.evento = evento;
 	}
 
 	public File getUploadDoc() {
@@ -63,40 +54,25 @@ public class UpdateSocio extends ActionSupport implements ServletRequestAware, S
 		this.uploadDocContentType = uploadDocContentType;
 	}
 
-	public Socio getSocio() {
-		return socio;
-	}
-
-	public void setSocio(Socio socio) {
-		this.socio = socio;
-	}
-	
-	public void setSession(Map<String, Object> session) {
-		this.session=session;
-	}
-
-
 	public String execute()
 	{
 
 		return SUCCESS;
 	}
 
-	public String modificaSocio()
+	public String modificaEvento()
 	{
 		String appPath = request.getServletContext().getRealPath("");
 
 		if ((uploadDocFileName!=null))
 		{
-			
-			System.out.println("sono qui");
 			String[] parts = uploadDocContentType.split("/");
 			String part2 = parts[1];
-			String nomeFile=socio.getUsername()+"."+part2;
-			socio.setFoto(nomeFile);
+			String nomeFile=evento.getNome()+"."+part2;
+			evento.setLocandina(nomeFile);
 			uploadDocFileName=nomeFile;
-//			File fileToCreate = new File(appPath+"webApp/assets/img/soci", uploadDocFileName);
-			File fileToCreate = new File("C:/Users/User/Desktop/eclipseNeon/pwm/eureca/WebContent/webApp/assets/img/soci", uploadDocFileName);
+//			File fileToCreate = new File(appPath+"webApp/assets/img/eventi", uploadDocFileName);
+			File fileToCreate = new File("C:/Users/User/Desktop/eclipseNeon/pwm/eureca/WebContent/webApp/assets/img/eventi", uploadDocFileName);
 			try
 			{
 				FileUtils.copyFile(this.uploadDoc, fileToCreate);
@@ -106,17 +82,15 @@ public class UpdateSocio extends ActionSupport implements ServletRequestAware, S
 				addActionError(e.getMessage());
 			}
 		}
-		if(sdao.modificaSocio(socio))
+		if(edao.modificaEvento(evento))
 		{
-			Socio s = (Socio) session.get( "amministratore" );
-			if(socio.getIdPersonaFisica()==s.getIdPersonaFisica())
-			session.replace("amministratore", socio);
-			addActionMessage("Socio modificato correttamente");
+			
+			addActionMessage("Evento modificato correttamente");
 
 			return SUCCESS;
 		}
 		else 
-			addActionError("Errore nel modifica socio");;
+			addActionError("Errore nel modifica Evento");;
 		return INPUT;
 	}
 	

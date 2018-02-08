@@ -6,9 +6,16 @@
 
 <head>
 
+<!-- Include jQuery -->
+  <script src="https://code.jquery.com/jquery-1.8.2.min.js"></script>
+
+  <!-- Include jQuery Popup Overlay -->
+  <script src="https://cdn.rawgit.com/vast-engineering/jquery-popup-overlay/1.7.13/jquery.popupoverlay.js"></script>
+
 <%@ include file="../../../webApp/layout/Head.jsp"%>
 
 <title><s:text name="title.addAttivia" /></title>
+
 </head>
 
 <body>
@@ -25,13 +32,14 @@
 			</div>
 		</div>
 	</div>
+	
 	<div class="section">
 		<div class="container">
 			<div class="row">
 				<div
 					class="col-md-6 col-md-offset-3 col-sm-6 col-sm-offset-3 col-xs-10 col-xs-offset-1">
 					<form action="AggiungiAttivita" enctype="multipart/form-data"
-						method="post">
+						method="post" id="my_popup">
 
 						<s:hidden name="attivita.evento.nome" value="%{evento.nome}"></s:hidden>
 						<s:hidden name="attivita.evento.locandina"
@@ -68,9 +76,9 @@
 												<div class="col-md-3 col-xs-2">
 													<div class="unfollow" rel="tooltip" title="Seleziona">
 														<label class="checkbox" for="checkbox1"> <input
-															type="checkbox" value="<s:property value="idPersonaFisica" />"
-															name="idSocio" data-toggle="checkbox"
-															checked>
+															id="opzione" type="checkbox"
+															value="<s:property value="idPersonaFisica" />"
+															name="idSocio" data-toggle="checkbox" checked>
 														</label>
 													</div>
 												</div>

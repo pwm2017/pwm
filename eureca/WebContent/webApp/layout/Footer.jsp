@@ -11,16 +11,18 @@
 	<footer class="footer-demo section-dark">
 	<div class="container">
 		<nav class="pull-left">
+		 <br>
+		<h6>DEVELOPED BY:</h6>
 		<ul>
-
-			<li><a href="http://www.creative-tim.com"> Antonio
-					Monteleone </a></li>
-			<li><a href="http://blog.creative-tim.com"> Antonella Russo
+			<li><a href="http://www.creative-tim.com">Antonio Monteleone </a></li>
+			<li><a href="http://blog.creative-tim.com">Antonella Russo
 			</a></li>
+			<li><a href="http://www.creative-tim.com">Ignazio Cricelli
+			 </a></li>
 		</ul>
 		</nav>
 		<div class="copyright pull-right">
-			&copy; Copyright Eureca 2017 <i class="fa fa-heart heart"></i>
+			&copy; Copyright Eureca 2018 <i class="fa fa-heart heart"></i>
 		</div>
 	</div>
 	</footer>

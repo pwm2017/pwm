@@ -111,7 +111,7 @@ public class EventoDAOImplement implements EventoDAOInterface{
 		List<Evento> res = null;
 		try {
 			transaction=session.beginTransaction();
-			res = (List<Evento>)session.createQuery("from Evento").setFirstResult((numeroPagina*Costant.SIZE_LIST_SOCI)).setMaxResults(Costant.SIZE_LIST_SOCI).list();
+			res = (List<Evento>)session.createQuery("from Evento").setFirstResult((numeroPagina*Costant.SIZE_LIST)).setMaxResults(Costant.SIZE_LIST).list();
 			transaction.commit();
 		} catch (Exception e) {
 			transaction.rollback();

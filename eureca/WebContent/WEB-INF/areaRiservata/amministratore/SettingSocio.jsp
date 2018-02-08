@@ -33,9 +33,10 @@
 				<div
 					class="col-md-7 col-md-offset-1 col-sm-6 col-sm-offset-3 col-xs-10 col-xs-offset-1">
 
-					<s:form action="ModificaSocio">
+					<s:form action="ModificaSocio" enctype="multipart/form-data">
 						<s:hidden name="socio.idPersonaFisica"
 							value="%{socio.idPersonaFisica}"></s:hidden>
+						<s:hidden name="socio.foto" value="%{socio.foto}"></s:hidden>
 						<s:textfield key="label.socio.nome" requiredLabel="true"
 							name="socio.nome" class="form-control" />
 						<s:textfield key="label.socio.surname" name="socio.cognome"
@@ -66,7 +67,7 @@
 							name="socio.codiceFiscale" class="form-control" />
 						<s:checkbox name="socio.amministratore"
 							key="label.socio.amministratore" />
-
+						<s:file name="uploadDoc" key="Carica immagine" />
 
 						<s:submit value="Modifica" class="btn btn-block" />
 					</s:form>
@@ -117,8 +118,7 @@
 															<s:textfield label="DataScadenza"
 																name="tessera.dataScadenza" class="form-control" />
 
-															<s:submit value="Modifica"
-																class="btn btn-block" />
+															<s:submit value="Modifica" class="btn btn-block" />
 														</s:form>
 													</div>
 												</div>

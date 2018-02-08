@@ -2,6 +2,10 @@ package it.unirc.pwm.eureca.action.evento;
 import java.util.List;
 
 import com.opensymphony.xwork2.ActionSupport;
+
+import it.unirc.pwm.eureca.attivita.dao.Attivit‡DAOFactory;
+import it.unirc.pwm.eureca.attivita.dao.Attivit‡DAOInterface;
+import it.unirc.pwm.eureca.attivita.model.Attivita;
 import it.unirc.pwm.eureca.evento.dao.EventoDAOFactory;
 import it.unirc.pwm.eureca.evento.dao.EventoDAOInterface;
 import it.unirc.pwm.eureca.evento.model.Evento;
@@ -13,12 +17,23 @@ public class ControllerEvento extends ActionSupport
 	private static final long serialVersionUID = 1L;
 	private Evento evento;
 	private EventoDAOInterface edao=EventoDAOFactory.getDAO();
+	private Attivit‡DAOInterface adao=Attivit‡DAOFactory.getDAO();
 	private List<Evento> listaEventi;
 	private List<Evento> listaEventiPagina;
+	private List<Attivita> attivit‡Evento;
 	private int numeroPagina;
 	private int pagine;
 	
 	
+	
+	public List<Attivita> getAttivit‡Evento() {
+		return attivit‡Evento;
+	}
+
+	public void setAttivit‡Evento(List<Attivita> attivit‡Evento) {
+		this.attivit‡Evento = attivit‡Evento;
+	}
+
 	public List<Evento> getListaEventi() {
 		return listaEventi;
 	}
@@ -67,7 +82,7 @@ public class ControllerEvento extends ActionSupport
 			addActionError("Non ci sono eventi");
 			return INPUT;
 		}
-		pagine= (int) Math.ceil((double) listaEventi.size()/Costant.SIZE_LIST_SOCI);
+		pagine= (int) Math.ceil((double) listaEventi.size()/Costant.SIZE_LIST);
 		listaEventiPagina=edao.cercaEventiPagina(numeroPagina);
 		if(listaEventiPagina==null)
 		{
@@ -95,12 +110,15 @@ public class ControllerEvento extends ActionSupport
 		}
 		else 
 			addActionError("Errore nell'eliminare l'evento"+ getText(evento.getNome()));
+		    addActionMessage("Errore nell'eliminare l'evento");
 		return INPUT;
 	}
 
 	public String setEvento()
 	{
 		evento=edao.getEvento(evento);
+		attivit‡Evento=adao.getAttivit‡Evento(evento);
+		
 		if(evento==null)
 		{
 			addActionError("Impossibile caricare l'evento "+ getText(evento.getNome()));

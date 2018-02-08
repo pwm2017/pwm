@@ -64,36 +64,31 @@
 		
 		
 		<action name="SetEvento" class="it.unirc.pwm.eureca.action.evento.ControllerEvento"
-			method="setSocio">
+			method="setEvento">
 			<interceptor-ref name="defaultStack" />
 			<interceptor-ref name="authenticationAdministratorInterceptor" />
-			<result name="success">/WEB-INF/areaRiservata/amministratore/SettingSocio.jsp
+			<result name="success">/WEB-INF/areaRiservata/amministratore/SettingEvento.jsp
 			</result>
 			<result name="input">/WEB-INF/areaRiservata/amministratore/indexAmministratore.jsp
 			</result>
 		</action>
 		
-	<!-- 	
-		<action name="ModificaEvento" class="it.unirc.pwm.eureca.action.socio.UpdateEvento"
+	 	
+		<action name="ModificaEvento" class="it.unirc.pwm.eureca.action.evento.UpdateEvento"
 			method="modificaEvento">
 			<interceptor-ref name="defaultStack" />
+			<interceptor-ref name="fileUpload">
+				<param name="allowedTypes">
+					image/png,image/gif,image/jpeg
+				</param>
+				<param name="maximumSize">20971520</param>
+			</interceptor-ref>
 			<interceptor-ref name="authenticationAdministratorInterceptor" />
 			<result name="success">/WEB-INF/areaRiservata/amministratore/indexAmministratore.jsp
 			</result>
 			<result name="input">/WEB-INF/areaRiservata/amministratore/SettingSocio.jsp
 			</result>
 		</action>
-		
-		
-		<action name="ModificaTessera" class="it.unirc.pwm.eureca.action.socio.UpdateTessera"
-			method="modificaTessera">
-			<interceptor-ref name="defaultStack" />
-			<interceptor-ref name="authenticationAdministratorInterceptor" />
-			<result name="success">/WEB-INF/areaRiservata/amministratore/indexAmministratore.jsp
-			</result>
-			<result name="input">/WEB-INF/areaRiservata/amministratore/SettingSocio.jsp
-			</result>
-		</action> -->
  
 	</package>
 

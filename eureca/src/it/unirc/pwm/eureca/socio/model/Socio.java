@@ -12,7 +12,7 @@ public class Socio extends PersonaFisica
 	private String username;
 	private String codiceFiscale;
 	private Indirizzo indirizzo;
-	private String foto;//ho immaginato fosse un url altrimenti non saprei come gestirla
+	private String foto;
 	private Tessera tessera;
 	private boolean amministratore;
 	private boolean abilitato;

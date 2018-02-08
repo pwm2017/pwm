@@ -1,6 +1,10 @@
 package it.unirc.pwm.eureca.viaggio.dao;
+import java.util.ArrayList;
+import java.util.List;
+
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
+import org.hibernate.Query;
 import org.hibernate.Session;
 import org.hibernate.Transaction;
 import it.unirc.pwm.eureca.hibernate.util.HibernateUtil;
@@ -67,15 +71,16 @@ public class ViaggioDAOImplement implements ViaggioDAOInterface
 	
 	public boolean aggiungiSocioViaggio(Viaggio v, Socio s) 
 	{
-		v.getSoci().add(s);
+	
 		boolean result=false;
+		session = HibernateUtil.getSessionFactory().openSession();
+		transaction = session.beginTransaction();
 		try {
-			session = HibernateUtil.getSessionFactory().openSession();
-			transaction = session.beginTransaction();
+			v.getSoci().add(s);
 			session.update(v);
-			result=true;
 			logger.info("Viaggio modificato");
 			transaction.commit();
+			result=true;
 		} catch (Exception e) {
 			e.printStackTrace();
 			logger.info("errore dentro il modificata Viaggio");
@@ -86,6 +91,61 @@ public class ViaggioDAOImplement implements ViaggioDAOInterface
 		return result;
 	}
 	
+	public Viaggio getViaggio(Viaggio v)
+	{
+		Viaggio vi = null;
+
+		String hql = "from Viaggio where idViaggio ='"+v.getIdViaggio()+"'";
+		try {
+			session = HibernateUtil.getSessionFactory().openSession();
+			Query query = session.createQuery(hql);
+			if (query.list().size()>0)
+				vi=(Viaggio)query.list().get(0);
+		} catch (Exception e) {
+			e.printStackTrace();
+		}finally{
+			session.close();
+		}
+		return vi;
+	}
 	
+	public List<Viaggio> getViaggi()
+	{
+		List<Viaggio> viaggi = new ArrayList<>();
+		session = HibernateUtil.getSessionFactory().openSession();
+		try {
+			String hql = "FROM Viaggio";
+			Query query = session.createQuery(hql);
+			viaggi=query.list();
+
+
+		} catch (Exception e) {
+			e.printStackTrace();
+		}finally{
+			session.close();
+		}
+
+		return viaggi;
+
+	}
+	
+	public List<Viaggio> getViaggiSoci()
+	{
+		List<Viaggio> viaggi = new ArrayList<>();
+		
+		session = HibernateUtil.getSessionFactory().openSession();
+		try {
+			
+			viaggi=(List<Viaggio>) session.createSQLQuery("SELECT * FROM viaggio WHERE IDVIAGGIO NOT IN (SELECT idViaggio FROM socio_viaggio)").addEntity(Viaggio.class).list();
+
+		} catch (Exception e) {
+			e.printStackTrace();
+		}finally{
+			session.close();
+		}
+
+		return viaggi;
+
+	}
 	
 }

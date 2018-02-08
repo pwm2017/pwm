@@ -1,14 +1,14 @@
 package it.unirc.pwm.eureca.action.evento;
-import javax.servlet.http.HttpServletRequest;
 
-import org.apache.struts2.ServletActionContext;
+import java.util.List;
 
 import com.opensymphony.xwork2.ActionSupport;
-
-
 import it.unirc.pwm.eureca.attivita.dao.Attivit‡DAOFactory;
 import it.unirc.pwm.eureca.attivita.dao.Attivit‡DAOInterface;
 import it.unirc.pwm.eureca.attivita.model.Attivita;
+import it.unirc.pwm.eureca.socio.dao.SocioDAOFactory;
+import it.unirc.pwm.eureca.socio.dao.SocioDAOInterface;
+import it.unirc.pwm.eureca.socio.model.Socio;
 import it.unirc.pwm.eureca.svolge.dao.SvolgeDAOFactory;
 import it.unirc.pwm.eureca.svolge.dao.SvolgeDAOInterface;
 import it.unirc.pwm.eureca.svolge.model.Svolge;
@@ -18,16 +18,27 @@ public class AddAttivita extends ActionSupport
 {
 	private static final long serialVersionUID = 1L;
 	private Attivita attivita=new Attivita();
-	private String idSocio;
+	private String [] idSocio;
+	private List<Socio> listaSoci;
 	private Attivit‡DAOInterface adao=Attivit‡DAOFactory.getDAO();
 	private SvolgeDAOInterface svodao=SvolgeDAOFactory.getDAO();
+	private SocioDAOInterface sdao=SocioDAOFactory.getDAO();
 	
 	
-	public String getIdSocio() {
+	
+	public List<Socio> getListaSoci() {
+		return listaSoci;
+	}
+
+	public void setListaSoci(List<Socio> listaSoci) {
+		this.listaSoci = listaSoci;
+	}
+
+	public String[] getIdSocio() {
 		return idSocio;
 	}
 
-	public void setIdSocio(String idSocio) {
+	public void setIdSocio(String[] idSocio) {
 		this.idSocio = idSocio;
 	}
 
@@ -46,10 +57,9 @@ public class AddAttivita extends ActionSupport
 	
 	public String inserisciEventoDefinitivo()
 	{	
-		
 		int idAttivita = adao.creaAttivit‡(attivita);
-		HttpServletRequest request= ServletActionContext.getRequest();
-		for(String idS:request.getParameterValues("idSocio"))
+		
+		for(String idS: idSocio)
 		{
 			Svolge svolge=new Svolge();
 			SvolgeId svolgeId=new SvolgeId();
@@ -66,5 +76,17 @@ public class AddAttivita extends ActionSupport
 		}
 		addActionMessage("Evento aggiunto correttamente");  
 			return SUCCESS;
+	}
+	
+
+	public void validate()
+	{
+
+		if(idSocio==null)
+		{
+			addActionMessage(getText("Devi aggiungere almeno un socio!!!"));
+			listaSoci=sdao.getSoci();
+			this.addFieldError("idSocio",getText( "Devi aggiungere almeno un socio!!!"));
+		}
 	}
 }

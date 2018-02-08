@@ -232,7 +232,7 @@ public class SocioDAOImplement implements SocioDAOInterface{
 		List<Socio> res = null;
 		try {
 			transaction=session.beginTransaction();
-		    res = (List<Socio>)session.createQuery("from Socio where abilitato=1").setFirstResult((numeroPagina*Costant.SIZE_LIST_SOCI)).setMaxResults(Costant.SIZE_LIST_SOCI).list();
+		    res = (List<Socio>)session.createQuery("from Socio where abilitato=1").setFirstResult((numeroPagina*Costant.SIZE_LIST)).setMaxResults(Costant.SIZE_LIST).list();
 		    transaction.commit();
 		} catch (Exception e) {
 			transaction.rollback();
