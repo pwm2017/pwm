@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE struts PUBLIC
+        "-//Apache Software Foundation//DTD Struts Configuration 2.0//EN"
+        "http://struts.apache.org/dtds/struts-2.0.dtd">
+
+<struts>
+<!-- pagina json --> 
+	<package name="json" namespace="/amministratore/evento" extends="json-default">
+		<!-- <global-results>
+			<result name="genericException">/error/ExeptionHandler.jsp</result>
+		</global-results>
+		<global-exception-mappings>
+			<exception-mapping exception="java.lang.Exception"
+				result="genericException" />
+		</global-exception-mappings> -->
+	
+		<action name="Ricerca">
+			<result>/WEB-INF/evento.jsp</result>
+		</action>
+
+		<action name="EventoJson" class="it.uni.pwm.eureca.action.evento.EventoJson">
+			<result type="json" name="SUCCESS">
+				<param name="excludeProperties">
+					^result\[\d+\].id,
+					^result\[\d+\].edificios,
+					^result\[\d+\].aps,
+					^result\[\d+\].campuses,
+					^result\[\d+\].stanzas,
+					^result\[\d+\].notifiches,
+					^result\[\d+\].informazionis
+				</param>
+			</result>
+		</action>
+	</package>
+	
+</struts>

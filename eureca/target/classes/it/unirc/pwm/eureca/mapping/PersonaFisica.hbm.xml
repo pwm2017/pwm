@@ -1,0 +1,24 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping
+PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<hibernate-mapping package="it.unirc.pwm.eureca.mapping">
+    <class name="it.unirc.pwm.eureca.personaFisica.model.PersonaFisica" table="PERSONAFISICA">
+        <id name="idPersonaFisica" type="int">
+            <column name="idPersonaFisica" />
+            <generator class="increment" />
+        </id>
+        <property name="nome" type="java.lang.String">
+            <column name="nome" />
+        </property>
+        
+        <property name="cognome" type="java.lang.String">
+            <column name="cognome" />
+        </property>
+        <property name="email" type="java.lang.String">
+            <column name="email" />
+        </property>
+        <property name="telefono" />  
+        <property name="dataNascita" type="date"/>   
+    </class>
+</hibernate-mapping>

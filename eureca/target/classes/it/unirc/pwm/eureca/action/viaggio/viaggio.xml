@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE struts PUBLIC
+        "-//Apache Software Foundation//DTD Struts Configuration 2.0//EN"
+        "http://struts.apache.org/dtds/struts-2.0.dtd">
+
+<struts>
+
+	<package name="viaggio" namespace="/amministratore/viaggio"
+		extends="SecureAdministrator">
+
+		<action name="InserisciViaggioRedirect"
+			class="it.unirc.pwm.eureca.action.viaggio.ControllerViaggio" method="redirectInserisciViaggio">
+			<interceptor-ref name="authenticationAdministratorInterceptor" />
+			<result name="success">/WEB-INF/areaRiservata/amministratore/AddViaggio.jsp
+			</result>
+		</action>
+
+
+		<action name="AggiungiViaggio" class="it.unirc.pwm.eureca.action.viaggio.AddViaggio">
+			<interceptor-ref name="defaultStack" />
+			<interceptor-ref name="fileUpload">
+				<param name="allowedTypes">
+					image/png,image/gif,image/jpeg
+				</param>
+				<param name="maximumSize">20971520</param>
+			</interceptor-ref>
+			<interceptor-ref name="authenticationAdministratorInterceptor" />
+			<result name="success">/WEB-INF/areaRiservata/amministratore/indexAmministratore.jsp
+			</result>
+			<result name="input">/WEB-INF/areaRiservata/amministratore/AddViaggio.jsp
+			</result>
+		</action>
+
+
+		<!-- <action name="GestisciSoci" class="it.unirc.pwm.eureca.action.socio.ControllerSocio"> 
+			<interceptor-ref name="defaultStack" /> <interceptor-ref name="authenticationAdministratorInterceptor" 
+			/> <result name="success">/WEB-INF/areaRiservata/amministratore/GestisciSoci.jsp 
+			</result> <result name="input" type="">/WEB-INF/areaRiservata/amministratore/GestisciSoci.jsp 
+			</result> </action> <action name="EliminaSocio" class="it.unirc.pwm.eureca.action.socio.ControllerSocio" 
+			method="eliminaSocio"> <interceptor-ref name="defaultStack" /> <interceptor-ref 
+			name="authenticationAdministratorInterceptor" /> <result name="success" type="redirectAction">GestisciSoci.action 
+			</result> <result name="input">/HOME.action</result> </action> <action name="SetSocio" 
+			class="it.unirc.pwm.eureca.action.socio.ControllerSocio" method="setSocio"> 
+			<interceptor-ref name="defaultStack" /> <interceptor-ref name="authenticationAdministratorInterceptor" 
+			/> <result name="success">/WEB-INF/areaRiservata/amministratore/SettingSocio.jsp 
+			</result> <result name="input">/HOME.action</result> </action> <action name="ModificaSocio" 
+			class="it.unirc.pwm.eureca.action.socio.SettingSocio" method="modificaSocio"> 
+			<interceptor-ref name="defaultStack" /> <interceptor-ref name="authenticationAdministratorInterceptor" 
+			/> <result name="success">/WEB-INF/areaRiservata/amministratore/indexAmministratore.jsp 
+			</result> <result name="input">/WEB-INF/areaRiservata/amministratore/SettingSocio.jsp</result> 
+			</action> -->
+	</package>
+
+</struts>

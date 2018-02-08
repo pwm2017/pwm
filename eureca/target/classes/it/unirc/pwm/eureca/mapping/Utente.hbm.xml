@@ -1,0 +1,21 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping
+PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<hibernate-mapping package="it.unirc.pwm.eureca.mapping">
+
+	<joined-subclass name="it.unirc.pwm.eureca.utente.model.Utente"
+	
+	 extends="it.unirc.pwm.eureca.personaFisica.model.PersonaFisica">
+		<key>
+			<column name="idPersonaFisica" />
+		</key>
+		<property name="ente" type="string" length="200" column="ente"  />
+		
+		<set name="eventi" table="UTENTE_EVENTO" cascade="save-update" > 
+            <key column="IDUTENTE" />
+            <many-to-many column="IDEVENTO"   class="it.unirc.pwm.eureca.evento.model.Evento" />
+        </set>
+		
+	</joined-subclass>
+</hibernate-mapping>

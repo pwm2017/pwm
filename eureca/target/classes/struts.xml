@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE struts PUBLIC
+    "-//Apache Software Foundation//DTD Struts Configuration 2.0//EN"
+    "http://struts.apache.org/dtds/struts-2.0.dtd">
+<struts>
+
+
+	<constant name="struts.custom.i18n.resources" value="global" />
+	<constant name="struts.devMode" value="true" />
+
+	<package name="default" namespace="/" extends="struts-default">
+
+		<global-results>
+			<result name="genericException">/webApp/Exception.jsp</result>
+		</global-results>
+		<global-exception-mappings>
+			<exception-mapping exception="java.lang.Exception"
+				result="genericException" />
+		</global-exception-mappings>
+
+
+		<action name="HOME" class="it.unirc.pwm.eureca.action.support.Home">
+			<result>/webApp/home.jsp</result>
+		</action>
+
+	</package>
+
+	<include file="it/unirc/pwm/eureca/action/login/login.xml" />
+	<include file="it/unirc/pwm/eureca/action/socio/socio.xml" />
+	<include file="it/unirc/pwm/eureca/action/viaggio/viaggio.xml" />
+	<include file="it/unirc/pwm/eureca/action/evento/evento.xml" />
+	<include file="it/unirc/pwm/eureca/action/utente/utente.xml" />
+
+
+</struts>

@@ -1,0 +1,31 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping
+PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<hibernate-mapping package="it.unirc.pwm.eureca.mapping">
+	<class name="it.unirc.pwm.eureca.evento.model.Evento" table="EVENTO">
+		<id name="idEvento">
+		    <column name="idEvento" />
+			<generator class="increment" />
+		</id>
+		<property name="nome" />
+		<property name="locandina" />
+		<property name="descrizione" />
+		<property name="luogo" />
+		<property name="dataEvento" type="date"/>
+		
+		
+		<set name="attivita" lazy="true" cascade="save-update" sort="unsorted" table="ATTIVITA" >
+			<key>
+				<column name="EVENTO" precision="22" scale="0" /><!-- Devo indicare l'attributo di join - 
+					nell'oggetto manca -->
+			</key>
+			<one-to-many class="it.unirc.pwm.eureca.attivita.model.Attivita" />
+		</set>
+		
+		<set name="utenti" table="UTENTE_EVENTO" cascade="save-update" inverse="true">
+            <key column="IDEVENTO"/>
+            <many-to-many column="IDUTENTE"  class="it.unirc.pwm.eureca.utente.model.Utente" />  
+        </set>
+	</class>
+</hibernate-mapping>

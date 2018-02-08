@@ -1,0 +1,41 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping
+PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<hibernate-mapping package="it.unirc.pwm.eureca.mapping">
+	<joined-subclass name="it.unirc.pwm.eureca.socio.model.Socio" 
+	extends="it.unirc.pwm.eureca.personaFisica.model.PersonaFisica">
+		<key>
+			<column name="idPersonaFisica" />
+		</key>
+		<property name="password" />
+		<property name="username" />
+		<property name="codiceFiscale" />
+		<component name="indirizzo" class="it.unirc.pwm.eureca.socio.model.Indirizzo">
+			<property name="cap" column="indirizzo_cap" type="int" />
+			<property name="civico" column="indirizzo_civico" type="string" />
+			<property name="citta" column="indirizzo_citta" type="string" />
+			<property name="via" column="indirizzo_via" type="string" />
+		</component>
+		<property name="foto" />
+		<property name="amministratore" />
+		<property name="abilitato" />
+		
+		<one-to-one name="tessera" cascade="all"/> 
+		
+		<set name="viaggi" table="SOCIO_VIAGGIO" cascade="save-update" inverse="true"> 
+            <key column="IDSOCIO" />
+            <many-to-many column="IDVIAGGIO"  class="it.unirc.pwm.eureca.viaggio.model.Viaggio" />
+        </set>
+        
+        
+        <set name="svolges" table="socio_svolge_attivita" inverse="true" lazy="false" fetch="select">
+            <key>
+                <column name="IDATTIVITA" not-null="true" />
+            </key>
+            <one-to-many class="it.unirc.pwm.eureca.svolge.model.Svolge" />
+        </set>
+        
+		
+	</joined-subclass>
+</hibernate-mapping>

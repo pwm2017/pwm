@@ -1,0 +1,100 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE struts PUBLIC
+        "-//Apache Software Foundation//DTD Struts Configuration 2.0//EN"
+        "http://struts.apache.org/dtds/struts-2.0.dtd">
+
+<struts>
+
+	<package name="evento" namespace="/amministratore/evento"
+		extends="SecureAdministrator">
+
+		<action name="InserisciEventoRedirect"
+			class="it.unirc.pwm.eureca.action.evento.ControllerEvento" method="redirectInserisciEvento">
+			<interceptor-ref name="authenticationAdministratorInterceptor" />
+			<result name="success">/WEB-INF/areaRiservata/amministratore/AddEvento.jsp
+			</result>
+		</action>
+
+
+		<action name="AggiungiEvento" class="it.unirc.pwm.eureca.action.evento.AddEvento" method="inserisciEvento">
+			<interceptor-ref name="defaultStack" />
+			<interceptor-ref name="fileUpload">
+				<param name="allowedTypes">
+					image/png,image/gif,image/jpeg
+				</param>
+				<param name="maximumSize">20971520</param>
+			</interceptor-ref>
+			<interceptor-ref name="authenticationAdministratorInterceptor" />
+			<result name="success">/WEB-INF/areaRiservata/amministratore/AddAttivita.jsp
+			</result>
+			<result name="input">/WEB-INF/areaRiservata/amministratore/AddEvento.jsp
+			</result>
+		</action>
+		
+		
+		<action name="AggiungiAttivita" class="it.unirc.pwm.eureca.action.evento.AddAttivita" method="inserisciEventoDefinitivo">
+			<interceptor-ref name="defaultStack" />
+			<interceptor-ref name="authenticationAdministratorInterceptor" />
+			<result name="success">/WEB-INF/areaRiservata/amministratore/indexAmministratore.jsp
+			</result>
+			<result name="input">/WEB-INF/areaRiservata/amministratore/AddAttivita.jsp
+			</result>
+		</action>
+
+<!-- 
+		<action name="GestisciSoci" class="it.unirc.pwm.eureca.action.socio.ControllerSocio">
+			<interceptor-ref name="defaultStack" />
+			<interceptor-ref name="authenticationAdministratorInterceptor" />
+			<result name="success">/WEB-INF/areaRiservata/amministratore/GestisciSoci.jsp
+			</result>
+			<result name="input" type="">/WEB-INF/areaRiservata/amministratore/GestisciSoci.jsp
+			</result>
+		</action>
+		
+		
+		<action name="EliminaSocio" class="it.unirc.pwm.eureca.action.socio.ControllerSocio"
+			method="eliminaSocio">
+			<interceptor-ref name="defaultStack" />
+			<interceptor-ref name="authenticationAdministratorInterceptor" />
+			<result name="success">/WEB-INF/areaRiservata/amministratore/indexAmministratore.jsp
+			</result>
+			<result name="input">/WEB-INF/areaRiservata/amministratore/indexAmministratore.jsp
+			</result>
+		</action>
+		
+		
+		<action name="SetSocio" class="it.unirc.pwm.eureca.action.socio.ControllerSocio"
+			method="setSocio">
+			<interceptor-ref name="defaultStack" />
+			<interceptor-ref name="authenticationAdministratorInterceptor" />
+			<result name="success">/WEB-INF/areaRiservata/amministratore/SettingSocio.jsp
+			</result>
+			<result name="input">/WEB-INF/areaRiservata/amministratore/indexAmministratore.jsp
+			</result>
+		</action>
+		
+		
+		<action name="ModificaSocio" class="it.unirc.pwm.eureca.action.socio.UpdateSocio"
+			method="modificaSocio">
+			<interceptor-ref name="defaultStack" />
+			<interceptor-ref name="authenticationAdministratorInterceptor" />
+			<result name="success">/WEB-INF/areaRiservata/amministratore/indexAmministratore.jsp
+			</result>
+			<result name="input">/WEB-INF/areaRiservata/amministratore/SettingSocio.jsp
+			</result>
+		</action>
+		
+		
+		<action name="ModificaTessera" class="it.unirc.pwm.eureca.action.socio.UpdateTessera"
+			method="modificaTessera">
+			<interceptor-ref name="defaultStack" />
+			<interceptor-ref name="authenticationAdministratorInterceptor" />
+			<result name="success">/WEB-INF/areaRiservata/amministratore/indexAmministratore.jsp
+			</result>
+			<result name="input">/WEB-INF/areaRiservata/amministratore/SettingSocio.jsp
+			</result>
+		</action>
+ -->
+	</package>
+
+</struts>

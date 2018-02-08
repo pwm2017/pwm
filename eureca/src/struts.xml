@@ -38,5 +38,6 @@
 	<include file="it/unirc/pwm/eureca/action/evento/evento.xml" />
 	<include file="it/unirc/pwm/eureca/action/utente/utente.xml" />
 
+	<include file="it/unirc/pwm/eureca/action/evento/eventoJson.xml" />
 
 </struts>
