@@ -10,7 +10,11 @@
 
 </head>
 <body>
-
+	
+	<div>
+		<a href="<s:url action='Ricerca' namespace='/evento'/>"	class="btn btn-fill btn-block btn-lg" >json</a>
+	</div>
+	
 	<%@ include file="layout/Header.jsp"%>
 
 
