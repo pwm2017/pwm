@@ -8,9 +8,9 @@
         <property name="hibernate.connection.url">jdbc:mysql://localhost:3306/eureca</property>
         <property name="hibernate.connection.username">root</property>
         <property name="connection.password">root</property>
-        <property name="hibernate.dialect">org.hibernate.dialect.MySQL5InnoDBDialect</property>
+        <property name="hibernate.dialect">org.hibernate.dialect.MySQL5Dialect</property>
         <property name="show_sql">true</property>
-       <property name="hibernate.hbm2ddl.auto">update</property> 
+        <!--<property name="hibernate.hbm2ddl.auto">update</property> --> 
         
         <mapping resource="it/unirc/pwm/eureca/mapping/Attivita.hbm.xml"/>
         <mapping resource="it/unirc/pwm/eureca/mapping/Evento.hbm.xml"/>

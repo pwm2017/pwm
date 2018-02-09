@@ -22,6 +22,7 @@ public class HibernateUtil {
 
 		} 
 		catch (Throwable ex) {
+			ex.printStackTrace();
 			logger.error("Creazione del SessionFactory fallita");
 			throw new ExceptionInInitializerError(ex);
 		}
