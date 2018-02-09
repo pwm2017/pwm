@@ -55,6 +55,15 @@
 						<s:property value="evento.nome" />
 						"
 					</h4>
+					<br>
+
+					<s:if test="attivitàEvento.isEmpty()">
+						<div
+							class="col-md-8 col-md-offset-2 text-center alert alert-warning">
+							<h4>Non ci sono Attività associate all'evento</h4>
+						</div>
+					</s:if>
+
 					<ul class="list-unstyled follows">
 
 						<s:iterator value="attivitàEvento">
@@ -70,7 +79,7 @@
 									<div class="col-md-3 col-xs-2 ">
 										<h6>
 											<a
-												href="<s:url action='EliminaAttivitaEvento' namespace='/amministratore/evento'>
+												href="<s:url action='EliminaAttivita' namespace='/amministratore/evento'>
 															<s:param name="attivita.idAttivita"><s:property value="idAttivita" /></s:param>
 															</s:url>">Elimina</a>
 											<a
@@ -83,10 +92,18 @@
 							</li>
 							<hr />
 						</s:iterator>
+					</ul>
 				</div>
 
 			</div>
+			<div
+			class="col-xs-9 col-xs-offset-2 col-sm-4 col-sm-offset-3 col-md-8 col-md-offset-5 download-area">
+			<a class="btn"
+				href="<s:url action='PartecipantiEvento' namespace='/amministratore/evento'/>">Visualizza Partecipanti</a>
+
 		</div>
+		</div>
+
 	</div>
 
 	<%@ include file="../../../webApp/layout/Footer.jsp"%>

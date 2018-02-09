@@ -29,48 +29,67 @@
 						</p>
 					</div>
 				</div>
-				<s:if test="%{#listaViaggi==null}">
-				
-				<div class="col-md-8 col-md-offset-2 text-center alert alert-warning">
-						<h2>
-							Non Ci sono Viaggi a cui puoi partecipare!!
-						</h2>
-				</div>
+				<s:if test="listaViaggi.isEmpty()">
+
+					<div
+						class="col-md-8 col-md-offset-2 text-center alert alert-warning">
+						<h2>Non Ci sono Viaggi a cui puoi partecipare!!</h2>
+					</div>
 				</s:if>
 
 				<s:iterator value="listaViaggi">
-				
+
 					<div class="col-md-4">
 
 						<h4>
 							<s:property value="nome" />
 						</h4>
 						<s:if test="locandina==null">
-							<a
-								href="<s:url action='Evento' namespace='/'>
-							<s:param name="evento.idEvento"><s:property value="idEvento" /></s:param>
-											</s:url>">
-								<img src="/eureca/webApp/assets/img/placeholder.jpg"
+
+							<img src="/eureca/webApp/assets/img/placeholder.jpg"
 								alt="Circle Image" class="img-rounded img-responsive"
 								style="width: 300px; height: 300px;">
-							</a>
+
 						</s:if>
 						<s:else>
-							<a
-								href="<s:url action='Evento' namespace='/'>
-							<s:param name="evento.idEvento"><s:property value="idEvento" /></s:param>
-											</s:url>">
-								<img
+
+							<img
 								src="/eureca/webApp/assets/img/viaggi/<s:property value="locandina"/>"
 								alt="Imagine evento <s:property value="nome"/>"
 								class="img-rounded img-responsive"
 								style="width: 300px; height: 300px;">
-							</a>
+S
 						</s:else>
 						<div class="img-details">
 							<p>
+								Luogo:
 								<s:property value="luogo" />
 							</p>
+							<hr>
+
+							<p>
+								Posti rimanenti:
+								<s:property value="numPartecipanti" />
+							</p>
+							<hr>
+							<p>
+								Descricione:
+								<s:property value="descricione" />
+							</p>
+							<hr>
+							<p>
+								Data Inizio:
+								<s:property value="dataInizio" />
+							</p>
+							<hr>
+
+							<p>
+								Data Fine:
+								<s:property value="datafine" />
+							</p>
+							<hr>
+
+
 						</div>
 
 						<div class="col-md-6 col-md-offset-2">

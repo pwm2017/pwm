@@ -76,8 +76,10 @@
 					</div>
 
 				</div>
-				<s:if test="eventiRecenti==null">
-					<h2>Non ci sono eventi in programma</h2>
+				<s:if test="eventiRecenti.isEmpty()">
+				<div class="col-md-8 col-md-offset-2 text-center alert alert-warning">
+					<h3>Non ci sono eventi in programma</h3>
+					</div>
 				</s:if>
 				<s:else>
 					<s:iterator status="status" value="eventiRecenti">

@@ -89,6 +89,26 @@
 			<result name="input">/WEB-INF/areaRiservata/amministratore/SettingSocio.jsp
 			</result>
 		</action>
+		
+		<action name="EliminaAttivita" class="it.unirc.pwm.eureca.action.evento.ControllerEvento"
+			method="eliminaAttività">
+			<interceptor-ref name="defaultStack" />
+			<interceptor-ref name="authenticationAdministratorInterceptor" />
+			<result name="success">/WEB-INF/areaRiservata/amministratore/indexAmministratore.jsp
+			</result>
+			<result name="input">/WEB-INF/areaRiservata/amministratore/indexAmministratore.jsp
+			</result>
+		</action>
+		
+		<action name="PartecipantiEvento" class="it.unirc.pwm.eureca.action.evento.ControllerEvento"
+			method="partecipantiEvento">
+			<interceptor-ref name="defaultStack" />
+			<interceptor-ref name="authenticationAdministratorInterceptor" />
+			<result name="success">/WEB-INF/areaRiservata/amministratore/EventParticipants.jsp
+			</result>
+			<result name="input">/WEB-INF/areaRiservata/amministratore/indexAmministratore.jsp
+			</result>
+		</action>
  
 	</package>
 

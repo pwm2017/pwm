@@ -15,8 +15,8 @@ public class ControllerViaggio extends ActionSupport implements SessionAware
 	private Map<String,Object> session;
 	private ViaggioDAOInterface vdao=ViaggioDAOFactory.getDAO();
 	private List<Viaggio> listaViaggi;
-	
-	
+
+
 	public Viaggio getViaggio() {
 		return viaggio;
 	}
@@ -36,13 +36,13 @@ public class ControllerViaggio extends ActionSupport implements SessionAware
 	public void setSession(Map<String, Object> session) {
 		this.session=session;
 	}
-	
+
 	public String execute() 
 	{
-		
+
 		listaViaggi=vdao.getViaggi();
 		if(listaViaggi==null)
-		return INPUT;
+			return INPUT;
 		else
 			return SUCCESS;
 	}
@@ -51,13 +51,13 @@ public class ControllerViaggio extends ActionSupport implements SessionAware
 	{
 		return SUCCESS;
 	}
-	
+
 	public String visualizzaViaggiSocio() 
 	{
-		
+
 		listaViaggi=vdao.getViaggiSoci();
 		if(listaViaggi==null)
-		return INPUT;
+			return INPUT;
 		else
 			return SUCCESS;
 	}
@@ -65,39 +65,41 @@ public class ControllerViaggio extends ActionSupport implements SessionAware
 
 	public String eliminaViaggio()
 	{
-//		if(vdao.eliminaViaggio(viaggio))
-//		{
-//			addActionMessage("Viaggio eliminato correttemente");
-//
-//			return SUCCESS;
-//		}
-//		else 
-//			addActionError("errore impossibile eliminare il viaggio");
+		//		if(vdao.eliminaViaggio(viaggio))
+		//		{
+		//			addActionMessage("Viaggio eliminato correttemente");
+		//
+		//			return SUCCESS;
+		//		}
+		//		else 
+		//			addActionError("errore impossibile eliminare il viaggio");
 		return INPUT;
 	}
 
 	public String setViaggio()
 	{
 		//viaggio=vdao.getViaggio(viaggio);
-		
+
 		if(viaggio==null)
 			return INPUT;
 
 		else 
 			return SUCCESS;
 	}
-	
+
 	public String socioPartecipaViaggio()
 	{
 		Socio s = (Socio) session.get("socio");
-		Viaggio v=new Viaggio();
-		v=vdao.getViaggio(viaggio);
-		if(vdao.aggiungiSocioViaggio(v,s))
+		viaggio=vdao.getViaggio(viaggio);
+		viaggio.setNumPartecipanti(viaggio.getNumPartecipanti()-1);
+		if(vdao.aggiungiSocioViaggio(viaggio,s))
 		{
-		addActionMessage("Prenotazione avvenuta con successo!");
-		return SUCCESS;
+			addActionMessage("Prenotazione avvenuta con successo!");
+			return SUCCESS;
+		}else	
+		{
+			addActionError("Errore");
+			return SUCCESS;
 		}
-		else return INPUT;
-
 	}	
 }

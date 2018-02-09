@@ -38,7 +38,7 @@ public class Esegui
 	public static void main(String[] args)
 	{
 		Attivita a=new Attivita();
-		a.setNome("pinco");
+		a.setIdAttivita(14);
 //		a.setIdAttivita(0);
 //        Evento e=new Evento();
 //        e.setNome("ciao");
@@ -92,8 +92,10 @@ public class Esegui
 //      EventoDAOInterface dao= EventoDAOFactory.getDAO();
 //      dao.creaEvento(e);
 		
-//		Attivit‡DAOInterface daoA= Attivit‡DAOFactory.getDAO();
+		Attivit‡DAOInterface daoA= Attivit‡DAOFactory.getDAO();
 		SocioDAOInterface daoS= SocioDAOFactory.getDAO();
+		
+		daoA.eliminaAttivit‡(a);
 //		SvolgeDAOInterface dao= SvolgeDAOFactory.getDAO();
 //		Svolge sv=new Svolge();
 //		a.setEvento(e);
@@ -113,15 +115,15 @@ public class Esegui
 //		so.setPassword("ciao");
 //		so.setUsername("ciao");
 ////		
-		ViaggioDAOInterface vdaoS= ViaggioDAOFactory.getDAO();
-		Viaggio v=new Viaggio();
-		v.setIdViaggio(1);	
-		Socio so=new Socio();
-		so.setIdPersonaFisica(4);
-		so=daoS.getSocio(so);
-		v=vdaoS.getViaggio(v);
-		so.getViaggi().add(v);
-		daoS.modificaSocio(so);
+//		ViaggioDAOInterface vdaoS= ViaggioDAOFactory.getDAO();
+//		Viaggio v=new Viaggio();
+//		v.setIdViaggio(1);	
+//		Socio so=new Socio();
+//		so.setIdPersonaFisica(4);
+//		so=daoS.getSocio(so);
+//		v=vdaoS.getViaggio(v);
+//		so.getViaggi().add(v);
+//		daoS.modificaSocio(so);
 //		daoS.creaSocio(so);
 //		so.setPassword("ciao");
 //		so.setAmministratore(false);

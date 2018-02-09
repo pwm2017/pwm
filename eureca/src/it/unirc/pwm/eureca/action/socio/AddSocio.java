@@ -1,6 +1,7 @@
 package it.unirc.pwm.eureca.action.socio;
 import java.io.File;
 import java.io.IOException;
+import java.security.NoSuchAlgorithmException;
 import java.util.Calendar;
 import java.util.Date;
 import java.util.GregorianCalendar;
@@ -15,6 +16,7 @@ import it.unirc.pwm.eureca.socio.model.Socio;
 import it.unirc.pwm.eureca.tessera.dao.TesseraDAOFactory;
 import it.unirc.pwm.eureca.tessera.dao.TesseraDAOInterface;
 import it.unirc.pwm.eureca.tessera.model.Tessera;
+import it.unirc.pwm.eureca.utils.ControlSha;
 
 public class AddSocio extends ActionSupport implements ServletRequestAware
 {
@@ -81,6 +83,13 @@ public class AddSocio extends ActionSupport implements ServletRequestAware
 	public String inserisciSocio()
 	{
 		String appPath = request.getServletContext().getRealPath("");
+		
+		try {
+			socio.setPassword(ControlSha.sha256(socio.getPassword()));
+		} catch (NoSuchAlgorithmException e1) {
+			// TODO Auto-generated catch block
+			e1.printStackTrace();
+		}
 
 		if ((uploadDocFileName!=null)){
 			String[] parts = uploadDocContentType.split("/");

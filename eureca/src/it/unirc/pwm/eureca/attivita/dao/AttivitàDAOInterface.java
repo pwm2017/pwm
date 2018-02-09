@@ -13,4 +13,5 @@ public interface Attivit‡DAOInterface {
 	public Attivita getAttivita(Attivita a);
 	public Attivita getUltimaAttivita();
 	public List<Attivita> getAttivit‡Evento(Evento ev);
+	public Boolean eliminaAttivit‡(Attivita a);
 }

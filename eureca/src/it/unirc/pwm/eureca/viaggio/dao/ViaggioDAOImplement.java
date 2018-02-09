@@ -136,7 +136,7 @@ public class ViaggioDAOImplement implements ViaggioDAOInterface
 		session = HibernateUtil.getSessionFactory().openSession();
 		try {
 			
-			viaggi=(List<Viaggio>) session.createSQLQuery("SELECT * FROM viaggio WHERE IDVIAGGIO NOT IN (SELECT idViaggio FROM socio_viaggio)").addEntity(Viaggio.class).list();
+			viaggi=(List<Viaggio>) session.createSQLQuery("SELECT * FROM viaggio WHERE numPartecipanti>0 AND IDVIAGGIO NOT IN (SELECT idViaggio FROM socio_viaggio)").addEntity(Viaggio.class).list();
 
 		} catch (Exception e) {
 			e.printStackTrace();

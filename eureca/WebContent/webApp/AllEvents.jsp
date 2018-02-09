@@ -28,9 +28,11 @@
 						</p>
 					</div>
 				</div>
-
-
-
+				<s:if test="eventi.isEmpty()">
+				<div class="col-md-8 col-md-offset-2 text-center alert alert-warning">
+					<h3>Non ci sono eventi in programma</h3>
+					</div>
+				</s:if>
 				<s:iterator value="eventi">
 
 					<div class="col-md-4">

@@ -16,6 +16,7 @@ public class ControllerEvento extends ActionSupport
 {
 	private static final long serialVersionUID = 1L;
 	private Evento evento;
+	private Attivita attivita;
 	private EventoDAOInterface edao=EventoDAOFactory.getDAO();
 	private Attivit‡DAOInterface adao=Attivit‡DAOFactory.getDAO();
 	private List<Evento> listaEventi;
@@ -25,7 +26,14 @@ public class ControllerEvento extends ActionSupport
 	private int pagine;
 	
 	
-	
+	public Attivita getAttivita() {
+		return attivita;
+	}
+
+	public void setAttivita(Attivita attivita) {
+		this.attivita = attivita;
+	}
+
 	public List<Attivita> getAttivit‡Evento() {
 		return attivit‡Evento;
 	}
@@ -98,7 +106,11 @@ public class ControllerEvento extends ActionSupport
 		return SUCCESS;
 	}
 	
-
+	public String partecipantiEvento()
+	{
+		return SUCCESS;
+	}
+	
 
 	public String eliminaEvento()
 	{
@@ -116,7 +128,7 @@ public class ControllerEvento extends ActionSupport
 	
 	public String eliminaAttivit‡()
 	{
-		if(edao.eliminaEvento(evento))
+		if(adao.eliminaAttivit‡(attivita))
 		{
 			addActionMessage("Attivit‡ eliminata correttamente");
 

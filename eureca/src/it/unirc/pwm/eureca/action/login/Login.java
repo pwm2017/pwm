@@ -1,5 +1,6 @@
 package it.unirc.pwm.eureca.action.login;
 
+import java.security.NoSuchAlgorithmException;
 import java.util.Map;
 import org.apache.struts2.interceptor.SessionAware;
 
@@ -8,6 +9,7 @@ import com.opensymphony.xwork2.ActionSupport;
 import it.unirc.pwm.eureca.socio.dao.SocioDAOFactory;
 import it.unirc.pwm.eureca.socio.dao.SocioDAOInterface;
 import it.unirc.pwm.eureca.socio.model.Socio;
+import it.unirc.pwm.eureca.utils.ControlSha;
 
 public class Login extends ActionSupport implements SessionAware {
 
@@ -35,12 +37,19 @@ public class Login extends ActionSupport implements SessionAware {
 		this.password = password;
 	}
 
-	public String execute()throws Exception
+	public String execute()
 	{
 		Socio socio=new Socio();
 		socio.setUsername(username);
-		socio.setPassword(password);
+		try {
+			socio.setPassword(ControlSha.sha256(password));
+		} catch (NoSuchAlgorithmException e1) {
+			// TODO Auto-generated catch block
+			e1.printStackTrace();
+		}
+		
 		socio=daoS.verificaLogin(socio);
+		
 		if(socio==(null))
 		{
 			addActionMessage(getText("error.message"));
