@@ -60,6 +60,7 @@
 					<div class="nav-tabs-wrapper">
 						<ul id="tabs" class="nav nav-tabs" data-tabs="tabs">
 							<li class="active"><a href="#follows" data-toggle="tab">Info</a></li>
+							<li><a href="#tessera" data-toggle="tab">Tessera</a></li>
 
 						</ul>
 					</div>
@@ -116,6 +117,24 @@
 								</ul>
 							</div>
 						</div>
+
+					</div>
+					
+					
+					<div class="tab-pane text-center" id="tessera">
+					
+						Punti:
+						<s:property value="#session.tessera.punti" />
+						<br>
+						<br>
+						Data Rilascio:
+						<s:property value="#session.tessera.dataRilascio" />
+						<br>
+						<br>
+						Data Scadenza:
+						<s:property value="#session.tessera.dataScadenza" />
+	
+						
 					</div>
 
 				</div>
@@ -124,7 +143,7 @@
 
 		</div>
 
-	</div>
+	
 
 
 	<%@ include file="../../../webApp/layout/Footer.jsp"%>

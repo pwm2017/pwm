@@ -83,7 +83,17 @@
 			</result>
 			<result name="input">/WEB-INF/areaRiservata/amministratore/SettingSocio.jsp</result>
 		</action>
-
+		
+		<action name="ModificaPasswordSocio" class="it.unirc.pwm.eureca.action.socio.UpdatePasswordSocio"
+			method="modificaPasswordSocio">
+			<interceptor-ref name="defaultStack" />
+			<interceptor-ref name="authenticationAdministratorInterceptor" />
+			<result name="success">/WEB-INF/areaRiservata/amministratore/indexAmministratore.jsp
+			</result>
+			<result name="input">/WEB-INF/areaRiservata/amministratore/indexAmministratore.jsp</result>
+		</action>
+		
+	
 	</package>
 
 </struts>

@@ -8,7 +8,7 @@
 
 <%@ include file="../../../webApp/layout/Head.jsp"%>
 
-<title>razie!!!</title>
+<title>Grazie!!!</title>
 </head>
 
 <body>

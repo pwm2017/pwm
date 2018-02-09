@@ -4,6 +4,7 @@ import java.util.Map;
 import org.apache.struts2.interceptor.SessionAware;
 import com.opensymphony.xwork2.ActionSupport;
 import it.unirc.pwm.eureca.socio.model.Socio;
+import it.unirc.pwm.eureca.utils.Costant;
 import it.unirc.pwm.eureca.viaggio.dao.ViaggioDAOFactory;
 import it.unirc.pwm.eureca.viaggio.dao.ViaggioDAOInterface;
 import it.unirc.pwm.eureca.viaggio.model.Viaggio;
@@ -15,7 +16,35 @@ public class ControllerViaggio extends ActionSupport implements SessionAware
 	private Map<String,Object> session;
 	private ViaggioDAOInterface vdao=ViaggioDAOFactory.getDAO();
 	private List<Viaggio> listaViaggi;
+	private List<Viaggio> listaViaggiPagina;
+	private int numeroPagina;
+	private int pagine;
+	
 
+
+	public List<Viaggio> getListaViaggiPagina() {
+		return listaViaggiPagina;
+	}
+
+	public void setListaViaggiPagina(List<Viaggio> listaViaggiPagina) {
+		this.listaViaggiPagina = listaViaggiPagina;
+	}
+
+	public int getNumeroPagina() {
+		return numeroPagina;
+	}
+
+	public void setNumeroPagina(int numeroPagina) {
+		this.numeroPagina = numeroPagina;
+	}
+
+	public int getPagine() {
+		return pagine;
+	}
+
+	public void setPagine(int pagine) {
+		this.pagine = pagine;
+	}
 
 	public Viaggio getViaggio() {
 		return viaggio;
@@ -41,8 +70,13 @@ public class ControllerViaggio extends ActionSupport implements SessionAware
 	{
 
 		listaViaggi=vdao.getViaggi();
-		if(listaViaggi==null)
+		pagine= (int) Math.ceil((double) listaViaggi.size()/Costant.SIZE_LIST);
+		listaViaggiPagina=vdao.cercaViaggiPagina(numeroPagina);
+		if(listaViaggiPagina==null)
+		{
+			addActionError("Errore nel visuliazzare i Viaggi");
 			return INPUT;
+		}
 		else
 			return SUCCESS;
 	}
@@ -65,20 +99,20 @@ public class ControllerViaggio extends ActionSupport implements SessionAware
 
 	public String eliminaViaggio()
 	{
-		//		if(vdao.eliminaViaggio(viaggio))
-		//		{
-		//			addActionMessage("Viaggio eliminato correttemente");
-		//
-		//			return SUCCESS;
-		//		}
-		//		else 
-		//			addActionError("errore impossibile eliminare il viaggio");
+		if(vdao.eliminaViaggio(viaggio))
+		{
+			addActionMessage("Viaggio eliminato correttamente");
+
+			return SUCCESS;
+		}
+		else 
+			addActionError("errore impossibile eliminare il viaggio");
 		return INPUT;
 	}
 
 	public String setViaggio()
 	{
-		//viaggio=vdao.getViaggio(viaggio);
+		viaggio=vdao.getViaggio(viaggio);
 
 		if(viaggio==null)
 			return INPUT;

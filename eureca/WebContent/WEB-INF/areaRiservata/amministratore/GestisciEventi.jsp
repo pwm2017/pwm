@@ -94,6 +94,7 @@
 											</li>
 											<hr />
 										</s:iterator>
+										</ul>
 
 										<div class="row">
 											<div class="col-md-12">

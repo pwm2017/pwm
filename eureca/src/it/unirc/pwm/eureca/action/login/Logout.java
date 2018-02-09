@@ -1,15 +1,10 @@
 package it.unirc.pwm.eureca.action.login;
-
 import java.util.Map;
 import org.apache.struts2.interceptor.SessionAware;
-
 import com.opensymphony.xwork2.ActionSupport;
 
-import it.unirc.pwm.eureca.socio.dao.SocioDAOFactory;
-import it.unirc.pwm.eureca.socio.dao.SocioDAOInterface;
-import it.unirc.pwm.eureca.socio.model.Socio;
-
-public class Logout extends ActionSupport implements SessionAware {
+public class Logout extends ActionSupport implements SessionAware 
+{
 
 	private static final long serialVersionUID = 1L;
 
@@ -19,11 +14,16 @@ public class Logout extends ActionSupport implements SessionAware {
 		
 		if(session.isEmpty())
 			return SUCCESS;  
-		if(session.containsKey("socio")) 
+		if(session.containsKey("socio"))
+		{ 
 			session.remove("socio");
-		
+			session.remove("tessera");
+		}	
 		if(session.containsKey("amministratore"))
+		{
 			session.remove("amministratore");
+			session.remove("tessera");
+		}
 
 		return SUCCESS;
 	}

@@ -13,4 +13,6 @@ public interface ViaggioDAOInterface
 	public Viaggio getViaggio(Viaggio v);
 	public List<Viaggio> getViaggi();
 	public List<Viaggio> getViaggiSoci();
+	public Boolean eliminaViaggio(Viaggio v);
+	public List<Viaggio> cercaViaggiPagina(int numeroPagina);
 }

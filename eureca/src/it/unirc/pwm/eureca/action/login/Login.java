@@ -9,6 +9,9 @@ import com.opensymphony.xwork2.ActionSupport;
 import it.unirc.pwm.eureca.socio.dao.SocioDAOFactory;
 import it.unirc.pwm.eureca.socio.dao.SocioDAOInterface;
 import it.unirc.pwm.eureca.socio.model.Socio;
+import it.unirc.pwm.eureca.tessera.dao.TesseraDAOFactory;
+import it.unirc.pwm.eureca.tessera.dao.TesseraDAOInterface;
+import it.unirc.pwm.eureca.tessera.model.Tessera;
 import it.unirc.pwm.eureca.utils.ControlSha;
 
 public class Login extends ActionSupport implements SessionAware {
@@ -16,10 +19,19 @@ public class Login extends ActionSupport implements SessionAware {
 	private static final long serialVersionUID = 1L;
 	private String username;
 	private String password;
-
-	private Map<String,Object> session; 
-
+	private Tessera tessera;
 	private SocioDAOInterface daoS= SocioDAOFactory.getDAO();
+	private TesseraDAOInterface tdao=TesseraDAOFactory.getDAO();
+	private Map<String,Object> session; 
+	
+	
+	public Tessera getTessera() {
+		return tessera;
+	}
+
+	public void setTessera(Tessera tessera) {
+		this.tessera = tessera;
+	}
 
 	public String getUsername() {
 		return username;
@@ -49,6 +61,8 @@ public class Login extends ActionSupport implements SessionAware {
 		}
 		
 		socio=daoS.verificaLogin(socio);
+		tessera=tdao.getTesseraSocio(socio);
+		session.put("tessera", tessera);
 		
 		if(socio==(null))
 		{

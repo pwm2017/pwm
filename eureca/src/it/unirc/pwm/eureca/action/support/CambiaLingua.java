@@ -14,7 +14,8 @@ public class CambiaLingua extends ActionSupport implements SessionAware{
 	private Map<String,Object> session; 
 	private String lang;
 	
-	public String getLang() {
+	public String getLang() 
+	{
 		return lang;
 	}
 

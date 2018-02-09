@@ -61,8 +61,7 @@
 							name="socio.dataNascita" class="form-control" />
 						<s:textfield key="label.user.username" requiredLabel="true"
 							name="socio.username" class="form-control" />
-						<s:password key="label.user.password" showPassword="true"
-							requiredLabel="true" name="socio.password" class="form-control" />
+						<s:hidden name="socio.password" />
 						<s:textfield key="label.socio.codiceFiscale"
 							name="socio.codiceFiscale" class="form-control" />
 						<s:checkbox name="socio.amministratore"
@@ -78,8 +77,8 @@
 						<h3>Tessera</h3>
 					</div>
 					<div class=" col-md-offset-2">
-						<button type="button" class="btn btn btn-fill"
-							data-toggle="popover" data-placement="left"
+						<button type="button" class="btn " data-toggle="popover"
+							data-placement="left"
 							title="Tessera socio '<s:property value="socio.nome" />'"
 							data-content="Punti: <s:property value="tessera.punti"/> <br>
                         Data Rilascio: <s:property value="tessera.dataRilascio"/> <br> 
@@ -89,8 +88,7 @@
 
 						<s:if
 							test="%{(#session.amministratore.idPersonaFisica!=socio.idPersonaFisica)}">
-							<button class="btn btn btn-fill" data-toggle="modal"
-								data-target="#myModal">Modifica</button>
+							<button class="btn" data-toggle="modal" data-target="#myModal">Modifica</button>
 						</s:if>
 						<div class="modal fade" id="myModal" tabindex="-1" role="dialog"
 							aria-labelledby="myModalLabel" aria-hidden="true">
@@ -129,15 +127,75 @@
 								</div>
 							</div>
 						</div>
+
 					</div>
+
+					<div ALIGN="CENTER">
+						<h3>Password</h3>
+					</div>
+					<div class="col-md-8 col-md-offset-2">
+						<button class="btn" data-toggle="modal" data-target="#myModal1">Modifica
+							Password</button>
+					</div>
+
+
+					<div class="modal fade" id="myModal1" tabindex="-1" role="dialog"
+						aria-labelledby="myModalLabel" aria-hidden="true">
+						<div class="modal-dialog">
+							<div class="modal-content">
+								<div class="modal-header">
+									<button type="button" class="close" data-dismiss="modal"
+										aria-hidden="true">&times;</button>
+									<h4 class="modal-title" id="myModalLabel">Modifica
+										Password</h4>
+								</div>
+								<div class="modal-body">
+									<div class="section">
+										<div class="container">
+											<div class="row">
+												<div class="col-md-5 col-md-offset2">
+													<s:form action="ModificaPasswordSocio">
+														<s:password key="label.user.password" showPassword="true"
+															requiredLabel="true" name="socio.password"
+															class="form-control" value="" />
+														<s:hidden name="socio.idPersonaFisica"
+															value="%{socio.idPersonaFisica}"></s:hidden>
+														<s:hidden name="socio.foto" value="%{socio.foto}"></s:hidden>
+														<s:hidden name="socio.nome" />
+														<s:hidden name="socio.cognome" />
+														<s:hidden name="socio.indirizzo.cap" />
+														<s:hidden name="socio.indirizzo.civico" />
+														<s:hidden name="socio.indirizzo.citta" />
+														<s:hidden name="socio.indirizzo.via" />
+														<s:hidden name="socio.email" />
+														<s:hidden name="socio.telefono" />
+														<s:hidden name="socio.dataNascita" />
+														<s:hidden name="socio.username" />
+
+														<s:hidden name="socio.codiceFiscale" />
+														<s:hidden name="socio.amministratore" />
+
+														<s:submit value="Modifica" class="btn btn-block" />
+													</s:form>
+												</div>
+											</div>
+										</div>
+									</div>
+								</div>
+
+							</div>
+						</div>
+					</div>
+
 				</div>
-
-				<div class="clearfix"></div>
-				<div class="clearfix"></div>
-
 			</div>
+
+			<div class="clearfix"></div>
+			<div class="clearfix"></div>
+
 		</div>
 	</div>
+
 
 
 	<%@ include file="../../../webApp/layout/Footer.jsp"%>

@@ -26,4 +26,32 @@
 
 	</package>
 
+	<package name="json" namespace="/evento" extends="json-default">
+		<!-- <global-results>
+			<result name="genericException">/error/ExeptionHandler.jsp</result>
+		</global-results>
+		<global-exception-mappings>
+			<exception-mapping exception="java.lang.Exception"
+				result="genericException" />
+		</global-exception-mappings> --> 
+	
+		<action name="Ricerca">
+			<result>/WEB-INF/evento.jsp</result>
+		</action>
+
+
+		<action name="EventoJson" class="it.unirc.pwm.eureca.action.utente.EventoJson">
+			<result type="json" name="input"> <!-- con success dava problemi, modificato anche nella action -->
+				<param name="excludeProperties">
+					evento.attivita,
+					evento.utenti,
+					id
+				</param>
+				
+			</result>
+		</action>
+	</package>
+	
+
+
 </struts>

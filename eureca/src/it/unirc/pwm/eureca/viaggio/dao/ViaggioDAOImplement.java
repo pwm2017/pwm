@@ -9,6 +9,7 @@ import org.hibernate.Session;
 import org.hibernate.Transaction;
 import it.unirc.pwm.eureca.hibernate.util.HibernateUtil;
 import it.unirc.pwm.eureca.socio.model.Socio;
+import it.unirc.pwm.eureca.utils.Costant;
 import it.unirc.pwm.eureca.viaggio.model.Viaggio;
 
 public class ViaggioDAOImplement implements ViaggioDAOInterface
@@ -129,6 +130,7 @@ public class ViaggioDAOImplement implements ViaggioDAOInterface
 
 	}
 	
+	@SuppressWarnings({ "deprecation", "unchecked" })
 	public List<Viaggio> getViaggiSoci()
 	{
 		List<Viaggio> viaggi = new ArrayList<>();
@@ -146,6 +148,47 @@ public class ViaggioDAOImplement implements ViaggioDAOInterface
 
 		return viaggi;
 
+	}
+	
+	public Boolean eliminaViaggio(Viaggio v)
+	{
+		session = HibernateUtil.getSessionFactory().openSession();
+		transaction = session.beginTransaction();
+		boolean result=false;
+		try 
+		{
+			Viaggio res = (Viaggio)session.createQuery( "from Viaggio where idViaggio= :idViaggio" ).setParameter("idViaggio", v.getIdViaggio()).uniqueResult();
+			session.delete(res);
+			logger.info("Viaggio cancellato");
+			transaction.commit();
+			result=true;
+		} catch (Exception e) {
+			e.printStackTrace();
+		}finally{
+			session.close();
+		}
+		return result;
+
+	}
+	
+	@SuppressWarnings("unchecked")
+	public List<Viaggio> cercaViaggiPagina(int numeroPagina)
+	{
+		session = HibernateUtil.getSessionFactory().openSession();
+		List<Viaggio> res = null;
+		try {
+			transaction=session.beginTransaction();
+		    res = (List<Viaggio>)session.createQuery("from Viaggio").setFirstResult((numeroPagina*Costant.SIZE_LIST)).setMaxResults(Costant.SIZE_LIST).list();
+		    transaction.commit();
+		} catch (Exception e) {
+			transaction.rollback();
+			e.printStackTrace();
+			logger.error("errore nella ricerca dei Viaggi");
+		}finally{
+			session.close();
+		}
+		
+		return res;
 	}
 	
 }

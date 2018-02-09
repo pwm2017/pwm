@@ -44,7 +44,7 @@
 							name="utente.dataNascita" class="form-control" type="date" />
 						<s:textfield key="label.utente.ente" name="utente.ente"
 							class="form-control" />
-						<s:submit value="Aggiungi" class="btn btn-block" />
+						<s:submit value="Partecipa" class="btn btn-block" />
 					</s:form>
 				</div>
 			</div>

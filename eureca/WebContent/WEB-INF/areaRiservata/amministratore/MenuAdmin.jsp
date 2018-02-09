@@ -79,6 +79,12 @@
 												href="<s:url action='InserisciViaggioRedirect' namespace='/amministratore/viaggio'/>">Aggiungi
 													Viaggio</a></li>
 											<li class="divider"></li>
+											<li><a
+												href="<s:url action='GestisciViaggi' namespace='/amministratore/viaggio'>
+															<s:param name="numeroPagina"><s:property value="0" /></s:param>
+															</s:url>">Gestisci Viaggi</a>
+											</li>
+											<li class="divider"></li>
 
 										</ul>
 									</li>
