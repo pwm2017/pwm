@@ -13,6 +13,7 @@ public class ControllerViaggio extends ActionSupport implements SessionAware
 {
 	private static final long serialVersionUID = 1L;
 	private Viaggio viaggio;
+	private List<Socio> listaSoci;
 	private Map<String,Object> session;
 	private ViaggioDAOInterface vdao=ViaggioDAOFactory.getDAO();
 	private List<Viaggio> listaViaggi;
@@ -20,7 +21,15 @@ public class ControllerViaggio extends ActionSupport implements SessionAware
 	private int numeroPagina;
 	private int pagine;
 	
+	
 
+	public List<Socio> getListaSoci() {
+		return listaSoci;
+	}
+
+	public void setListaSoci(List<Socio> listaSoci) {
+		this.listaSoci = listaSoci;
+	}
 
 	public List<Viaggio> getListaViaggiPagina() {
 		return listaViaggiPagina;
@@ -135,5 +144,19 @@ public class ControllerViaggio extends ActionSupport implements SessionAware
 			addActionError("Errore");
 			return SUCCESS;
 		}
-	}	
+	}
+	
+	public String partecipantiViaggio()
+	{
+		listaSoci=vdao.getSociViaggio(viaggio);
+		if(listaSoci==null)
+		{
+			addActionError("Non ci sono Soci che partecipano a questo viaggio");
+			return INPUT;
+		}
+		else
+			return SUCCESS;
+	}public ControllerViaggio() {
+		// TODO Auto-generated constructor stub
+	}
 }

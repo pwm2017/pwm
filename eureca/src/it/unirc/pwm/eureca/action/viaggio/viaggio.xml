@@ -71,6 +71,18 @@
 			<result name="input">/WEB-INF/areaRiservata/amministratore/SettingViaggio.jsp
 			</result>
 		</action> 
+		
+		<action name="PartecipantiViaggio" class="it.unirc.pwm.eureca.action.viaggio.ControllerViaggio"
+			method="partecipantiViaggio">
+			<interceptor-ref name="defaultStack" />
+			<interceptor-ref name="authenticationAdministratorInterceptor" />
+			<result name="success">/WEB-INF/areaRiservata/amministratore/TravelParticipants.jsp
+			</result>
+			<result name="input">/WEB-INF/areaRiservata/amministratore/indexAmministratore.jsp
+			</result>
+		</action>
+		
+		
 	</package>
 
 	<package name="viaggioSocio" namespace="/socio/viaggio"
@@ -95,6 +107,8 @@
 			<result name="input">/WEB-INF/areaRiservata/socio/ViewViaggi.jsp
 			</result>
 		</action>
+		
+		
 	</package>
 
 </struts>

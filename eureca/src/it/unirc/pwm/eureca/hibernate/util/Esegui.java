@@ -27,6 +27,7 @@ import it.unirc.pwm.eureca.tessera.model.Tessera;
 import it.unirc.pwm.eureca.utente.dao.UtenteDAOFactory;
 import it.unirc.pwm.eureca.utente.dao.UtenteDAOInterface;
 import it.unirc.pwm.eureca.utente.model.Utente;
+import it.unirc.pwm.eureca.utils.InvioEmail;
 import it.unirc.pwm.eureca.utils.QrCode;
 import it.unirc.pwm.eureca.viaggio.dao.ViaggioDAOFactory;
 import it.unirc.pwm.eureca.viaggio.dao.ViaggioDAOInterface;
@@ -144,7 +145,7 @@ public class Esegui
 //		id.setIdSocio(1);
    
 //		s.setId(id);
-		
+       InvioEmail.invioEmail("programmazionewm@gmail.com", "programmazionewm1", "ignaziocricelli@gmail.com","ciao ignazio", "vedi di far partire android");
 		HibernateUtil.close();
 	}
 

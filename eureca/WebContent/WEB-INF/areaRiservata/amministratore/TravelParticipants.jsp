@@ -10,7 +10,7 @@
 	href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
 <%@ include file="../../../webApp/layout/Head.jsp"%>
 
-<title><s:text name="Partecipanti evento" /></title>
+<title><s:text name="Partecipanti Viaggio" /></title>
 </head>
 
 <body>
@@ -23,7 +23,7 @@
 		<div class="section">
 			<div class="container tim-container">
 				<div class="tim-title">
-					<h2>Partecipanti evento</h2>
+					<h2>Partecipanti Viaggio</h2>
 				</div>
 			</div>
 		</div>
@@ -32,7 +32,7 @@
 	<s:if test="listaUtenti.isEmpty()">
 		<div class="alert alert-success">
 			<h4>
-				<h3>Non ci sono Eventi</h3>
+				<h3>Non ci sono Soci</h3>
 			</h4>
 		</div>
 
@@ -44,9 +44,8 @@
 			<div class="row">
 				<div class="col-md-8 col-md-offset-2">
 					<br> <br>
-					<display:table name="listaUtenti" pagesize="10" requestURI=""
+					<display:table name="listaSoci" pagesize="10" requestURI=""
 						sort="list" export="true" class="table table-bordered">
-						
 						<display:column property="nome" title="Nome" sortable="true" />
 						<display:column property="cognome" title="Cognome" sortable="true" />
 						<display:column property="email" title="E-mail" sortable="true" />
@@ -54,10 +53,10 @@
 							sortable="true" />
 						<display:column property="dataNascita" title="Data Nascita"
 							sortable="true" />
-						<display:column property="ente" title="Ente" sortable="true" />
-						<display:setProperty name="export.excel.filename" value="PartecipantiEvento.xls"/>
+						<display:column property="codiceFiscale" title="CF" sortable="true" />
+						<display:setProperty name="export.excel.filename" value="PartecipantiViaggio.xls"/>
 						<display:setProperty name="export.pdf" value="true" />
-						<display:setProperty name="export.pdf.filename" value="PartecipantiEvento.pdf"/>
+						<display:setProperty name="export.pdf.filename" value="PartecipantiViaggio.pdf"/>
 
 					</display:table>
 

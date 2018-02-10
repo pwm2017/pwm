@@ -32,17 +32,16 @@
 					class="col-md-6 col-md-offset-3 col-sm-6 col-sm-offset-3 col-xs-10 col-xs-offset-1">
 
 					<s:form action="ModificaViaggio" enctype="multipart/form-data">
-					<s:hidden name="viaggio.idViaggio"
-							value="%{viaggio.idViaggio}"></s:hidden>
+						<s:hidden name="viaggio.idViaggio" value="%{viaggio.idViaggio}"></s:hidden>
 						<s:textfield key="label.viaggio.nome" requiredLabel="true"
 							name="viaggio.nome" class="form-control" />
-						<s:textfield key="label.viaggio.descrizione" name="viaggio.descrizione"
-							class="form-control" />
+						<s:textfield key="label.viaggio.descrizione"
+							name="viaggio.descrizione" class="form-control" />
 						<s:textfield key="label.viaggio.numPartecipanti"
-							name="viaggio.numPartecipanti" requiredLabel="true" 
+							name="viaggio.numPartecipanti" requiredLabel="true"
 							class="form-control" />
-						<s:textfield key="label.viaggio.dataInizio" name="viaggio.dataInizio"
-							class="form-control" />
+						<s:textfield key="label.viaggio.dataInizio"
+							name="viaggio.dataInizio" class="form-control" />
 						<s:textfield key="label.viaggio.dataFine" name="viaggio.dataFine"
 							class="form-control" />
 
@@ -51,6 +50,16 @@
 						<s:submit value="Modifica" class="btn btn-block" />
 					</s:form>
 				</div>
+
+				<div
+					class="col-xs-9 col-xs-offset-2 col-sm-4 col-sm-offset-3 col-md-8 col-md-offset-5 download-area">
+					<a class="btn"
+						href="<s:url action='PartecipantiViaggio' namespace='/amministratore/viaggio'> 
+					<s:param name="viaggio.idViaggio"><s:property value="%{viaggio.idViaggio}" /></s:param>
+					</s:url>">Partecipanti</a>
+
+				</div>
+
 			</div>
 		</div>
 	</div>

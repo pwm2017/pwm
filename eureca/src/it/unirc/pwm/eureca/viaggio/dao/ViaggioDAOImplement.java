@@ -191,4 +191,30 @@ public class ViaggioDAOImplement implements ViaggioDAOInterface
 		return res;
 	}
 	
+	@SuppressWarnings({ "unchecked", "deprecation" })
+	public List<Socio> getSociViaggio(Viaggio v)
+	{
+		List<Socio> socio = new ArrayList<>();
+		
+		session = HibernateUtil.getSessionFactory().openSession();
+		try {
+			
+			socio=(List<Socio>) session.createSQLQuery("select p.*, s.password, s.username, s.codiceFiscale, s.indirizzo_cap, "
+					+ "s.indirizzo_citta, s.indirizzo_civico, s.indirizzo_via, s.foto, s.amministratore, s.abilitato"
+					+ " from personafisica p"
+					+ " join socio as s on s.idPersonaFisica=p.idPersonaFisica"
+					+ " join socio_viaggio as sv on sv.IDSOCIO=s.idPersonaFisica"
+					+ " join viaggio as v on v.idViaggio=sv.IDVIAGGIO"
+					+ " where v.idViaggio='"+v.getIdViaggio()+"'").addEntity(Socio.class).list();
+
+		} catch (Exception e) {
+			e.printStackTrace();
+		}finally{
+			session.close();
+		}
+
+		return socio;
+
+	}
+	
 }
