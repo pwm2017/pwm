@@ -27,6 +27,7 @@ import it.unirc.pwm.eureca.tessera.model.Tessera;
 import it.unirc.pwm.eureca.utente.dao.UtenteDAOFactory;
 import it.unirc.pwm.eureca.utente.dao.UtenteDAOInterface;
 import it.unirc.pwm.eureca.utente.model.Utente;
+import it.unirc.pwm.eureca.utils.QrCode;
 import it.unirc.pwm.eureca.viaggio.dao.ViaggioDAOFactory;
 import it.unirc.pwm.eureca.viaggio.dao.ViaggioDAOInterface;
 import it.unirc.pwm.eureca.viaggio.model.Viaggio;
@@ -66,7 +67,7 @@ public class Esegui
 //		}
 //        
           Evento e=new Evento();
-          
+          e.setIdEvento(2);
 //        Evento e1=new Evento();
 //        e1.setNome("veventomodificato");
 		
@@ -88,14 +89,14 @@ public class Esegui
 //		e2.printStackTrace();
 //		System.out.println("errore dentro il main");
 //		}
-
+//
 //      EventoDAOInterface dao= EventoDAOFactory.getDAO();
-//      dao.creaEvento(e);
+//      System.out.println(dao.getUtentiEvento(e).size());
 		
-		Attivit‡DAOInterface daoA= Attivit‡DAOFactory.getDAO();
-		SocioDAOInterface daoS= SocioDAOFactory.getDAO();
-		
-		daoA.eliminaAttivit‡(a);
+//		Attivit‡DAOInterface daoA= Attivit‡DAOFactory.getDAO();
+//		SocioDAOInterface daoS= SocioDAOFactory.getDAO();
+//		
+//		daoA.eliminaAttivit‡(a);
 //		SvolgeDAOInterface dao= SvolgeDAOFactory.getDAO();
 //		Svolge sv=new Svolge();
 //		a.setEvento(e);
@@ -141,6 +142,7 @@ public class Esegui
 //		SvolgeId id=new SvolgeId();
 //		id.setIdAttivita(1);
 //		id.setIdSocio(1);
+   
 //		s.setId(id);
 		
 		HibernateUtil.close();

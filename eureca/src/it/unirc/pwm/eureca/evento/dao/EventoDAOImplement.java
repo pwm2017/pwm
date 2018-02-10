@@ -1,5 +1,6 @@
 package it.unirc.pwm.eureca.evento.dao;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import org.apache.logging.log4j.LogManager;
@@ -9,7 +10,9 @@ import org.hibernate.Session;
 import org.hibernate.Transaction;
 import it.unirc.pwm.eureca.evento.model.Evento;
 import it.unirc.pwm.eureca.hibernate.util.HibernateUtil;
+import it.unirc.pwm.eureca.utente.model.Utente;
 import it.unirc.pwm.eureca.utils.Costant;
+import it.unirc.pwm.eureca.viaggio.model.Viaggio;
 
 public class EventoDAOImplement implements EventoDAOInterface{
 
@@ -144,6 +147,31 @@ public class EventoDAOImplement implements EventoDAOInterface{
 		}
 
 		return control;
+
+	}
+	
+	@SuppressWarnings({ "unchecked", "deprecation" })
+	public List<Utente> getUtentiEvento(Evento ev)
+	{
+		List<Utente> utenti = new ArrayList<>();
+		
+		session = HibernateUtil.getSessionFactory().openSession();
+		try {
+			
+			utenti=(List<Utente>) session.createSQLQuery("select p.*, u.ente"
+					+ " from personafisica p"
+					+ " join utente as u on u.idPersonaFisica=p.idPersonaFisica"
+					+ " join utente_evento as ue on ue.IDUTENTE=u.idPersonaFisica"
+					+ " join evento as e on e.idEvento=ue.IDEVENTO"
+					+ " where e.idEvento='"+ev.getIdEvento()+"'").addEntity(Utente.class).list();
+
+		} catch (Exception e) {
+			e.printStackTrace();
+		}finally{
+			session.close();
+		}
+
+		return utenti;
 
 	}
 

@@ -97,11 +97,13 @@
 
 			</div>
 			<div
-			class="col-xs-9 col-xs-offset-2 col-sm-4 col-sm-offset-3 col-md-8 col-md-offset-5 download-area">
-			<a class="btn"
-				href="<s:url action='PartecipantiEvento' namespace='/amministratore/evento'/>">Visualizza Partecipanti</a>
+				class="col-xs-9 col-xs-offset-2 col-sm-4 col-sm-offset-3 col-md-8 col-md-offset-5 download-area">
+				<a class="btn"
+					href="<s:url action='PartecipantiEvento' namespace='/amministratore/evento'> 
+															<s:param name="evento.idEvento"><s:property value="%{evento.idEvento}" /></s:param>
+															</s:url>">Partecipanti</a>
 
-		</div>
+			</div>
 		</div>
 
 	</div>

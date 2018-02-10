@@ -48,7 +48,7 @@ public class UtentePartecipaEvento extends ActionSupport
 		else	
 		{
 			addActionError("Errore");
-			return SUCCESS;
+			return INPUT;
 		}
 	}
 }

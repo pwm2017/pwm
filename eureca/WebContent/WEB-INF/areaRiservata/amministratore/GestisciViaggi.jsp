@@ -87,7 +87,7 @@
 															<a
 																href="<s:url action='SetViaggio' namespace='/amministratore/viaggio'> 
 															<s:param name="viaggio.idViaggio"><s:property value="idViaggio" /></s:param>
-															</s:url>">Modifica</a>
+															</s:url>">Edit</a>
 														</h6>
 													</div>
 												</div>

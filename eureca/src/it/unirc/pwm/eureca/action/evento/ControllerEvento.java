@@ -9,6 +9,7 @@ import it.unirc.pwm.eureca.attivita.model.Attivita;
 import it.unirc.pwm.eureca.evento.dao.EventoDAOFactory;
 import it.unirc.pwm.eureca.evento.dao.EventoDAOInterface;
 import it.unirc.pwm.eureca.evento.model.Evento;
+import it.unirc.pwm.eureca.utente.model.Utente;
 import it.unirc.pwm.eureca.utils.Costant;
 
 
@@ -20,12 +21,22 @@ public class ControllerEvento extends ActionSupport
 	private EventoDAOInterface edao=EventoDAOFactory.getDAO();
 	private Attivit‡DAOInterface adao=Attivit‡DAOFactory.getDAO();
 	private List<Evento> listaEventi;
+	private List<Utente> listaUtenti;
 	private List<Evento> listaEventiPagina;
 	private List<Attivita> attivit‡Evento;
 	private int numeroPagina;
 	private int pagine;
+
 	
 	
+	public List<Utente> getListaUtenti() {
+		return listaUtenti;
+	}
+
+	public void setListaUtenti(List<Utente> listaUtenti) {
+		this.listaUtenti = listaUtenti;
+	}
+
 	public Attivita getAttivita() {
 		return attivita;
 	}
@@ -108,7 +119,14 @@ public class ControllerEvento extends ActionSupport
 	
 	public String partecipantiEvento()
 	{
-		return SUCCESS;
+		listaUtenti=edao.getUtentiEvento(evento);
+		if(listaUtenti==null)
+		{
+			addActionError("Non ci sono utenti che partecipano a questo evento");
+			return INPUT;
+		}
+		else
+			return SUCCESS;
 	}
 	
 

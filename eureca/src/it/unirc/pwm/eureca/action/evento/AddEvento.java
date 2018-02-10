@@ -14,6 +14,7 @@ import it.unirc.pwm.eureca.evento.model.Evento;
 import it.unirc.pwm.eureca.socio.dao.SocioDAOFactory;
 import it.unirc.pwm.eureca.socio.dao.SocioDAOInterface;
 import it.unirc.pwm.eureca.socio.model.Socio;
+import it.unirc.pwm.eureca.utils.QrCode;
 
 public class AddEvento extends ActionSupport implements ServletRequestAware
 {

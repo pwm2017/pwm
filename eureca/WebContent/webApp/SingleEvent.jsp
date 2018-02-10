@@ -21,7 +21,7 @@
 
 					<div class="col-md-8 col-md-offset-2 text-center"></div>
 
-					<div class="col-md-4">
+					<div class="col-md-3">
 
 						<s:if test="evento.locandina==''">
 
@@ -37,19 +37,34 @@
 						</s:else>
 					</div>
 
-					<div class="col-md-6 column">
+					<div class="col-md-6 ">
 						<h2>
 							<s:property value="evento.nome" />
 						</h2>
+						<hr>
 						<p>
-							<s:property value="evento.descrizione" />
+							Descrizione: <s:property value="evento.descrizione" />
 						</p>
+						<hr>
+						<p>
+							Luogo: <s:property value="evento.luogo" />
+						</p>
+						<hr>
+						<p>
+							Data Evento: <s:property value="evento.dataEvento" />
+						</p>
+						<hr>
 						<a class="btn "
 							href="<s:url action='RedirectPertecipaEvento' namespace='/evento'>
 								 <s:param name="evento.idEvento"><s:property value="evento.idEvento" /></s:param>
 											</s:url>">Partecipa<i
 							class="fa fa-chevron-right"></i></a>
 
+					</div>
+					<div class="col-md-3">
+						<h4>Visualizza Dall'App</h4>
+						<img
+							src="webApp/assets/img/eventi/<s:property value="evento.nome"/><s:property value="evento.idEvento"/>.png">
 					</div>
 				</div>
 

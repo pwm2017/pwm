@@ -30,7 +30,9 @@
 			<result>/webApp/SingleEvent.jsp</result>
 		</action>
 		
-		
+		<action name="CambiaLingua" class="it.unirc.pwm.eureca.action.support.CambiaLingua">
+			<result name="success" type="redirectAction">HOME</result>
+		</action>
 
 	</package>
 
