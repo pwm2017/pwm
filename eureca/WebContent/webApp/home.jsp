@@ -27,18 +27,36 @@
 							class="active"></li>
 						<li data-target="#carousel-example-generic" data-slide-to="1"></li>
 						<li data-target="#carousel-example-generic" data-slide-to="2"></li>
+						<li data-target="#carousel-example-generic" data-slide-to="3"></li>
+						<li data-target="#carousel-example-generic" data-slide-to="4"></li>
+						<li data-target="#carousel-example-generic" data-slide-to="5"></li>
+						<li data-target="#carousel-example-generic" data-slide-to="6"></li>
+						<li data-target="#carousel-example-generic" data-slide-to="7"></li>
+
 					</ol>
 
 					<!-- Wrapper for slides -->
 					<div class="carousel-inner">
 						<div class="item active">
-							<img src="webApp/assets/img/pencils.jpg" alt="Awesome Image">
+							<img src="webApp/assets/img/s5.jpg" alt="Awesome Image">
 						</div>
 						<div class="item">
-							<img src="webApp/assets/img/shoes.jpg" alt="Awesome Image">
+							<img src="webApp/assets/img/s10.jpg" alt="Awesome Image">
 						</div>
 						<div class="item">
-							<img src="webApp/assets/img/types.jpg" alt="Awesome Image">
+							<img src="webApp/assets/img/s8.jpg" alt="Awesome Image">
+						</div>
+						<div class="item">
+							<img src="webApp/assets/img/s9.jpg" alt="Awesome Image">
+						</div>
+						<div class="item">
+							<img src="webApp/assets/img/s2.jpg" alt="Awesome Image">
+						</div>
+						<div class="item">
+							<img src="webApp/assets/img/s11.jpg" alt="Awesome Image">
+						</div>
+						<div class="item">
+							<img src="webApp/assets/img/s4.jpg" alt="Awesome Image">
 						</div>
 					</div>
 
@@ -58,19 +76,24 @@
 			<div class="container tim-container">
 				<div class="row">
 					<div class="col-md-8 col-md-offset-2 text-center">
-						<h2>Eventi</h2>
+						<h2>
+							<s:text name="global.title.allEvents" />
+						</h2>
 					</div>
 
 					<div
 						class="col-xs-8 col-xs-offset-2 col-sm-4 col-sm-offset-4 col-md-4 col-md-offset-4 download-area">
 						<a href="<s:url action='TuttiGliEventi' namespace='/'/>"
-							class="btn btn-fill btn-block btn-lg">Tutti gli eventi</a>
+							class="btn btn-fill btn-block btn-lg"><s:text
+								name="global.title.Events" /></a>
 
 					</div>
 
 
 					<div class="col-md-8 col-md-offset-2 text-center">
-						<h2>Eventi Recenti</h2>
+						<h2>
+							<s:text name="global.title.RecentEvents" />
+						</h2>
 
 					</div>
 
@@ -78,12 +101,13 @@
 				<s:if test="eventiRecenti.isEmpty()">
 					<div
 						class="col-md-8 col-md-offset-2 text-center alert alert-warning">
-						<h3>Non ci sono eventi in programma</h3>
+						<h3>
+							<s:text name="global.title.NoEvents" />
+						</h3>
 					</div>
 				</s:if>
 				<s:else>
 					<s:iterator status="status" value="eventiRecenti">
-						<s:if test="#status.index <=3">
 
 							<div class="col-xs-6 col-sm-6 col-md-3">
 								<h4>
@@ -123,10 +147,11 @@
 									<a class="btn btn-neutral btn-tooltip"
 										href="<s:url action='RedirectPertecipaEvento' namespace='/evento'>
 								 <s:param name="evento.idEvento"><s:property value="idEvento" /></s:param>
-											</s:url>">Partecipa</a>
+											</s:url>"><s:text
+											name="global.title.Partecipa" /></a>
 								</div>
 							</div>
-						</s:if>
+
 					</s:iterator>
 				</s:else>
 			</div>

@@ -12,7 +12,6 @@ import it.unirc.pwm.eureca.evento.model.Evento;
 import it.unirc.pwm.eureca.hibernate.util.HibernateUtil;
 import it.unirc.pwm.eureca.utente.model.Utente;
 import it.unirc.pwm.eureca.utils.Costant;
-import it.unirc.pwm.eureca.viaggio.model.Viaggio;
 
 public class EventoDAOImplement implements EventoDAOInterface{
 
@@ -88,6 +87,28 @@ public class EventoDAOImplement implements EventoDAOInterface{
 
 		return res;
 	}
+	
+	
+	@SuppressWarnings("unchecked")
+	public List<Evento> getEventiRecenti()
+	{
+		session = HibernateUtil.getSessionFactory().openSession();
+		List<Evento> res = null;
+		try {
+			transaction=session.beginTransaction();
+			res = (List<Evento>)session.createQuery("from Evento ORDER BY idEvento DESC").setMaxResults(4).list();
+			transaction.commit();
+		} catch (Exception e) {
+			transaction.rollback();
+			e.printStackTrace();
+			logger.error("errore nella ricerca degli Eventi");
+		}finally{
+			session.close();
+		}
+
+		return res;
+	}
+
 
 	public Evento getEvento(Evento ev){
 		Evento eve = null;

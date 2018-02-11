@@ -1,4 +1,5 @@
 package it.unirc.pwm.eureca.action.utente;
+
 import com.opensymphony.xwork2.ActionSupport;
 
 import it.unirc.pwm.eureca.evento.dao.EventoDAOFactory;
@@ -8,22 +9,30 @@ import it.unirc.pwm.eureca.utente.dao.UtenteDAOFactory;
 import it.unirc.pwm.eureca.utente.dao.UtenteDAOInterface;
 import it.unirc.pwm.eureca.utente.model.Utente;
 
-
-public class UtentePartecipaEvento extends ActionSupport
+public class PartecipaEventoAndroid extends ActionSupport
 {
 	private static final long serialVersionUID = 1L;
-	private Evento evento;
 	private Utente utente;
 	private EventoDAOInterface edao=EventoDAOFactory.getDAO();
 	private UtenteDAOInterface udao=UtenteDAOFactory.getDAO();
 
-	
-	public Evento getEvento() {
-		return evento;
+	private int id = 0;
+	private boolean risultato = false;
+
+	public int getId() {
+		return id;
 	}
-	public void setEvento(Evento evento) {
-		this.evento = evento;
+	public void setId(int id) {
+		this.id = id;
 	}
+
+	public boolean isRisultato() {
+		return risultato;
+	}
+	public void setRisultato(boolean risultato) {
+		this.risultato = risultato;
+	}
+
 	public Utente getUtente() {
 		return utente;
 	}
@@ -31,24 +40,20 @@ public class UtentePartecipaEvento extends ActionSupport
 		this.utente = utente;
 	}
 
-	public String execute()
-	{
-		return SUCCESS;
-	}
-
-	public String partecipaEvento()
-	{	
-		utente.getEventi().add(edao.getEvento(evento));
+	public String execute() {
+		Evento tmp = new Evento();
+		tmp.setIdEvento(id);
+		utente.getEventi().add(edao.getEvento(tmp));
 
 		if(udao.creaUtente(utente))
 		{
-			addActionMessage("Dati inseriti correttamente!!");
-			return SUCCESS;
+			risultato = true;
+			return INPUT;
 		}
 		else	
 		{
-			addActionError("Errore");
-			return INPUT;
+			risultato = false;
+			return ERROR;
 		}
 	}
 }

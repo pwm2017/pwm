@@ -53,7 +53,6 @@
 							sortable="true" />
 						<display:column property="dataScadenza" title="Data Scadenza"
 							sortable="true" />
-						<display:column property="evento" title="Evento" />
 						<display:setProperty name="export.excel.filename"
 							value="PartecipantiViaggio.xls" />
 						<display:setProperty name="export.pdf" value="true" />

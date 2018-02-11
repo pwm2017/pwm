@@ -47,11 +47,17 @@
 					evento.utenti,
 					id
 				</param>
-				
 			</result>
 		</action>
+		
+		
+		<action name="PartecipaEventoAndroid" class="it.unirc.pwm.eureca.action.utente.PartecipaEventoAndroid">
+			<result type="json" name="input">
+			<param name="includeProperties">
+					risultato
+				</param> <!-- con success dava problemi, modificato anche nella action -->
+			</result>
+		</action>
+		
 	</package>
-	
-
-
 </struts>

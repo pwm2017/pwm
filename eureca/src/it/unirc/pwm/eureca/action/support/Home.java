@@ -30,7 +30,7 @@ public class Home extends ActionSupport {
 	public String execute() 
 	{
 
-		eventiRecenti=edao.getEventi();
+		eventiRecenti=edao.getEventiRecenti();
 		return SUCCESS;
 
 

@@ -74,7 +74,7 @@
 							<a class="btn "
 								href="<s:url action='RedirectPertecipaEvento' namespace='/evento'>
 								 <s:param name="evento.idEvento"><s:property value="idEvento" /></s:param>
-											</s:url>">Partecipa</a>
+											</s:url>"><s:text name="global.title.Partecipa"/></a>
 						</div>
 					</div>
 

@@ -22,7 +22,10 @@
 						<img src="/eureca/webApp/assets/img/logo.png" alt="Eureca">
 					</div>
 					<div class="brand">
-						<s:text name="global.title.home" />
+						<h6>
+							<s:text name="global.title.home" />
+							<font color="#4C4740"> </font>
+						</h6>
 					</div>
 				</div>
 			</a>
@@ -30,21 +33,24 @@
 
 		<!-- Collect the nav links, forms, and other content for toggling -->
 		<div class="collapse navbar-collapse" id="navigation-example-2">
-		
-			<ul class="nav navbar-nav navbar-right" style="padding: 0px 15px" >
+
+			<ul class="nav navbar-nav navbar-right" style="padding: 0px 15px">
 
 
 				<li class="dropdown">
 					<button href="#" class="btn btn-fill" data-toggle="dropdown">
-						Lingua <b class="caret"></b>
+						<s:text name="global.title.language" />
+						<b class="caret"></b>
 					</button> <!--                                  You can add classes for different colours on the next element -->
 					<ul class="dropdown-menu dropdown-primary dropdown-menu-right">
 						<li><a
-							href="<s:url action='CambiaLingua' namespace='/'><s:param name="lang">EN</s:param></s:url>">English</a></li>
+							href="<s:url action='CambiaLingua' namespace='/'><s:param name="lang">EN</s:param></s:url>"><s:text
+									name="global.title.languageEN" /></a></li>
 						<li class="divider"></li>
 
 						<li><a
-							href="<s:url action='CambiaLingua' namespace='/'><s:param name="lang">IT</s:param></s:url>">Italiano</a></li>
+							href="<s:url action='CambiaLingua' namespace='/'><s:param name="lang">IT</s:param></s:url>"><s:text
+									name="global.title.languageIT" /></a></li>
 
 					</ul>
 				</li>
@@ -58,19 +64,21 @@
 					<s:if test="%{(#session.amministratore.username!=null)}">
 						<li><a
 							href="<s:url action='AuthenticatedAmministratore' namespace='/areaRiservata/amministratore'/>"
-							class="btn btn-fill">Area Riservata</a></li>
+							class="btn btn-fill"><s:text
+									name="global.title.areaRiservata" /></a></li>
 					</s:if>
 
 					<s:if test="%{(#session.socio.username!=null)}">
 						<li><a
 							href="<s:url action='AuthenticatedSocio.action' namespace='/areaRiservata/socio'/>"
-							class="btn btn-fill">Area Riservata</a></li>
+							class="btn btn-fill"><s:text
+									name="global.title.areaRiservata" /></a></li>
 					</s:if>
 
 				</s:if>
 				<s:else>
 					<li><a href="<s:url action='LoginForm' namespace='/'/>"
-						class="btn btn-fill">Login </a></li>
+						class="btn btn-fill"><s:text name="global.title.login" /></a></li>
 				</s:else>
 
 			</ul>
@@ -83,9 +91,12 @@
 		<div class="demo-header demo-header-image">
 			<div class="motto">
 				<h1 class="title-uppercase">
-					<s:text name="global.title.home" />
+					<font color="#4C4740"> <s:text name="global.title.home" />
+					</font>
 				</h1>
-				<h3>Bhahahahahaah.</h3>
+				<h2 class="title-lowercase">
+					<font color="#2F2F2F"> <s:text name="global.subtitle.home" /></font>
+				</h2>
 			</div>
 		</div>
 	</div>

@@ -15,4 +15,5 @@ public interface EventoDAOInterface
 	public List<Evento> cercaEventiPagina(int numeroPagina);
 	public Boolean eliminaEvento(Evento ev);
 	public List<Utente> getUtentiEvento(Evento ev);
+	public List<Evento> getEventiRecenti();
 }
