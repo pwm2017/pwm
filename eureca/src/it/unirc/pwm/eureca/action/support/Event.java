@@ -35,7 +35,6 @@ public class Event extends ActionSupport  implements ServletRequestAware
 	{
 		String appPath = request.getServletContext().getRealPath("");
 		String appPath1=appPath+"webApp/assets/img/eventi/";
-		String path="C:/Users/User/Desktop/eclipseNeon/pwm/eureca/WebContent/webApp/assets/img/eventi/";
 		evento=edao.getEvento(evento);
 		QrCode qr=new QrCode();
 		qr.generaQrCode(evento.getNome(), evento.getIdEvento(), appPath1+evento.getNome()+evento.getIdEvento()+".png");
