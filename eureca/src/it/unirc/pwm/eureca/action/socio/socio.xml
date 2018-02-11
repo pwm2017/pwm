@@ -5,7 +5,7 @@
 
 <struts>
 
-	<package name="socio" namespace="/amministratore/socio"
+	<package name="socioAdmin" namespace="/amministratore/socio"
 		extends="SecureAdministrator">
 
 		<action name="InserisciSocioRedirect" class="it.unirc.pwm.eureca.action.socio.ControllerSocio"
@@ -48,7 +48,8 @@
 			<interceptor-ref name="authenticationAdministratorInterceptor" />
 			<result name="success">/WEB-INF/areaRiservata/amministratore/indexAmministratore.jsp
 			</result>
-			<result name="input">/WEB-INF/areaRiservata/amministratore/indexAmministratore.jsp</result>
+			<result name="input">/WEB-INF/areaRiservata/amministratore/indexAmministratore.jsp
+			</result>
 		</action>
 
 		<action name="SetSocio" class="it.unirc.pwm.eureca.action.socio.ControllerSocio"
@@ -57,7 +58,8 @@
 			<interceptor-ref name="authenticationAdministratorInterceptor" />
 			<result name="success">/WEB-INF/areaRiservata/amministratore/SettingSocio.jsp
 			</result>
-			<result name="input">/WEB-INF/areaRiservata/amministratore/indexAmministratore.jsp</result>
+			<result name="input">/WEB-INF/areaRiservata/amministratore/indexAmministratore.jsp
+			</result>
 		</action>
 
 		<action name="ModificaSocio" class="it.unirc.pwm.eureca.action.socio.UpdateSocio"
@@ -72,28 +74,77 @@
 			<interceptor-ref name="authenticationAdministratorInterceptor" />
 			<result name="success">/WEB-INF/areaRiservata/amministratore/indexAmministratore.jsp
 			</result>
-			<result name="input">/WEB-INF/areaRiservata/amministratore/SettingSocio.jsp</result>
+			<result name="input">/WEB-INF/areaRiservata/amministratore/SettingSocio.jsp
+			</result>
 		</action>
-		
+
 		<action name="ModificaTessera" class="it.unirc.pwm.eureca.action.socio.UpdateTessera"
 			method="modificaTessera">
 			<interceptor-ref name="defaultStack" />
 			<interceptor-ref name="authenticationAdministratorInterceptor" />
 			<result name="success">/WEB-INF/areaRiservata/amministratore/indexAmministratore.jsp
 			</result>
-			<result name="input">/WEB-INF/areaRiservata/amministratore/SettingSocio.jsp</result>
+			<result name="input">/WEB-INF/areaRiservata/amministratore/SettingSocio.jsp
+			</result>
 		</action>
-		
-		<action name="ModificaPasswordSocio" class="it.unirc.pwm.eureca.action.socio.UpdatePasswordSocio"
-			method="modificaPasswordSocio">
+
+		<action name="ModificaPasswordSocio"
+			class="it.unirc.pwm.eureca.action.socio.UpdatePasswordSocio" method="modificaPasswordSocio">
 			<interceptor-ref name="defaultStack" />
 			<interceptor-ref name="authenticationAdministratorInterceptor" />
 			<result name="success">/WEB-INF/areaRiservata/amministratore/indexAmministratore.jsp
 			</result>
-			<result name="input">/WEB-INF/areaRiservata/amministratore/indexAmministratore.jsp</result>
+			<result name="input">/WEB-INF/areaRiservata/amministratore/indexAmministratore.jsp
+			</result>
 		</action>
-		
-	
+
+
+	</package>
+
+	<package name="socio" namespace="/socio" extends="Secure">
+
+		<action name="SetSocio" class="it.unirc.pwm.eureca.action.socio.ControllerSocio"
+			method="setSocio">
+			<interceptor-ref name="defaultStack" />
+			<interceptor-ref name="authenticationInterceptor" />
+			<result name="success">/WEB-INF/areaRiservata/socio/SettingSocio.jsp
+			</result>
+			<result name="input">/WEB-INF/areaRiservata/socio/indexSocio.jsp
+			</result>
+		</action>
+
+
+		<action name="ModificaSocioBase" class="it.unirc.pwm.eureca.action.socio.UpdateSocioBase"
+			method="modificaSocioBase">
+			<interceptor-ref name="defaultStack" />
+			<interceptor-ref name="authenticationInterceptor" />
+			<result name="success">/WEB-INF/areaRiservata/socio/indexSocio.jsp
+			</result>
+			<result name="input">/WEB-INF/areaRiservata/socio/SettingSocio.jsp
+			</result>
+		</action>
+
+		<action name="ModificaPasswordSocioBase"
+			class="it.unirc.pwm.eureca.action.socio.UpdatePasswordSocioBase"
+			method="modificaPasswordSocio">
+			<interceptor-ref name="defaultStack" />
+			<interceptor-ref name="authenticationInterceptor" />
+			<result name="success">/WEB-INF/areaRiservata/socio/indexSocio.jsp
+			</result>
+			<result name="input">/WEB-INF/areaRiservata/socio/SettingSocio.jsp
+			</result>
+		</action>
+
+		<action name="VisualizzaAttivita" class="it.unirc.pwm.eureca.action.socio.ControllerSocio"
+			method="visualizzaAttivitaSocio">
+			<interceptor-ref name="defaultStack" />
+			<interceptor-ref name="authenticationInterceptor" />
+			<result name="success">/WEB-INF/areaRiservata/socio/ViewAttivita.jsp
+			</result>
+			<result name="input">/WEB-INF/areaRiservata/socio/indexSocio.jsp
+			</result>
+		</action>
+
 	</package>
 
 </struts>

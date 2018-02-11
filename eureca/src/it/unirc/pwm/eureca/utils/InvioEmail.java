@@ -1,7 +1,6 @@
 package it.unirc.pwm.eureca.utils;
 
 import java.util.Properties;
-
 import javax.mail.Message;
 import javax.mail.MessagingException;
 import javax.mail.PasswordAuthentication;
@@ -10,8 +9,14 @@ import javax.mail.Transport;
 import javax.mail.internet.InternetAddress;
 import javax.mail.internet.MimeMessage;
 
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
+
+import it.unirc.pwm.eureca.attivita.dao.Attivit‡DAOImplement;
+
 public class InvioEmail 
 {
+	private static Logger logger = LogManager.getLogger(Attivit‡DAOImplement.class);
 	public static void invioEmail(
 			String mittente, 
 			String password, 
@@ -36,7 +41,7 @@ public class InvioEmail
 		});
 
 		try 
-		{
+		{	
 
 			Message message = new MimeMessage(session);
 			message.setFrom(new InternetAddress(mittente));
@@ -46,8 +51,8 @@ public class InvioEmail
 			message.setText(messaggio);
 
 			Transport.send(message);
+			logger.info("e-mail inviata con successso");
 
-			System.out.println("Done");
 
 		} 
 		catch (MessagingException e) 

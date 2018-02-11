@@ -56,7 +56,8 @@
 										</button> <!--                                  You can add classes for different colours on the next element -->
 										<ul class="dropdown-menu dropdown-primary dropdown-menu-right">
 											<li><a
-												href="<s:url action='VisualizzaViaggiRedirect' namespace='/socio/viaggio'/>">Visualizza Viaggi</a></li>
+												href="<s:url action='VisualizzaViaggiRedirect' namespace='/socio/viaggio'/>">Visualizza
+													Viaggi</a></li>
 											<li class="divider"></li>
 
 										</ul>
@@ -65,26 +66,24 @@
 									<li class="dropdown">
 										<button href="#" class="dropdown-toggle btn"
 											data-toggle="dropdown">
-											Eventi <b class="caret"></b>
+											Attività <b class="caret"></b>
 										</button> <!--                                  You can add classes for different colours on the next element -->
 										<ul class="dropdown-menu dropdown-primary dropdown-menu-right">
 											<li><a
-												href="<s:url action='InserisciEventoRedirect' namespace='/amministratore/evento'/>">Aggiungi
-													Evento</a></li>
-											<li class="divider"></li>
-											
+												href="<s:url action='VisualizzaAttivita' namespace='/socio'/>">Visualizza
+													Attività</a>
 											<li><a
 												href="<s:url action='GestisciEventi' namespace='/amministratore/evento'>
 															<s:param name="numeroPagina"><s:property value="0" /></s:param>
 															</s:url>">Gestisci
-													Eventi</a>
-											</li>
+													Eventi</a></li>
 											<li class="divider"></li>
 
 										</ul>
 									</li>
 								</ul>
 							</div>
+					
 							<!-- /.navbar-collapse -->
 						</div>
 						<!-- /.container-fluid --> </nav>
@@ -112,9 +111,7 @@
 	<s:if test="hasActionError()">
 		<div class="alert alert-danger">
 			<h4>
-				<h3>
 					<s:actionerror />
-				</h3>
 			</h4>
 		</div>
 

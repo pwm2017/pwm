@@ -13,7 +13,7 @@
 
 <body>
 	<%@ include file="../../../webApp/layout/Header.jsp"%>
-	<%@ include file="MenuAdmin.jsp"%>
+	<%@ include file="MenuSocio.jsp"%>
 
 	<div class="main">
 		<div class="section">
@@ -33,7 +33,7 @@
 				<div
 					class="col-md-7 col-md-offset-1 col-sm-6 col-sm-offset-3 col-xs-10 col-xs-offset-1">
 
-					<s:form action="ModificaSocio" enctype="multipart/form-data">
+					<s:form action="ModificaSocioBase">
 						<s:hidden name="socio.idPersonaFisica"
 							value="%{socio.idPersonaFisica}"></s:hidden>
 						<s:hidden name="socio.foto" value="%{socio.foto}"></s:hidden>
@@ -64,72 +64,11 @@
 						<s:hidden name="socio.password" />
 						<s:textfield key="label.socio.codiceFiscale"
 							name="socio.codiceFiscale" class="form-control" />
-						<s:checkbox name="socio.amministratore"
-							key="label.socio.amministratore" />
-						<s:file name="uploadDoc" key="Carica immagine" />
 
 						<s:submit value="Modifica" class="btn btn-block" />
 					</s:form>
 				</div>
-
 				<div class="col-md-4">
-					<div ALIGN="CENTER">
-						<h3>Tessera</h3>
-					</div>
-					<div class=" col-md-offset-2">
-						<button type="button" class="btn " data-toggle="popover"
-							data-placement="left"
-							title="Tessera socio '<s:property value="socio.nome" />'"
-							data-content="Punti: <s:property value="tessera.punti"/> <br>
-                        Data Rilascio: <s:property value="tessera.dataRilascio"/> <br> 
-                        Data Scadenza: <s:property value="tessera.dataScadenza"/> <br> 
-                        "
-							data-html="true">Visualizza</button>
-
-						<s:if
-							test="%{(#session.amministratore.idPersonaFisica!=socio.idPersonaFisica)}">
-							<button class="btn" data-toggle="modal" data-target="#myModal">Modifica</button>
-						</s:if>
-						<div class="modal fade" id="myModal" tabindex="-1" role="dialog"
-							aria-labelledby="myModalLabel" aria-hidden="true">
-							<div class="modal-dialog">
-								<div class="modal-content">
-									<div class="modal-header">
-										<button type="button" class="close" data-dismiss="modal"
-											aria-hidden="true">&times;</button>
-										<h4 class="modal-title" id="myModalLabel">
-											<s:text name="title.updateTessera" />
-										</h4>
-									</div>
-									<div class="modal-body">
-										<div class="section">
-											<div class="container">
-												<div class="row">
-													<div class="col-md-5 col-md-offset2">
-														<s:form action="ModificaTessera">
-															<s:hidden name="tessera.idSocio"
-																value="%{socio.idPersonaFisica}"></s:hidden>
-															<s:textfield label="Punti" name="tessera.punti"
-																class="form-control" />
-															<s:textfield label="DataRilascio"
-																name="tessera.dataRilascio" class="form-control" />
-															<s:textfield label="DataScadenza"
-																name="tessera.dataScadenza" class="form-control" />
-
-															<s:submit value="Modifica" class="btn btn-block" />
-														</s:form>
-													</div>
-												</div>
-											</div>
-										</div>
-									</div>
-
-								</div>
-							</div>
-						</div>
-
-					</div>
-
 					<div ALIGN="CENTER">
 						<h3>Password</h3>
 					</div>
@@ -137,7 +76,6 @@
 						<button class="btn" data-toggle="modal" data-target="#myModal1">Modifica
 							Password</button>
 					</div>
-
 
 					<div class="modal fade" id="myModal1" tabindex="-1" role="dialog"
 						aria-labelledby="myModalLabel" aria-hidden="true">
@@ -189,17 +127,12 @@
 
 				</div>
 			</div>
-
-			<div class="clearfix"></div>
-			<div class="clearfix"></div>
-
 		</div>
 	</div>
 
 
 
 	<%@ include file="../../../webApp/layout/Footer.jsp"%>
-
 </body>
 
 </html>

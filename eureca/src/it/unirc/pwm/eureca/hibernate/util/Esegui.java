@@ -27,6 +27,7 @@ import it.unirc.pwm.eureca.tessera.model.Tessera;
 import it.unirc.pwm.eureca.utente.dao.UtenteDAOFactory;
 import it.unirc.pwm.eureca.utente.dao.UtenteDAOInterface;
 import it.unirc.pwm.eureca.utente.model.Utente;
+import it.unirc.pwm.eureca.utils.Costant;
 import it.unirc.pwm.eureca.utils.InvioEmail;
 import it.unirc.pwm.eureca.utils.QrCode;
 import it.unirc.pwm.eureca.viaggio.dao.ViaggioDAOFactory;
@@ -98,7 +99,7 @@ public class Esegui
 //		SocioDAOInterface daoS= SocioDAOFactory.getDAO();
 //		
 //		daoA.eliminaAttività(a);
-//		SvolgeDAOInterface dao= SvolgeDAOFactory.getDAO();
+		SvolgeDAOInterface dao= SvolgeDAOFactory.getDAO();
 //		Svolge sv=new Svolge();
 //		a.setEvento(e);
 //		a.setEvento(e);
@@ -145,7 +146,12 @@ public class Esegui
 //		id.setIdSocio(1);
    
 //		s.setId(id);
-       InvioEmail.invioEmail("programmazionewm@gmail.com", "programmazionewm1", "ignaziocricelli@gmail.com","ciao ignazio", "vedi di far partire android");
+//       InvioEmail.invioEmail("programmazionewm@gmail.com", "programmazionewm1",
+//    		   "ntony92@live.it",Costant.OGGETTO_EMAIL,Costant.MESSAGGIO_EMAIL+Costant.PASSWORD_EMAIL+"'ciao'."
+//    				   + Costant.USERNAME_EMAIL+"'user'."+Costant.ALTROMESSAGGIO_EMAIL);
+       
+       s.setIdPersonaFisica(1);
+       System.out.println(dao.SocioSvolgeAttivita(s).size());
 		HibernateUtil.close();
 	}
 

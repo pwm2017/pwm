@@ -5,6 +5,7 @@
 <validators>
 
 <validator name="usernameexist" class="it.unirc.pwm.eureca.action.socio.validator.CheckUsernameValidator" />
+<validator name="passwordstrenght" class="it.unirc.pwm.eureca.action.socio.validator.PasswordStrenghtValidator" />
 	<validator name="required"
 		class="com.opensymphony.xwork2.validator.validators.RequiredFieldValidator" />
 	<validator name="requiredstring"

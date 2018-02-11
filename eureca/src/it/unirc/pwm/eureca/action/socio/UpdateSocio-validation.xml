@@ -31,22 +31,6 @@
 			<message key="email.invalid"></message>
 		</field-validator>
 	</field>
-	
-
-	<!-- <field name="account.password">
-		<field-validator type="requiredstring">
-			<message key="password.required"></message>
-		</field-validator>
-
-		<field-validator type="stringlength">
-			<param name="minLength">8</param>
-			<param name="maxLength">20</param>
-			<message key="password.short"></message>
-		</field-validator>
-		<field-validator type="passwordstrenght">
-			<message key="password.mustContain"></message>
-		</field-validator>
-	</field> -->
 
 </validators>
 

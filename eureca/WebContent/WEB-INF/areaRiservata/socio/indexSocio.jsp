@@ -21,7 +21,7 @@
 				<div
 					class="col-md-2 col-md-offset-5 col-sm-4 col-sm-offset-4 col-xs-6 col-xs-offset-3 text-center">
 					<div class="avatar">
-						<s:if test="#session.socio.foto==null">
+						<s:if test="#session.socio.foto==''">
 							<img src="/eureca/webApp/assets/img/placeholder.jpg"
 								alt="Circle Image"
 								class="img-circle img-no-padding img-responsive">

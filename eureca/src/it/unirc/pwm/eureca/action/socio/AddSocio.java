@@ -5,7 +5,6 @@ import java.security.NoSuchAlgorithmException;
 import java.util.Calendar;
 import java.util.Date;
 import java.util.GregorianCalendar;
-
 import javax.servlet.http.HttpServletRequest;
 import org.apache.commons.io.FileUtils;
 import org.apache.struts2.interceptor.ServletRequestAware;
@@ -17,6 +16,8 @@ import it.unirc.pwm.eureca.tessera.dao.TesseraDAOFactory;
 import it.unirc.pwm.eureca.tessera.dao.TesseraDAOInterface;
 import it.unirc.pwm.eureca.tessera.model.Tessera;
 import it.unirc.pwm.eureca.utils.ControlSha;
+import it.unirc.pwm.eureca.utils.Costant;
+import it.unirc.pwm.eureca.utils.InvioEmail;
 
 public class AddSocio extends ActionSupport implements ServletRequestAware
 {
@@ -83,7 +84,8 @@ public class AddSocio extends ActionSupport implements ServletRequestAware
 	public String inserisciSocio()
 	{
 		String appPath = request.getServletContext().getRealPath("");
-		
+		String password=socio.getPassword();
+
 		try {
 			socio.setPassword(ControlSha.sha256(socio.getPassword()));
 		} catch (NoSuchAlgorithmException e1) {
@@ -97,7 +99,7 @@ public class AddSocio extends ActionSupport implements ServletRequestAware
 			String nomeFile=socio.getUsername()+"."+part2;
 			socio.setFoto(nomeFile);
 			uploadDocFileName=nomeFile;
-//			File fileToCreate = new File(appPath+"webApp/assets/img/soci", uploadDocFileName);
+			//			File fileToCreate = new File(appPath+"webApp/assets/img/soci", uploadDocFileName);
 			File fileToCreate = new File("C:/Users/User/Desktop/eclipseNeon/pwm/eureca/WebContent/webApp/assets/img/soci", uploadDocFileName);
 			try
 			{
@@ -110,8 +112,44 @@ public class AddSocio extends ActionSupport implements ServletRequestAware
 		}
 		if(sdao.creaSocio(socio))
 		{
-			addActionMessage("Socio aggiunto correttamente");
+			Runnable r = new Runnable() {
+				
+				@Override
+				public void run() {
+					InvioEmail.invioEmail("programmazionewm@gmail.com", "programmazionewm1",
+							socio.getEmail(),Costant.OGGETTO_EMAIL,Costant.MESSAGGIO_EMAIL+Costant.PASSWORD_EMAIL+"'"+password+"'."
+									+ Costant.USERNAME_EMAIL+"'"+socio.getUsername()+"'."+Costant.ALTROMESSAGGIO_EMAIL);
+				}
+			};
 			
+			Thread t = new Thread(r);
+			t.setDaemon(true);
+			t.start();
+			
+			
+//			
+//			HttpServletRequest req = ServletActionContext.getRequest();
+//			HttpServletResponse res = ServletActionContext.getResponse();
+//
+//			final AsyncContext asyncContext = req.startAsync(req, res);
+//			asyncContext.start(new Runnable() {
+//				@Override
+//				public void run() 
+//				{
+//					try
+//					{
+//						InvioEmail.invioEmail("programmazionewm@gmail.com", "programmazionewm1",
+//								socio.getEmail(),Costant.OGGETTO_EMAIL,Costant.MESSAGGIO_EMAIL+Costant.PASSWORD_EMAIL+"'"+password+"'."
+//										+ Costant.USERNAME_EMAIL+"'"+socio.getUsername()+"'."+Costant.ALTROMESSAGGIO_EMAIL);
+//					}
+//					finally {
+//						asyncContext.complete();
+//					}
+//				}
+//			});
+
+			addActionMessage("Socio aggiunto correttamente");
+
 			Date d=new Date();
 			tessera.setDataRilascio(d);
 			tessera.setSocio(socio);
