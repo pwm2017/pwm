@@ -25,7 +25,7 @@ public class Event extends ActionSupport  implements ServletRequestAware
 		this.evento = evento;
 	}
 	
-
+	
 	@Override
 	public void setServletRequest(HttpServletRequest request) {
 		this.request = request;
