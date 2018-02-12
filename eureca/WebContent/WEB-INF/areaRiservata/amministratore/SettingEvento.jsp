@@ -40,7 +40,7 @@
 						<s:textfield key="label.evento.luogo" name="evento.luogo"
 							class="form-control" />
 						<s:textfield key="label.evento.dataEvento"
-							name="evento.dataEvento" class="form-control" />
+							name="evento.dataEvento" class="form-control" type="date"/>
 
 						<s:file name="uploadDoc" key="Modifica Immagine" />
 
@@ -71,8 +71,7 @@
 								<div class="row">
 									<div class="col-md-7 col-xs-4">
 										<h6>
-											<s:property value="nome" />
-
+											<s:property value="nome" /> <br>
 										</h6>
 
 									</div>
@@ -82,10 +81,7 @@
 												href="<s:url action='EliminaAttivita' namespace='/amministratore/evento'>
 															<s:param name="attivita.idAttivita"><s:property value="idAttivita" /></s:param>
 															</s:url>">Elimina</a>
-											<a
-												href="<s:url action='SetAttivita' namespace='/amministratore/evento'> 
-															<s:param name="attivita.idAttivita"><s:property value="idAttivita" /></s:param>
-															</s:url>">Modifica</a>
+
 										</h6>
 									</div>
 								</div>
@@ -93,8 +89,19 @@
 							<hr />
 						</s:iterator>
 					</ul>
-				</div>
 
+					<div
+						class="col-xs-9 col-xs-offset-2 col-sm-4 col-sm-offset-3 col-md-8 col-md-offset-2 download-area">
+						<a class="btn"
+							href="<s:url action='AggiungiAltreAttivita' namespace='/amministratore/evento'> 
+																<s:param name="evento.idEvento">
+																	<s:property value="%{evento.idEvento}" />
+																</s:param>
+							</s:url>">Aggiungi
+							Altre Attività</a>
+
+					</div>
+				</div>
 			</div>
 			<div
 				class="col-xs-9 col-xs-offset-2 col-sm-4 col-sm-offset-3 col-md-8 col-md-offset-5 download-area">

@@ -21,7 +21,6 @@ public class AddViaggio extends ActionSupport implements ModelDriven<Viaggio>, S
 	private String uploadDocContentType;
 	public HttpServletRequest request;
 
-
 	public Viaggio getModel() {
 
 		return viaggio;
@@ -78,8 +77,7 @@ public class AddViaggio extends ActionSupport implements ModelDriven<Viaggio>, S
 			String nomeFile=getModel().getNome()+"."+part2;
 			getModel().setLocandina(nomeFile);
 			uploadDocFileName=nomeFile;
-//			File fileToCreate = new File(appPath+"webApp/assets/img/viaggi", uploadDocFileName);
-			File fileToCreate = new File("C:/Users/User/Desktop/eclipseNeon/pwm/eureca/WebContent/webApp/assets/img/viaggi", uploadDocFileName);
+			File fileToCreate = new File(appPath+"webApp/assets/img/viaggi/", uploadDocFileName);
 			try
 			{
 				FileUtils.copyFile(this.uploadDoc, fileToCreate);

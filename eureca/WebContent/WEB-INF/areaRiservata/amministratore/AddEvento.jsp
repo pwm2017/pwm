@@ -39,7 +39,7 @@
 						<s:textfield key="label.evento.luogo" name="evento.luogo"
 							class="form-control" />
 						<s:textfield key="label.evento.dataEvento"
-							name="evento.dataEvento" class="form-control" />
+							name="evento.dataEvento" class="form-control" type="date"/>
 
 						<s:file name="uploadDoc" key="label.evento.Caricaimmagine" />
 

@@ -32,7 +32,7 @@
 	<s:if test="listaUtenti.isEmpty()">
 		<div class="alert alert-success">
 			<h4>
-				<h3>Non ci sono Eventi</h3>
+				<h3>Non ci sono utenti che partecipano all'evento</h3>
 			</h4>
 		</div>
 

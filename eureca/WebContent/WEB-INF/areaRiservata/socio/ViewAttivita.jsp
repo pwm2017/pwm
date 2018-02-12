@@ -29,7 +29,7 @@
 		</div>
 	</div>
 
-	<s:if test="listaUtenti.isEmpty()">
+	<s:if test="listaAttivita.isEmpty()">
 		<div class="alert alert-success">
 			<h4>
 				<h3>Non ci sono Attività</h3>

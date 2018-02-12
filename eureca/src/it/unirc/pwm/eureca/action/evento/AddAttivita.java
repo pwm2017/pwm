@@ -6,6 +6,7 @@ import com.opensymphony.xwork2.ActionSupport;
 import it.unirc.pwm.eureca.attivita.dao.Attivit‡DAOFactory;
 import it.unirc.pwm.eureca.attivita.dao.Attivit‡DAOInterface;
 import it.unirc.pwm.eureca.attivita.model.Attivita;
+import it.unirc.pwm.eureca.evento.model.Evento;
 import it.unirc.pwm.eureca.socio.dao.SocioDAOFactory;
 import it.unirc.pwm.eureca.socio.dao.SocioDAOInterface;
 import it.unirc.pwm.eureca.socio.model.Socio;
@@ -20,12 +21,21 @@ public class AddAttivita extends ActionSupport
 	private Attivita attivita=new Attivita();
 	private String [] idSocio;
 	private List<Socio> listaSoci;
+	private Evento evento;
 	private Attivit‡DAOInterface adao=Attivit‡DAOFactory.getDAO();
 	private SvolgeDAOInterface svodao=SvolgeDAOFactory.getDAO();
 	private SocioDAOInterface sdao=SocioDAOFactory.getDAO();
 	
 	
 	
+	public Evento getEvento() {
+		return evento;
+	}
+
+	public void setEvento(Evento evento) {
+		this.evento = evento;
+	}
+
 	public List<Socio> getListaSoci() {
 		return listaSoci;
 	}
@@ -77,6 +87,33 @@ public class AddAttivita extends ActionSupport
 		addActionMessage("Evento aggiunto correttamente");  
 			return SUCCESS;
 	}
+	
+	
+	//chiamato da aggiungi altra attivita quando un evento e' presente
+		public String updateEventoAggiungiAttivita()
+		{	
+			attivita.setEvento(evento);
+			int idAttivita = adao.creaAttivit‡(attivita);  
+			
+			for(String idS: idSocio)
+			{
+				Svolge svolge=new Svolge();
+				SvolgeId svolgeId=new SvolgeId();
+				svolgeId.setIdAttivita(idAttivita);
+				svolgeId.setIdSocio(Integer.valueOf(idS));;
+				svolge.setId(svolgeId);
+				
+				if(svodao.Socio_Svolge_Attivita(svolge)==false)
+				{
+					addActionError("Errore");
+					return INPUT;
+				}
+				
+			}
+			
+			addActionMessage("Attivit‡ aggiunta correttamente");  
+			return SUCCESS;
+		}
 	
 
 	public void validate()

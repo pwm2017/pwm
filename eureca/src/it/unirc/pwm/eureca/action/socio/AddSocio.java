@@ -30,8 +30,7 @@ public class AddSocio extends ActionSupport implements ServletRequestAware
 	private String uploadDocFileName;
 	private String uploadDocContentType;
 	public HttpServletRequest request;
-
-
+	
 
 	public Tessera getTessera() {
 		return tessera;
@@ -92,15 +91,13 @@ public class AddSocio extends ActionSupport implements ServletRequestAware
 			// TODO Auto-generated catch block
 			e1.printStackTrace();
 		}
-
 		if ((uploadDocFileName!=null)){
 			String[] parts = uploadDocContentType.split("/");
 			String part2 = parts[1];
 			String nomeFile=socio.getUsername()+"."+part2;
 			socio.setFoto(nomeFile);
 			uploadDocFileName=nomeFile;
-			//			File fileToCreate = new File(appPath+"webApp/assets/img/soci", uploadDocFileName);
-			File fileToCreate = new File("C:/Users/User/Desktop/eclipseNeon/pwm/eureca/WebContent/webApp/assets/img/soci", uploadDocFileName);
+			File fileToCreate = new File(appPath+"webApp/assets/img/soci/", uploadDocFileName);
 			try
 			{
 				FileUtils.copyFile(this.uploadDoc, fileToCreate);

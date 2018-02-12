@@ -17,6 +17,10 @@
 			<exception-mapping exception="java.lang.Exception"
 				result="genericException" />
 		</global-exception-mappings>
+		
+		<action name="*">
+            <result>/webApp/Error404.jsp</result>
+        </action>
 
 		<action name="HOME" class="it.unirc.pwm.eureca.action.support.Home">
 			<result>/webApp/home.jsp</result>

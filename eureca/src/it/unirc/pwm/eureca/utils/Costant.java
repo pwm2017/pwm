@@ -4,6 +4,7 @@ public class Costant {
 	//public static String URL_GAZZETTA = "http://xml2.temporeale.gazzettaobjects.it/optatrsport/";
 	
 	public static Integer SIZE_LIST =10;
+	public static int PUNTI_VIAGGI =50;
 	
 	public static String OGGETTO_EMAIL = "Registrazione Associazione E.U.Re.Ca.";
 	public static String MESSAGGIO_EMAIL = "Registrazione Associazione E.U.Re.Ca."

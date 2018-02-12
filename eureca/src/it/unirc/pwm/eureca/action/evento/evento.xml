@@ -10,31 +10,32 @@
 
 		<action name="InserisciEventoRedirect"
 			class="it.unirc.pwm.eureca.action.evento.ControllerEvento" method="redirectInserisciEvento">
-			<interceptor-ref name="authenticationAdministratorInterceptor" />
+
 			<result name="success">/WEB-INF/areaRiservata/amministratore/AddEvento.jsp
 			</result>
 		</action>
 
 
-		<action name="AggiungiEvento" class="it.unirc.pwm.eureca.action.evento.AddEvento" method="inserisciEvento">
-			<interceptor-ref name="defaultStack" />
+		<action name="AggiungiEvento" class="it.unirc.pwm.eureca.action.evento.AddEvento"
+			method="inserisciEvento">
+			<interceptor-ref name="secureAdministratorStack" />
 			<interceptor-ref name="fileUpload">
 				<param name="allowedTypes">
 					image/png,image/gif,image/jpeg
 				</param>
 				<param name="maximumSize">20971520</param>
 			</interceptor-ref>
-			<interceptor-ref name="authenticationAdministratorInterceptor" />
+
 			<result name="success">/WEB-INF/areaRiservata/amministratore/AddAttivita.jsp
 			</result>
 			<result name="input">/WEB-INF/areaRiservata/amministratore/AddEvento.jsp
 			</result>
 		</action>
-		
-		
-		<action name="AggiungiAttivita" class="it.unirc.pwm.eureca.action.evento.AddAttivita" method="inserisciEventoDefinitivo">
-			<interceptor-ref name="defaultStack" />
-			<interceptor-ref name="authenticationAdministratorInterceptor" />
+
+
+		<action name="AggiungiAttivita" class="it.unirc.pwm.eureca.action.evento.AddAttivita"
+			method="inserisciEventoDefinitivo">
+
 			<result name="success">/WEB-INF/areaRiservata/amministratore/indexAmministratore.jsp
 			</result>
 			<result name="input">/WEB-INF/areaRiservata/amministratore/AddAttivita.jsp
@@ -42,74 +43,90 @@
 		</action>
 
 
-		<action name="GestisciEventi" class="it.unirc.pwm.eureca.action.evento.ControllerEvento">
-			<interceptor-ref name="defaultStack" />
-			<interceptor-ref name="authenticationAdministratorInterceptor" />
+		<action name="GestisciEventi"
+			class="it.unirc.pwm.eureca.action.evento.ControllerEvento">
 			<result name="success">/WEB-INF/areaRiservata/amministratore/GestisciEventi.jsp
 			</result>
 			<result name="input" type="">/WEB-INF/areaRiservata/amministratore/GestisciEventi.jsp
 			</result>
 		</action>
-		
-		
-		<action name="EliminaEvento" class="it.unirc.pwm.eureca.action.evento.ControllerEvento"
-			method="eliminaEvento">
-			<interceptor-ref name="defaultStack" />
-			<interceptor-ref name="authenticationAdministratorInterceptor" />
+
+
+		<action name="EliminaEvento"
+			class="it.unirc.pwm.eureca.action.evento.ControllerEvento" method="eliminaEvento">
+
 			<result name="success">/WEB-INF/areaRiservata/amministratore/indexAmministratore.jsp
 			</result>
 			<result name="input">/WEB-INF/areaRiservata/amministratore/indexAmministratore.jsp
 			</result>
 		</action>
-		
-		
-		<action name="SetEvento" class="it.unirc.pwm.eureca.action.evento.ControllerEvento"
-			method="setEvento">
-			<interceptor-ref name="defaultStack" />
-			<interceptor-ref name="authenticationAdministratorInterceptor" />
+
+
+		<action name="SetEvento"
+			class="it.unirc.pwm.eureca.action.evento.ControllerEvento" method="setEvento">
+
 			<result name="success">/WEB-INF/areaRiservata/amministratore/SettingEvento.jsp
 			</result>
 			<result name="input">/WEB-INF/areaRiservata/amministratore/indexAmministratore.jsp
 			</result>
 		</action>
-		
-	 	
+
+
 		<action name="ModificaEvento" class="it.unirc.pwm.eureca.action.evento.UpdateEvento"
 			method="modificaEvento">
-			<interceptor-ref name="defaultStack" />
+			<interceptor-ref name="secureAdministratorStack" />
 			<interceptor-ref name="fileUpload">
 				<param name="allowedTypes">
 					image/png,image/gif,image/jpeg
 				</param>
 				<param name="maximumSize">20971520</param>
 			</interceptor-ref>
-			<interceptor-ref name="authenticationAdministratorInterceptor" />
 			<result name="success">/WEB-INF/areaRiservata/amministratore/indexAmministratore.jsp
 			</result>
 			<result name="input">/WEB-INF/areaRiservata/amministratore/SettingSocio.jsp
 			</result>
 		</action>
-		
-		<action name="EliminaAttivita" class="it.unirc.pwm.eureca.action.evento.ControllerEvento"
-			method="eliminaAttività">
-			<interceptor-ref name="defaultStack" />
-			<interceptor-ref name="authenticationAdministratorInterceptor" />
+
+		<action name="EliminaAttivita"
+			class="it.unirc.pwm.eureca.action.evento.ControllerEvento" method="eliminaAttività">
+
 			<result name="success">/WEB-INF/areaRiservata/amministratore/indexAmministratore.jsp
 			</result>
 			<result name="input">/WEB-INF/areaRiservata/amministratore/indexAmministratore.jsp
 			</result>
 		</action>
-		
-		<action name="PartecipantiEvento" class="it.unirc.pwm.eureca.action.evento.ControllerEvento"
-			method="partecipantiEvento">
-			<interceptor-ref name="defaultStack" />
-			<interceptor-ref name="authenticationAdministratorInterceptor" />
+
+		<action name="PartecipantiEvento"
+			class="it.unirc.pwm.eureca.action.evento.ControllerEvento" method="partecipantiEvento">
+
 			<result name="success">/WEB-INF/areaRiservata/amministratore/EventParticipants.jsp
 			</result>
 			<result name="input">/WEB-INF/areaRiservata/amministratore/indexAmministratore.jsp
 			</result>
 		</action>
- 
+
+
+		<action name="AggiungiAltreAttivita"
+			class="it.unirc.pwm.eureca.action.evento.ControllerEvento" method="aggiungiAltreAttivita">
+
+			<result name="success">/WEB-INF/areaRiservata/amministratore/OtherAttivita.jsp
+			</result>
+			<result name="input">/WEB-INF/areaRiservata/amministratore/indexAmministratore.jsp
+			</result>
+		</action>
+
+		<action name="UpdateEventoAggiungiAttivita" class="it.unirc.pwm.eureca.action.evento.AddAttivita"
+			method="updateEventoAggiungiAttivita">
+
+			<result name="success">/WEB-INF/areaRiservata/amministratore/indexAmministratore.jsp
+			</result>
+			<result name="input">/WEB-INF/areaRiservata/amministratore/OtherAttivita.jsp
+			</result>
+		</action>
+
+
+
 	</package>
+
 
 </struts>

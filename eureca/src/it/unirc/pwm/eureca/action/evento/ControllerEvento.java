@@ -9,6 +9,9 @@ import it.unirc.pwm.eureca.attivita.model.Attivita;
 import it.unirc.pwm.eureca.evento.dao.EventoDAOFactory;
 import it.unirc.pwm.eureca.evento.dao.EventoDAOInterface;
 import it.unirc.pwm.eureca.evento.model.Evento;
+import it.unirc.pwm.eureca.socio.dao.SocioDAOFactory;
+import it.unirc.pwm.eureca.socio.dao.SocioDAOInterface;
+import it.unirc.pwm.eureca.socio.model.Socio;
 import it.unirc.pwm.eureca.utente.model.Utente;
 import it.unirc.pwm.eureca.utils.Costant;
 
@@ -20,6 +23,8 @@ public class ControllerEvento extends ActionSupport
 	private Attivita attivita;
 	private EventoDAOInterface edao=EventoDAOFactory.getDAO();
 	private Attivit‡DAOInterface adao=Attivit‡DAOFactory.getDAO();
+	private SocioDAOInterface sDao=SocioDAOFactory.getDAO();
+	private List<Socio> listaSoci; 
 	private List<Evento> listaEventi;
 	private List<Utente> listaUtenti;
 	private List<Evento> listaEventiPagina;
@@ -29,6 +34,14 @@ public class ControllerEvento extends ActionSupport
 
 	
 	
+	public List<Socio> getListaSoci() {
+		return listaSoci;
+	}
+
+	public void setListaSoci(List<Socio> listaSoci) {
+		this.listaSoci = listaSoci;
+	}
+
 	public List<Utente> getListaUtenti() {
 		return listaUtenti;
 	}
@@ -162,6 +175,20 @@ public class ControllerEvento extends ActionSupport
 	{
 		evento=edao.getEvento(evento);
 		attivit‡Evento=adao.getAttivit‡Evento(evento);
+		
+		if(evento==null)
+		{
+			addActionError("Impossibile caricare l'evento "+ getText(evento.getNome()));
+			return INPUT;
+		}
+		else 
+			return SUCCESS;
+	}
+	
+	public String aggiungiAltreAttivita()
+	{
+		evento=edao.getEvento(evento);
+		listaSoci = sDao.getSoci();
 		
 		if(evento==null)
 		{

@@ -49,6 +49,7 @@ public class SvolgeDAOImplement implements SvolgeDAOInterface
 	}
 
 
+	@SuppressWarnings({ "deprecation", "unchecked" })
 	public List<Attivita> SocioSvolgeAttivita(Socio s)
 	{
 		List<Attivita> res = null;
@@ -56,7 +57,7 @@ public class SvolgeDAOImplement implements SvolgeDAOInterface
 		transaction=session.beginTransaction();
 		try {
 
-			res = (List<Attivita>)session.createSQLQuery("Select * from attivita a, socio_svolge_attivita s where a.idAttivita= s.idAttivita and idSocio ='"+s.getIdPersonaFisica()+"'").addEntity(Attivita.class).list();
+			res = (List<Attivita>)session.createSQLQuery("Select * from attivita a, socio_svolge_attivita s where a.dataScadenza>CURRENT_DATE() and a.idAttivita= s.idAttivita and idSocio ='"+s.getIdPersonaFisica()+"'").addEntity(Attivita.class).list();
 			transaction.commit();
 		} catch (Exception e) {
 			transaction.rollback();

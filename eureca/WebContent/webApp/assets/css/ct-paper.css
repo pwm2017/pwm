@@ -15,7 +15,26 @@
  
 
 /*      light colors - used for select dropdown         */
-/*           Font Smoothing      */
+/*   
+
+        Font Smoothing      */
+        
+        
+ 
+.scrollbar
+{
+	float: left;
+	height: 300px;
+	width: 100%;
+	background: #F5F5F5;
+	overflow-y: scroll;
+	margin-bottom: 25px;
+}
+
+.force-overflow
+{
+	min-height: 450px;
+}       
 
 h1, .h1, h2, .h2, h3, .h3, h4, .h4, h5, .h5, h6, .h6, p, .navbar, .brand, a, .td-name, td {
   -moz-osx-font-smoothing: grayscale;
@@ -25,7 +44,7 @@ h1, .h1, h2, .h2, h3, .h3, h4, .h4, h5, .h5, h6, .h6, p, .navbar, .brand, a, .td
 
 h1, .h1, h2, .h2, h3, .h3, h4, .h4 {
   font-weight: 400;
-  margin: 20px 0 15px;
+  margin: 0px 0 15px;
 }
 
 h1, .h1 {

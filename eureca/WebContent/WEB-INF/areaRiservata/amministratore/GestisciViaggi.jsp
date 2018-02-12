@@ -60,7 +60,7 @@
 													<%-- <s:property value="%{#incr.index}"/> --%>
 													<div
 														class="col-md-2 col-md-offset-0 col-xs-3 col-xs-offset-2">
-														<s:if test="locandina==null">
+														<s:if test="locandina==''">
 															<img src="/eureca/webApp/assets/img/placeholder.jpg"
 																alt="Circle Image"
 																class="img-circle img-no-padding img-responsive">

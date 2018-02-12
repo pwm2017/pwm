@@ -44,7 +44,7 @@
 						<h4>
 							<s:property value="nome" />
 						</h4>
-						<s:if test="locandina==null">
+						<s:if test="locandina==''">
 
 							<img src="/eureca/webApp/assets/img/placeholder.jpg"
 								alt="Circle Image" class="img-rounded img-responsive"

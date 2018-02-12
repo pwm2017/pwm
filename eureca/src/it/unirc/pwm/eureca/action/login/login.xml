@@ -6,8 +6,8 @@
 <struts>
 
 	<package name="login" namespace="/" extends="default">
-		
-		
+
+
 		<action name="LoginForm" class="it.unirc.pwm.eureca.action.login.LoginForm">
 			<result>/webApp/LoginForm.jsp</result>
 		</action>
@@ -70,8 +70,9 @@
 				class="it.unirc.pwm.eureca.action.login.utils.AuthenticationAmministratoreInterceptor" />
 
 			<interceptor-stack name="secureAdministratorStack">
-				<interceptor-ref name="defaultStack" />
 				<interceptor-ref name="authenticationAdministratorInterceptor" />
+				<interceptor-ref name="defaultStack" />
+
 			</interceptor-stack>
 
 		</interceptors>
@@ -79,9 +80,9 @@
 		<default-interceptor-ref name="secureAdministratorStack" />
 
 		<global-results>
-			<result name="login" type="redirect" >/LoginForm.action</result><!-- vale per 
-				qualunque action -->
-				
+			<result name="login" type="redirect">/LoginForm.action
+			</result><!-- vale per qualunque action -->
+
 		</global-results>
 
 		<action name="AuthenticatedAmministratore" class="it.unirc.pwm.eureca.action.login.Authenticated">
@@ -89,7 +90,7 @@
 			</result>
 			<interceptor-ref name="authenticationAdministratorInterceptor" />
 		</action>
-		
+
 	</package>
 
 </struts>

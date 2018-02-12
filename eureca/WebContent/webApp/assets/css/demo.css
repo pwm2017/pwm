@@ -194,7 +194,7 @@
     overflow: hidden;
     border-radius: 50%;
     border: 1px solid #333333;
-    width: 70px;
+    width: 135px;
     float: left;
 }
 
@@ -222,7 +222,7 @@
     background-color: #FF8F5E;
     background-position: center top;
     margin-top: -100px;
-    min-height: 520px;
+    min-height: 450px;
 }
 .demo-header-image{
     background-image: url('../img/copertina3.jpg');

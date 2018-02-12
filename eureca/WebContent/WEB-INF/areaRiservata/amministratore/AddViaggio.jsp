@@ -40,9 +40,9 @@
 							name="numPartecipanti" requiredLabel="true" value="0"
 							class="form-control" />
 						<s:textfield key="label.viaggio.dataInizio" name="dataInizio"
-							class="form-control" />
+							class="form-control" type="date" />
 						<s:textfield key="label.viaggio.dataFine" name="dataFine"
-							class="form-control" />
+							class="form-control" type="date" />
 
 						<s:file name="uploadDoc" key="label.viaggio.Caricaimmagine" />
 

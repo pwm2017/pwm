@@ -45,7 +45,7 @@
 								id="bs-example-navbar-collapse-1">
 								<ul class="nav navbar-nav pull-right">
 									<a
-										href="<s:url action='Authenticated' namespace='/areaRiservata/socio'/>"
+										href="<s:url action='AuthenticatedSocio.action' namespace='/areaRiservata/socio'/>"
 										class="btn">Home</a>
 
 
@@ -72,11 +72,7 @@
 											<li><a
 												href="<s:url action='VisualizzaAttivita' namespace='/socio'/>">Visualizza
 													Attività</a>
-											<li><a
-												href="<s:url action='GestisciEventi' namespace='/amministratore/evento'>
-															<s:param name="numeroPagina"><s:property value="0" /></s:param>
-															</s:url>">Gestisci
-													Eventi</a></li>
+					
 											<li class="divider"></li>
 
 										</ul>

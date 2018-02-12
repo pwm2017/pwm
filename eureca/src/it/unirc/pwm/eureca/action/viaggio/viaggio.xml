@@ -10,21 +10,19 @@
 
 		<action name="InserisciViaggioRedirect"
 			class="it.unirc.pwm.eureca.action.viaggio.ControllerViaggio" method="redirectInserisciViaggio">
-			<interceptor-ref name="authenticationAdministratorInterceptor" />
 			<result name="success">/WEB-INF/areaRiservata/amministratore/AddViaggio.jsp
 			</result>
 		</action>
 
 
 		<action name="AggiungiViaggio" class="it.unirc.pwm.eureca.action.viaggio.AddViaggio">
-			<interceptor-ref name="defaultStack" />
+			<interceptor-ref name="secureAdministratorStack" />
 			<interceptor-ref name="fileUpload">
 				<param name="allowedTypes">
-					image/png,image/gif,image/jpeg
+					image/png,image/gif,image/jpeg/jpg
 				</param>
 				<param name="maximumSize">20971520</param>
 			</interceptor-ref>
-			<interceptor-ref name="authenticationAdministratorInterceptor" />
 			<result name="success">/WEB-INF/areaRiservata/amministratore/indexAmministratore.jsp
 			</result>
 			<result name="input">/WEB-INF/areaRiservata/amministratore/AddViaggio.jsp
@@ -33,8 +31,7 @@
 
 
 		<action name="GestisciViaggi" class="it.unirc.pwm.eureca.action.viaggio.ControllerViaggio">
-			<interceptor-ref name="defaultStack" />
-			<interceptor-ref name="authenticationAdministratorInterceptor" />
+
 			<result name="success">/WEB-INF/areaRiservata/amministratore/GestisciViaggi.jsp
 			</result>
 			<result name="input" type="">/WEB-INF/areaRiservata/amministratore/GestisciViaggi.jsp
@@ -44,8 +41,7 @@
 		
 		<action name="EliminaViaggio" class="it.unirc.pwm.eureca.action.viaggio.ControllerViaggio"
 			method="eliminaViaggio">
-			<interceptor-ref name="defaultStack" />
-			<interceptor-ref name="authenticationAdministratorInterceptor" />
+			
 			<result name="success">/WEB-INF/areaRiservata/amministratore/indexAmministratore.jsp
 			</result>
 			<result name="input">/WEB-INF/areaRiservata/amministratore/indexAmministratore.jsp</result>
@@ -54,8 +50,7 @@
 		
 		<action name="SetViaggio" class="it.unirc.pwm.eureca.action.viaggio.ControllerViaggio"
 			method="setViaggio">
-			<interceptor-ref name="defaultStack" />
-			<interceptor-ref name="authenticationAdministratorInterceptor" />
+
 			<result name="success">/WEB-INF/areaRiservata/amministratore/SettingViaggio.jsp
 			</result>
 			<result name="input">/WEB-INF/areaRiservata/amministratore/indexAmministratore.jsp</result>
@@ -64,8 +59,13 @@
 		
 		<action name="ModificaViaggio" class="it.unirc.pwm.eureca.action.viaggio.UpdateViaggio"
 			method="modificaViaggio">
-			<interceptor-ref name="defaultStack" />
-			<interceptor-ref name="authenticationAdministratorInterceptor" />
+			<interceptor-ref name="secureAdministratorStack" />
+			<interceptor-ref name="fileUpload">
+				<param name="allowedTypes">
+					image/png,image/gif,image/jpeg/jpg
+				</param>
+				<param name="maximumSize">20971520</param>
+			</interceptor-ref>
 			<result name="success">/WEB-INF/areaRiservata/amministratore/indexAmministratore.jsp
 			</result>
 			<result name="input">/WEB-INF/areaRiservata/amministratore/SettingViaggio.jsp
@@ -74,8 +74,7 @@
 		
 		<action name="PartecipantiViaggio" class="it.unirc.pwm.eureca.action.viaggio.ControllerViaggio"
 			method="partecipantiViaggio">
-			<interceptor-ref name="defaultStack" />
-			<interceptor-ref name="authenticationAdministratorInterceptor" />
+	
 			<result name="success">/WEB-INF/areaRiservata/amministratore/TravelParticipants.jsp
 			</result>
 			<result name="input">/WEB-INF/areaRiservata/amministratore/indexAmministratore.jsp
@@ -90,8 +89,7 @@
 
 		<action name="VisualizzaViaggiRedirect"
 			class="it.unirc.pwm.eureca.action.viaggio.ControllerViaggio" method="visualizzaViaggiSocio">
-			<interceptor-ref name="defaultStack" />
-			<interceptor-ref name="authenticationInterceptor" />
+		
 			<result name="success">/WEB-INF/areaRiservata/socio/ViewViaggi.jsp
 			</result>
 			<result name="input">/WEB-INF/areaRiservata/socio/indexSocio.jsp
@@ -100,8 +98,6 @@
 
 		<action name="PartecipaViaggio"
 			class="it.unirc.pwm.eureca.action.viaggio.ControllerViaggio" method="socioPartecipaViaggio">
-			<interceptor-ref name="defaultStack" />
-			<interceptor-ref name="authenticationInterceptor" />
 			<result name="success">/WEB-INF/areaRiservata/socio/indexSocio.jsp
 			</result>
 			<result name="input">/WEB-INF/areaRiservata/socio/ViewViaggi.jsp

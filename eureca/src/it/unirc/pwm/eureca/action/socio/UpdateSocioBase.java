@@ -1,9 +1,12 @@
 package it.unirc.pwm.eureca.action.socio;
 
 import java.io.File;
+import java.io.IOException;
 import java.util.Map;
 
 import javax.servlet.http.HttpServletRequest;
+
+import org.apache.commons.io.FileUtils;
 import org.apache.struts2.interceptor.ServletRequestAware;
 import org.apache.struts2.interceptor.SessionAware;
 
@@ -81,6 +84,25 @@ public class UpdateSocioBase extends ActionSupport implements ServletRequestAwar
 
 	public String modificaSocioBase()
 	{
+		String appPath = request.getServletContext().getRealPath("");
+		if ((uploadDocFileName!=null))
+		{
+			String[] parts = uploadDocContentType.split("/");
+			String part2 = parts[1];
+			String nomeFile=socio.getUsername()+"."+part2;
+			socio.setFoto(nomeFile);
+			uploadDocFileName=nomeFile;
+			File fileToCreate = new File(appPath+"webApp/assets/img/soci/", uploadDocFileName);
+			try
+			{
+				FileUtils.copyFile(this.uploadDoc, fileToCreate);
+			}
+			catch (IOException e) 
+			{
+				addActionError(e.getMessage());
+			}
+		}
+		
 		if(sdao.modificaSocio(socio))
 		{
 			Socio s = (Socio) session.get( "socio" );

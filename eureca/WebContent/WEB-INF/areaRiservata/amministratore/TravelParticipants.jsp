@@ -29,10 +29,10 @@
 		</div>
 	</div>
 
-	<s:if test="listaUtenti.isEmpty()">
+	<s:if test="listaSoci.isEmpty()">
 		<div class="alert alert-success">
 			<h4>
-				<h3>Non ci sono Soci</h3>
+				<h3>Non ci sono soci partecipanti al viaggio</h3>
 			</h4>
 		</div>
 

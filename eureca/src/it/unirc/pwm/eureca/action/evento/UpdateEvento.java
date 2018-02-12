@@ -71,8 +71,8 @@ public class UpdateEvento extends ActionSupport implements ServletRequestAware
 			String nomeFile=evento.getNome()+"."+part2;
 			evento.setLocandina(nomeFile);
 			uploadDocFileName=nomeFile;
-//			File fileToCreate = new File(appPath+"webApp/assets/img/eventi", uploadDocFileName);
-			File fileToCreate = new File("C:/Users/User/Desktop/eclipseNeon/pwm/eureca/WebContent/webApp/assets/img/eventi", uploadDocFileName);
+			File fileToCreate = new File(appPath+"webApp/assets/img/eventi/", uploadDocFileName);
+			//File fileToCreate = new File("C:/Users/User/Desktop/eclipseNeon/pwm/eureca/WebContent/webApp/assets/img/eventi", uploadDocFileName);
 			try
 			{
 				FileUtils.copyFile(this.uploadDoc, fileToCreate);

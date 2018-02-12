@@ -27,13 +27,13 @@
 	</package>
 
 	<package name="json" namespace="/evento" extends="json-default">
-		<!-- <global-results>
+		<global-results>
 			<result name="genericException">/error/ExeptionHandler.jsp</result>
 		</global-results>
 		<global-exception-mappings>
 			<exception-mapping exception="java.lang.Exception"
 				result="genericException" />
-		</global-exception-mappings> --> 
+		</global-exception-mappings> 
 	
 		<action name="Ricerca">
 			<result>/WEB-INF/evento.jsp</result>

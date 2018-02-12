@@ -53,7 +53,7 @@
 						<s:textfield key="label.socio.Telefono" name="socio.telefono"
 							requiredLabel="true" type="number" class="form-control" />
 						<s:textfield key="label.socio.dataNascita"
-							name="socio.dataNascita" class="form-control" />
+							name="socio.dataNascita" class="form-control" type="date" />
 						<s:textfield key="label.user.username" requiredLabel="true"
 							name="socio.username" class="form-control" />
 						<s:password key="label.user.password" showPassword="true"

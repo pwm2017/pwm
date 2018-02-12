@@ -18,7 +18,7 @@ public class UpdateViaggio extends ActionSupport implements ServletRequestAware
 	private String uploadDocFileName;
 	private String uploadDocContentType;
 	public HttpServletRequest request;
-	
+
 
 	public Viaggio getViaggio() {
 		return viaggio;
@@ -68,8 +68,7 @@ public class UpdateViaggio extends ActionSupport implements ServletRequestAware
 			String nomeFile=viaggio.getNome()+"."+part2;
 			viaggio.setLocandina(nomeFile);
 			uploadDocFileName=nomeFile;
-//			File fileToCreate = new File(appPath+"webApp/assets/img/soci", uploadDocFileName);
-			File fileToCreate = new File("C:/Users/User/Desktop/eclipseNeon/pwm/eureca/WebContent/webApp/assets/img/viaggi", uploadDocFileName);
+			File fileToCreate = new File(appPath+"webApp/assets/img/viaggi/", uploadDocFileName);
 			try
 			{
 				FileUtils.copyFile(this.uploadDoc, fileToCreate);
@@ -87,12 +86,23 @@ public class UpdateViaggio extends ActionSupport implements ServletRequestAware
 		}
 		else 
 			addActionError("Errore nel modifica viaggio");;
-		return INPUT;
+			return INPUT;
 	}
-	
+
 	@Override
 	public void setServletRequest(HttpServletRequest request) {
 		this.request = request;
+	}
+
+	public void validate()
+	{
+
+		if(viaggio.getNome().length()==0)
+		{
+
+			this.addFieldError("nome", "Il nome è rischiesto.");
+
+		}
 	}
 
 }

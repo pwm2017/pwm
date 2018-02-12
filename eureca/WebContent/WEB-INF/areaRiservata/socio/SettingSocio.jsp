@@ -33,7 +33,7 @@
 				<div
 					class="col-md-7 col-md-offset-1 col-sm-6 col-sm-offset-3 col-xs-10 col-xs-offset-1">
 
-					<s:form action="ModificaSocioBase">
+					<s:form action="ModificaSocioBase" enctype="multipart/form-data">
 						<s:hidden name="socio.idPersonaFisica"
 							value="%{socio.idPersonaFisica}"></s:hidden>
 						<s:hidden name="socio.foto" value="%{socio.foto}"></s:hidden>
@@ -58,12 +58,13 @@
 						<s:textfield key="label.socio.Telefono" name="socio.telefono"
 							requiredLabel="true" type="number" class="form-control" />
 						<s:textfield key="label.socio.dataNascita"
-							name="socio.dataNascita" class="form-control" />
+							name="socio.dataNascita" class="form-control" type="date" />
 						<s:textfield key="label.user.username" requiredLabel="true"
 							name="socio.username" class="form-control" />
 						<s:hidden name="socio.password" />
 						<s:textfield key="label.socio.codiceFiscale"
 							name="socio.codiceFiscale" class="form-control" />
+						<s:file name="uploadDoc" key="Carica immagine" />
 
 						<s:submit value="Modifica" class="btn btn-block" />
 					</s:form>

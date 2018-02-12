@@ -82,7 +82,6 @@ public class UpdateSocio extends ActionSupport implements ServletRequestAware, S
 	public String modificaSocio()
 	{
 		String appPath = request.getServletContext().getRealPath("");
-
 		if ((uploadDocFileName!=null))
 		{
 			String[] parts = uploadDocContentType.split("/");
@@ -90,8 +89,7 @@ public class UpdateSocio extends ActionSupport implements ServletRequestAware, S
 			String nomeFile=socio.getUsername()+"."+part2;
 			socio.setFoto(nomeFile);
 			uploadDocFileName=nomeFile;
-//			File fileToCreate = new File(appPath+"webApp/assets/img/soci", uploadDocFileName);
-			File fileToCreate = new File("C:/Users/User/Desktop/eclipseNeon/pwm/eureca/WebContent/webApp/assets/img/soci", uploadDocFileName);
+			File fileToCreate = new File(appPath+"webApp/assets/img/soci/", uploadDocFileName);
 			try
 			{
 				FileUtils.copyFile(this.uploadDoc, fileToCreate);

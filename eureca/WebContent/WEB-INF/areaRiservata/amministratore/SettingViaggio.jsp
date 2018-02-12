@@ -33,6 +33,7 @@
 
 					<s:form action="ModificaViaggio" enctype="multipart/form-data">
 						<s:hidden name="viaggio.idViaggio" value="%{viaggio.idViaggio}"></s:hidden>
+						<s:hidden name="viaggio.locandina" value="%{viaggio.locandina}"></s:hidden>
 						<s:textfield key="label.viaggio.nome" requiredLabel="true"
 							name="viaggio.nome" class="form-control" />
 						<s:textfield key="label.viaggio.descrizione"
@@ -41,9 +42,9 @@
 							name="viaggio.numPartecipanti" requiredLabel="true"
 							class="form-control" />
 						<s:textfield key="label.viaggio.dataInizio"
-							name="viaggio.dataInizio" class="form-control" />
+							name="viaggio.dataInizio" class="form-control" type="date"/>
 						<s:textfield key="label.viaggio.dataFine" name="viaggio.dataFine"
-							class="form-control" />
+							class="form-control" type="date"/>
 
 						<s:file name="uploadDoc" key="label.viaggio.Caricaimmagine" />
 

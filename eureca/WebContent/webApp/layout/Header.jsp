@@ -57,7 +57,7 @@
 
 			</ul>
 			<ul class="nav navbar-nav navbar-right">
-				<s:if test="%{!(#session.isEmpty())}">
+				<s:if test="#session['amministratore']!=null||#session['socio']!=null">
 
 					<li><a href="<s:url action='Logout' namespace='/'/>"
 						class="btn btn-fill">Logout</a></li>

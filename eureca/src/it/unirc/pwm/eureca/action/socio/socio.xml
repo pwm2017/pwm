@@ -10,7 +10,6 @@
 
 		<action name="InserisciSocioRedirect" class="it.unirc.pwm.eureca.action.socio.ControllerSocio"
 			method="redirectInserisciSocio">
-			<interceptor-ref name="authenticationAdministratorInterceptor" />
 			<result name="success">/WEB-INF/areaRiservata/amministratore/AddSocio.jsp
 			</result>
 		</action>
@@ -18,34 +17,35 @@
 
 		<action name="AggiungiSocio" class="it.unirc.pwm.eureca.action.socio.AddSocio"
 			method="inserisciSocio">
-			<interceptor-ref name="defaultStack" />
+			<interceptor-ref name="secureAdministratorStack" />
 			<interceptor-ref name="fileUpload">
 				<param name="allowedTypes">
 					image/png,image/gif,image/jpeg
 				</param>
 				<param name="maximumSize">20971520</param>
 			</interceptor-ref>
-			<interceptor-ref name="authenticationAdministratorInterceptor" />
+			
 			<result name="success">/WEB-INF/areaRiservata/amministratore/indexAmministratore.jsp
 			</result>
 			<result name="input">/WEB-INF/areaRiservata/amministratore/AddSocio.jsp
 			</result>
+			
 		</action>
 
 
 		<action name="GestisciSoci" class="it.unirc.pwm.eureca.action.socio.ControllerSocio">
 			<interceptor-ref name="defaultStack" />
-			<interceptor-ref name="authenticationAdministratorInterceptor" />
+		
 			<result name="success">/WEB-INF/areaRiservata/amministratore/GestisciSoci.jsp
 			</result>
 			<result name="input" type="">/WEB-INF/areaRiservata/amministratore/GestisciSoci.jsp
 			</result>
+			
 		</action>
 
 		<action name="EliminaSocio" class="it.unirc.pwm.eureca.action.socio.ControllerSocio"
 			method="eliminaSocio">
-			<interceptor-ref name="defaultStack" />
-			<interceptor-ref name="authenticationAdministratorInterceptor" />
+			
 			<result name="success">/WEB-INF/areaRiservata/amministratore/indexAmministratore.jsp
 			</result>
 			<result name="input">/WEB-INF/areaRiservata/amministratore/indexAmministratore.jsp
@@ -54,8 +54,7 @@
 
 		<action name="SetSocio" class="it.unirc.pwm.eureca.action.socio.ControllerSocio"
 			method="setSocio">
-			<interceptor-ref name="defaultStack" />
-			<interceptor-ref name="authenticationAdministratorInterceptor" />
+			
 			<result name="success">/WEB-INF/areaRiservata/amministratore/SettingSocio.jsp
 			</result>
 			<result name="input">/WEB-INF/areaRiservata/amministratore/indexAmministratore.jsp
@@ -64,14 +63,13 @@
 
 		<action name="ModificaSocio" class="it.unirc.pwm.eureca.action.socio.UpdateSocio"
 			method="modificaSocio">
-			<interceptor-ref name="defaultStack" />
+			<interceptor-ref name="secureAdministratorStack" />
 			<interceptor-ref name="fileUpload">
 				<param name="allowedTypes">
 					image/png,image/gif,image/jpeg
 				</param>
 				<param name="maximumSize">20971520</param>
 			</interceptor-ref>
-			<interceptor-ref name="authenticationAdministratorInterceptor" />
 			<result name="success">/WEB-INF/areaRiservata/amministratore/indexAmministratore.jsp
 			</result>
 			<result name="input">/WEB-INF/areaRiservata/amministratore/SettingSocio.jsp
@@ -80,8 +78,7 @@
 
 		<action name="ModificaTessera" class="it.unirc.pwm.eureca.action.socio.UpdateTessera"
 			method="modificaTessera">
-			<interceptor-ref name="defaultStack" />
-			<interceptor-ref name="authenticationAdministratorInterceptor" />
+	
 			<result name="success">/WEB-INF/areaRiservata/amministratore/indexAmministratore.jsp
 			</result>
 			<result name="input">/WEB-INF/areaRiservata/amministratore/SettingSocio.jsp
@@ -90,8 +87,7 @@
 
 		<action name="ModificaPasswordSocio"
 			class="it.unirc.pwm.eureca.action.socio.UpdatePasswordSocio" method="modificaPasswordSocio">
-			<interceptor-ref name="defaultStack" />
-			<interceptor-ref name="authenticationAdministratorInterceptor" />
+		
 			<result name="success">/WEB-INF/areaRiservata/amministratore/indexAmministratore.jsp
 			</result>
 			<result name="input">/WEB-INF/areaRiservata/amministratore/indexAmministratore.jsp
@@ -105,8 +101,7 @@
 
 		<action name="SetSocio" class="it.unirc.pwm.eureca.action.socio.ControllerSocio"
 			method="setSocio">
-			<interceptor-ref name="defaultStack" />
-			<interceptor-ref name="authenticationInterceptor" />
+		
 			<result name="success">/WEB-INF/areaRiservata/socio/SettingSocio.jsp
 			</result>
 			<result name="input">/WEB-INF/areaRiservata/socio/indexSocio.jsp
@@ -116,8 +111,14 @@
 
 		<action name="ModificaSocioBase" class="it.unirc.pwm.eureca.action.socio.UpdateSocioBase"
 			method="modificaSocioBase">
-			<interceptor-ref name="defaultStack" />
-			<interceptor-ref name="authenticationInterceptor" />
+			<interceptor-ref name="secureStack" />
+			<interceptor-ref name="fileUpload">
+				<param name="allowedTypes">
+					image/png,image/gif,image/jpeg
+				</param>
+				<param name="maximumSize">20971520</param>
+			</interceptor-ref>
+			
 			<result name="success">/WEB-INF/areaRiservata/socio/indexSocio.jsp
 			</result>
 			<result name="input">/WEB-INF/areaRiservata/socio/SettingSocio.jsp
@@ -127,8 +128,7 @@
 		<action name="ModificaPasswordSocioBase"
 			class="it.unirc.pwm.eureca.action.socio.UpdatePasswordSocioBase"
 			method="modificaPasswordSocio">
-			<interceptor-ref name="defaultStack" />
-			<interceptor-ref name="authenticationInterceptor" />
+		
 			<result name="success">/WEB-INF/areaRiservata/socio/indexSocio.jsp
 			</result>
 			<result name="input">/WEB-INF/areaRiservata/socio/SettingSocio.jsp
@@ -137,8 +137,7 @@
 
 		<action name="VisualizzaAttivita" class="it.unirc.pwm.eureca.action.socio.ControllerSocio"
 			method="visualizzaAttivitaSocio">
-			<interceptor-ref name="defaultStack" />
-			<interceptor-ref name="authenticationInterceptor" />
+		
 			<result name="success">/WEB-INF/areaRiservata/socio/ViewAttivita.jsp
 			</result>
 			<result name="input">/WEB-INF/areaRiservata/socio/indexSocio.jsp

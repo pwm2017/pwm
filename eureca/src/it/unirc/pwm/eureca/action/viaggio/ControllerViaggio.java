@@ -4,6 +4,9 @@ import java.util.Map;
 import org.apache.struts2.interceptor.SessionAware;
 import com.opensymphony.xwork2.ActionSupport;
 import it.unirc.pwm.eureca.socio.model.Socio;
+import it.unirc.pwm.eureca.tessera.dao.TesseraDAOFactory;
+import it.unirc.pwm.eureca.tessera.dao.TesseraDAOInterface;
+import it.unirc.pwm.eureca.tessera.model.Tessera;
 import it.unirc.pwm.eureca.utils.Costant;
 import it.unirc.pwm.eureca.viaggio.dao.ViaggioDAOFactory;
 import it.unirc.pwm.eureca.viaggio.dao.ViaggioDAOInterface;
@@ -16,12 +19,11 @@ public class ControllerViaggio extends ActionSupport implements SessionAware
 	private List<Socio> listaSoci;
 	private Map<String,Object> session;
 	private ViaggioDAOInterface vdao=ViaggioDAOFactory.getDAO();
+	private TesseraDAOInterface tdao=TesseraDAOFactory.getDAO();
 	private List<Viaggio> listaViaggi;
 	private List<Viaggio> listaViaggiPagina;
 	private int numeroPagina;
 	private int pagine;
-	
-	
 
 	public List<Socio> getListaSoci() {
 		return listaSoci;
@@ -137,6 +139,10 @@ public class ControllerViaggio extends ActionSupport implements SessionAware
 		viaggio.setNumPartecipanti(viaggio.getNumPartecipanti()-1);
 		if(vdao.aggiungiSocioViaggio(viaggio,s))
 		{
+			Tessera t = (Tessera) session.get( "tessera" );
+			t.setPunti(t.getPunti()+Costant.PUNTI_VIAGGI);
+			tdao.modificaTessera(t);
+			session.replace("tessera", t);
 			addActionMessage("Prenotazione avvenuta con successo!");
 			return SUCCESS;
 		}else	

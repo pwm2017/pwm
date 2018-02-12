@@ -8,13 +8,12 @@ import javax.servlet.http.HttpServletRequest;
 import org.apache.commons.io.FileUtils;
 import org.apache.struts2.interceptor.ServletRequestAware;
 import com.opensymphony.xwork2.ActionSupport;
-
 import it.unirc.pwm.eureca.attivita.model.Attivita;
 import it.unirc.pwm.eureca.evento.model.Evento;
 import it.unirc.pwm.eureca.socio.dao.SocioDAOFactory;
 import it.unirc.pwm.eureca.socio.dao.SocioDAOInterface;
 import it.unirc.pwm.eureca.socio.model.Socio;
-import it.unirc.pwm.eureca.utils.QrCode;
+
 
 public class AddEvento extends ActionSupport implements ServletRequestAware
 {
@@ -92,8 +91,7 @@ public class AddEvento extends ActionSupport implements ServletRequestAware
 			String nomeFile=evento.getNome()+"."+part2;
 			evento.setLocandina(nomeFile);
 			uploadDocFileName=nomeFile;
-//			File fileToCreate = new File(appPath+"webApp/assets/img/eventi", uploadDocFileName);
-			File fileToCreate = new File("C:/Users/User/Desktop/eclipseNeon/pwm/eureca/WebContent/webApp/assets/img/eventi", uploadDocFileName);
+			File fileToCreate = new File(appPath+"webApp/assets/img/eventi/", uploadDocFileName);
 			try
 			{
 				FileUtils.copyFile(this.uploadDoc, fileToCreate);
